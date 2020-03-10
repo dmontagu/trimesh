@@ -106,7 +106,7 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="trimesh.html#submodules">Submodules</a></li>
-<li class="toctree-l3"><a class="reference internal" href="trimesh.html#module-trimesh">Module contents</a></li>
+<li class="toctree-l3"><a class="reference internal" href="trimesh.html#module-contents">Module contents</a></li>
 </ul>
 </li>
 </ul>
@@ -181,91 +181,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="module-trimesh.voxel.morphology">
-<span id="trimesh-voxel-morphology-module"></span><h1>trimesh.voxel.morphology module<a class="headerlink" href="#module-trimesh.voxel.morphology" title="Permalink to this headline">¶</a></h1>
-<p>Basic morphology operations that create new encodings.</p>
-<p><strong>Functions</strong></p>
-<table class="longtable docutils align-default">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#trimesh.voxel.morphology.binary_closing" title="trimesh.voxel.morphology.binary_closing"><code class="xref py py-obj docutils literal notranslate"><span class="pre">binary_closing</span></code></a>(encoding, **kwargs)</p></td>
-<td><p>Encoding wrapper around scipy.ndimage.morphology.binary_closing.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#trimesh.voxel.morphology.binary_dilation" title="trimesh.voxel.morphology.binary_dilation"><code class="xref py py-obj docutils literal notranslate"><span class="pre">binary_dilation</span></code></a>(encoding, **kwargs)</p></td>
-<td><p>Encoding wrapper around scipy.ndimage.morphology.binary_dilation.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#trimesh.voxel.morphology.fill" title="trimesh.voxel.morphology.fill"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fill</span></code></a>(encoding[, method])</p></td>
-<td><p>Fill the given encoding using the specified implementation.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#trimesh.voxel.morphology.surface" title="trimesh.voxel.morphology.surface"><code class="xref py py-obj docutils literal notranslate"><span class="pre">surface</span></code></a>(encoding[, structure])</p></td>
-<td><p>Get elements on the surface of encoding.</p></td>
-</tr>
-</tbody>
-</table>
-<dl class="function">
-<dt id="trimesh.voxel.morphology.binary_closing">
-<code class="sig-prename descclassname">trimesh.voxel.morphology.</code><code class="sig-name descname">binary_closing</code><span class="sig-paren">(</span><em class="sig-param">encoding</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.voxel.morphology.binary_closing" title="Permalink to this definition">¶</a></dt>
-<dd><p>Encoding wrapper around scipy.ndimage.morphology.binary_closing.</p>
-<p><a class="reference external" href="https://docs.scipy.org/doc/scipy-0.15.1/reference/generated/scipy.ndimage.morphology.binary_closing.html#scipy.ndimage.morphology.binary_closing">https://docs.scipy.org/doc/scipy-0.15.1/reference/generated/scipy.ndimage.morphology.binary_closing.html#scipy.ndimage.morphology.binary_closing</a></p>
-</dd></dl>
-
-<dl class="function">
-<dt id="trimesh.voxel.morphology.binary_dilation">
-<code class="sig-prename descclassname">trimesh.voxel.morphology.</code><code class="sig-name descname">binary_dilation</code><span class="sig-paren">(</span><em class="sig-param">encoding</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.voxel.morphology.binary_dilation" title="Permalink to this definition">¶</a></dt>
-<dd><p>Encoding wrapper around scipy.ndimage.morphology.binary_dilation.</p>
-<p><a class="reference external" href="https://docs.scipy.org/doc/scipy-0.15.1/reference/generated/scipy.ndimage.morphology.binary_dilation.html#scipy.ndimage.morphology.binary_dilation">https://docs.scipy.org/doc/scipy-0.15.1/reference/generated/scipy.ndimage.morphology.binary_dilation.html#scipy.ndimage.morphology.binary_dilation</a></p>
-</dd></dl>
-
-<dl class="function">
-<dt id="trimesh.voxel.morphology.fill">
-<code class="sig-prename descclassname">trimesh.voxel.morphology.</code><code class="sig-name descname">fill</code><span class="sig-paren">(</span><em class="sig-param">encoding</em>, <em class="sig-param">method='base'</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.voxel.morphology.fill" title="Permalink to this definition">¶</a></dt>
-<dd><p>Fill the given encoding using the specified implementation.</p>
-<p>See <cite>fillers</cite> for available implementations or to add your own, e.g. via
-<cite>fillers[‘custom_key’] = custom_fn</cite>.</p>
-<p><cite>custom_fn</cite> should have signature <cite>(encoding, **kwargs) -&gt; filled_encoding</cite>
-and should not modify encoding.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>encoding</strong> (<em>Encoding object</em><em> (</em><em>left unchanged</em><em>)</em><em></em>) – </p></li>
-<li><p><strong>method</strong> (method present in <cite>fillers</cite>.) – </p></li>
-<li><p><strong>**kwargs</strong> (<em>additional kwargs passed to the specified implementation.</em>) – </p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p></p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>A new filled Encoding object.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="function">
-<dt id="trimesh.voxel.morphology.surface">
-<code class="sig-prename descclassname">trimesh.voxel.morphology.</code><code class="sig-name descname">surface</code><span class="sig-paren">(</span><em class="sig-param">encoding</em>, <em class="sig-param">structure=None</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.voxel.morphology.surface" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get elements on the surface of encoding.</p>
-<p>A surface element is any one in encoding that is adjacent to an empty
-voxel.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>encoding</strong> (<a class="reference internal" href="trimesh.voxel.encoding.html#trimesh.voxel.encoding.Encoding" title="trimesh.voxel.encoding.Encoding"><em>Encoding</em></a><em> or </em><em>dense rank-3 array</em>) – </p></li>
-<li><p><strong>structure</strong> (<em>adjacency structure. If None</em><em>, </em><em>square connectivity is used.</em>) – </p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p></p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>new surface Encoding.</p>
-</dd>
-</dl>
-</dd></dl>
-
+  <div class="section" id="trimesh-voxel-morphology-module">
+<h1>trimesh.voxel.morphology module<a class="headerlink" href="#trimesh-voxel-morphology-module" title="Permalink to this headline">¶</a></h1>
 </div>
 
 

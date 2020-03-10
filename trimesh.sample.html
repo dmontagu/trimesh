@@ -135,7 +135,7 @@
 <li class="toctree-l4"><a class="reference internal" href="trimesh.version.html">trimesh.version module</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="trimesh.html#module-trimesh">Module contents</a></li>
+<li class="toctree-l3"><a class="reference internal" href="trimesh.html#module-contents">Module contents</a></li>
 </ul>
 </li>
 </ul>
@@ -208,149 +208,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="module-trimesh.sample">
-<span id="trimesh-sample-module"></span><h1>trimesh.sample module<a class="headerlink" href="#module-trimesh.sample" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="sample-py">
-<h2>sample.py<a class="headerlink" href="#sample-py" title="Permalink to this headline">¶</a></h2>
-<p>Randomly sample surface and volume of meshes.</p>
-<p><strong>Functions</strong></p>
-<table class="longtable docutils align-default">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#trimesh.sample.sample_surface" title="trimesh.sample.sample_surface"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sample_surface</span></code></a>(mesh, count)</p></td>
-<td><p>Sample the surface of a mesh, returning the specified</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#trimesh.sample.sample_surface_even" title="trimesh.sample.sample_surface_even"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sample_surface_even</span></code></a>(mesh, count[, radius])</p></td>
-<td><p>Sample the surface of a mesh, returning samples which are VERY approximately evenly spaced.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#trimesh.sample.sample_surface_sphere" title="trimesh.sample.sample_surface_sphere"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sample_surface_sphere</span></code></a>(count)</p></td>
-<td><p>Correctly pick random points on the surface of a unit sphere</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#trimesh.sample.volume_mesh" title="trimesh.sample.volume_mesh"><code class="xref py py-obj docutils literal notranslate"><span class="pre">volume_mesh</span></code></a>(mesh, count)</p></td>
-<td><p>Use rejection sampling to produce points randomly distributed in the volume of a mesh.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#trimesh.sample.volume_rectangular" title="trimesh.sample.volume_rectangular"><code class="xref py py-obj docutils literal notranslate"><span class="pre">volume_rectangular</span></code></a>(extents, count[, transform])</p></td>
-<td><p>Return random samples inside a rectangular volume, useful for sampling inside oriented bounding boxes.</p></td>
-</tr>
-</tbody>
-</table>
-<dl class="function">
-<dt id="trimesh.sample.sample_surface">
-<code class="sig-prename descclassname">trimesh.sample.</code><code class="sig-name descname">sample_surface</code><span class="sig-paren">(</span><em class="sig-param">mesh</em>, <em class="sig-param">count</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.sample.sample_surface" title="Permalink to this definition">¶</a></dt>
-<dd><p>Sample the surface of a mesh, returning the specified
-number of points</p>
-<p>For individual triangle sampling uses this method:
-<a class="reference external" href="http://mathworld.wolfram.com/TrianglePointPicking.html">http://mathworld.wolfram.com/TrianglePointPicking.html</a></p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>mesh</strong> (<a class="reference internal" href="trimesh.html#trimesh.Trimesh" title="trimesh.Trimesh"><em>trimesh.Trimesh</em></a>) – Geometry to sample the surface of</p></li>
-<li><p><strong>count</strong> (<em>int</em>) – Number of points to return</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p><ul class="simple">
-<li><p><strong>samples</strong> (<em>(count, 3) float</em>) – Points in space on the surface of mesh</p></li>
-<li><p><strong>face_index</strong> (<em>(count,) int</em>) – Indices of faces for each sampled point</p></li>
-</ul>
-</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="function">
-<dt id="trimesh.sample.sample_surface_even">
-<code class="sig-prename descclassname">trimesh.sample.</code><code class="sig-name descname">sample_surface_even</code><span class="sig-paren">(</span><em class="sig-param">mesh</em>, <em class="sig-param">count</em>, <em class="sig-param">radius=None</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.sample.sample_surface_even" title="Permalink to this definition">¶</a></dt>
-<dd><p>Sample the surface of a mesh, returning samples which are
-VERY approximately evenly spaced. This is accomplished by
-sampling and then rejecting pairs that are too close together.</p>
-<p>Note that since it is using rejection sampling it may return
-fewer points than requested (i.e. n &lt; count). If this is the
-case a log.warning will be emitted.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>mesh</strong> (<a class="reference internal" href="trimesh.html#trimesh.Trimesh" title="trimesh.Trimesh"><em>trimesh.Trimesh</em></a>) – Geometry to sample the surface of</p></li>
-<li><p><strong>count</strong> (<em>int</em>) – Number of points to return</p></li>
-<li><p><strong>radius</strong> (<em>None</em><em> or </em><em>float</em>) – Removes samples below this radius</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p><ul class="simple">
-<li><p><strong>samples</strong> (<em>(n, 3) float</em>) – Points in space on the surface of mesh</p></li>
-<li><p><strong>face_index</strong> (<em>(n,) int</em>) – Indices of faces for each sampled point</p></li>
-</ul>
-</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="function">
-<dt id="trimesh.sample.sample_surface_sphere">
-<code class="sig-prename descclassname">trimesh.sample.</code><code class="sig-name descname">sample_surface_sphere</code><span class="sig-paren">(</span><em class="sig-param">count</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.sample.sample_surface_sphere" title="Permalink to this definition">¶</a></dt>
-<dd><p>Correctly pick random points on the surface of a unit sphere</p>
-<p>Uses this method:
-<a class="reference external" href="http://mathworld.wolfram.com/SpherePointPicking.html">http://mathworld.wolfram.com/SpherePointPicking.html</a></p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>count</strong> (<em>int</em>) – Number of points to return</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>points</strong> – Random points on the surface of a unit sphere</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>(count, 3) float</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="function">
-<dt id="trimesh.sample.volume_mesh">
-<code class="sig-prename descclassname">trimesh.sample.</code><code class="sig-name descname">volume_mesh</code><span class="sig-paren">(</span><em class="sig-param">mesh</em>, <em class="sig-param">count</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.sample.volume_mesh" title="Permalink to this definition">¶</a></dt>
-<dd><p>Use rejection sampling to produce points randomly
-distributed in the volume of a mesh.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>mesh</strong> (<a class="reference internal" href="trimesh.html#trimesh.Trimesh" title="trimesh.Trimesh"><em>trimesh.Trimesh</em></a>) – Geometry to sample</p></li>
-<li><p><strong>count</strong> (<em>int</em>) – Number of points to return</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>samples</strong> – Points in the volume of the mesh where n &lt;= count</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>(n, 3) float</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="function">
-<dt id="trimesh.sample.volume_rectangular">
-<code class="sig-prename descclassname">trimesh.sample.</code><code class="sig-name descname">volume_rectangular</code><span class="sig-paren">(</span><em class="sig-param">extents</em>, <em class="sig-param">count</em>, <em class="sig-param">transform=None</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.sample.volume_rectangular" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return random samples inside a rectangular volume,
-useful for sampling inside oriented bounding boxes.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>extents</strong> (<em>(</em><em>3</em><em>,</em><em>) </em><em>float</em>) – Side lengths of rectangular solid</p></li>
-<li><p><strong>count</strong> (<em>int</em>) – Number of points to return</p></li>
-<li><p><strong>transform</strong> (<em>(</em><em>4</em><em>, </em><em>4</em><em>) </em><em>float</em>) – Homogeneous transformation matrix</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>samples</strong> – Points in requested volume</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>(count, 3) float</p>
-</dd>
-</dl>
-</dd></dl>
-
-</div>
+  <div class="section" id="trimesh-sample-module">
+<h1>trimesh.sample module<a class="headerlink" href="#trimesh-sample-module" title="Permalink to this headline">¶</a></h1>
 </div>
 
 

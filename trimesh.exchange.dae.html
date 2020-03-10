@@ -106,7 +106,7 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="trimesh.html#submodules">Submodules</a></li>
-<li class="toctree-l3"><a class="reference internal" href="trimesh.html#module-trimesh">Module contents</a></li>
+<li class="toctree-l3"><a class="reference internal" href="trimesh.html#module-contents">Module contents</a></li>
 </ul>
 </li>
 </ul>
@@ -181,85 +181,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="module-trimesh.exchange.dae">
-<span id="trimesh-exchange-dae-module"></span><h1>trimesh.exchange.dae module<a class="headerlink" href="#module-trimesh.exchange.dae" title="Permalink to this headline">¶</a></h1>
-<p><strong>Functions</strong></p>
-<table class="longtable docutils align-default">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#trimesh.exchange.dae.export_collada" title="trimesh.exchange.dae.export_collada"><code class="xref py py-obj docutils literal notranslate"><span class="pre">export_collada</span></code></a>(mesh, **kwargs)</p></td>
-<td><p>Export a mesh or a list of meshes as a COLLADA .dae file.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#trimesh.exchange.dae.load_collada" title="trimesh.exchange.dae.load_collada"><code class="xref py py-obj docutils literal notranslate"><span class="pre">load_collada</span></code></a>(file_obj[, resolver])</p></td>
-<td><p>Load a COLLADA (.dae) file into a list of trimesh kwargs.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#trimesh.exchange.dae.load_zae" title="trimesh.exchange.dae.load_zae"><code class="xref py py-obj docutils literal notranslate"><span class="pre">load_zae</span></code></a>(file_obj[, resolver])</p></td>
-<td><p>Load a ZAE file, which is just a zipped DAE file.</p></td>
-</tr>
-</tbody>
-</table>
-<dl class="function">
-<dt id="trimesh.exchange.dae.export_collada">
-<code class="sig-prename descclassname">trimesh.exchange.dae.</code><code class="sig-name descname">export_collada</code><span class="sig-paren">(</span><em class="sig-param">mesh</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.exchange.dae.export_collada" title="Permalink to this definition">¶</a></dt>
-<dd><p>Export a mesh or a list of meshes as a COLLADA .dae file.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>mesh</strong> (<em>Trimesh object</em><em> or </em><em>list of Trimesh objects</em>) – The mesh(es) to export.</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>export</strong></p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>str, string of COLLADA format output</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="function">
-<dt id="trimesh.exchange.dae.load_collada">
-<code class="sig-prename descclassname">trimesh.exchange.dae.</code><code class="sig-name descname">load_collada</code><span class="sig-paren">(</span><em class="sig-param">file_obj</em>, <em class="sig-param">resolver=None</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.exchange.dae.load_collada" title="Permalink to this definition">¶</a></dt>
-<dd><p>Load a COLLADA (.dae) file into a list of trimesh kwargs.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>file_obj</strong> (<em>file object</em>) – Containing a COLLADA file</p></li>
-<li><p><strong>resolver</strong> (<em>trimesh.visual.Resolver</em><em> or </em><em>None</em>) – For loading referenced files, like texture images</p></li>
-<li><p><strong>kwargs</strong> – Passed to trimesh.Trimesh.__init__</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>loaded</strong> – kwargs for Trimesh constructor</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>list of dict</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="function">
-<dt id="trimesh.exchange.dae.load_zae">
-<code class="sig-prename descclassname">trimesh.exchange.dae.</code><code class="sig-name descname">load_zae</code><span class="sig-paren">(</span><em class="sig-param">file_obj</em>, <em class="sig-param">resolver=None</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.exchange.dae.load_zae" title="Permalink to this definition">¶</a></dt>
-<dd><p>Load a ZAE file, which is just a zipped DAE file.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>file_obj</strong> (<em>file object</em>) – Contains ZAE data</p></li>
-<li><p><strong>resolver</strong> (<em>trimesh.visual.Resolver</em>) – Resolver to load additional assets</p></li>
-<li><p><strong>kwargs</strong> (<em>dict</em>) – Passed to load_collada</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>loaded</strong> – Results of loading</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>dict</p>
-</dd>
-</dl>
-</dd></dl>
-
+  <div class="section" id="trimesh-exchange-dae-module">
+<h1>trimesh.exchange.dae module<a class="headerlink" href="#trimesh-exchange-dae-module" title="Permalink to this headline">¶</a></h1>
 </div>
 
 

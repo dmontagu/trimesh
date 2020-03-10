@@ -135,7 +135,7 @@
 <li class="toctree-l4"><a class="reference internal" href="trimesh.version.html">trimesh.version module</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="trimesh.html#module-trimesh">Module contents</a></li>
+<li class="toctree-l3"><a class="reference internal" href="trimesh.html#module-contents">Module contents</a></li>
 </ul>
 </li>
 </ul>
@@ -208,92 +208,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="module-trimesh.nsphere">
-<span id="trimesh-nsphere-module"></span><h1>trimesh.nsphere module<a class="headerlink" href="#module-trimesh.nsphere" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="nsphere-py">
-<h2>nsphere.py<a class="headerlink" href="#nsphere-py" title="Permalink to this headline">¶</a></h2>
-<p>Functions for fitting and minimizing nspheres:
-circles, spheres, hyperspheres, etc.</p>
-<p><strong>Functions</strong></p>
-<table class="longtable docutils align-default">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#trimesh.nsphere.fit_nsphere" title="trimesh.nsphere.fit_nsphere"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fit_nsphere</span></code></a>(points[, prior])</p></td>
-<td><p>Fit an n-sphere to a set of points using least squares.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#trimesh.nsphere.is_nsphere" title="trimesh.nsphere.is_nsphere"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_nsphere</span></code></a>(points)</p></td>
-<td><p>Check if a list of points is an nsphere.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#trimesh.nsphere.minimum_nsphere" title="trimesh.nsphere.minimum_nsphere"><code class="xref py py-obj docutils literal notranslate"><span class="pre">minimum_nsphere</span></code></a>(obj)</p></td>
-<td><p>Compute the minimum n- sphere for a mesh or a set of points.</p></td>
-</tr>
-</tbody>
-</table>
-<dl class="function">
-<dt id="trimesh.nsphere.fit_nsphere">
-<code class="sig-prename descclassname">trimesh.nsphere.</code><code class="sig-name descname">fit_nsphere</code><span class="sig-paren">(</span><em class="sig-param">points</em>, <em class="sig-param">prior=None</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.nsphere.fit_nsphere" title="Permalink to this definition">¶</a></dt>
-<dd><p>Fit an n-sphere to a set of points using least squares.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>points</strong> (<em>(</em><em>n</em><em>, </em><em>d</em><em>) </em><em>float</em>) – Points in space</p></li>
-<li><p><strong>prior</strong> (<em>(</em><em>d</em><em>,</em><em>) </em><em>float</em>) – Best guess for center of nsphere</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p><ul class="simple">
-<li><p><strong>center</strong> (<em>(d,) float</em>) – Location of center</p></li>
-<li><p><strong>radius</strong> (<em>float</em>) – Mean radius across circle</p></li>
-<li><p><strong>error</strong> (<em>float</em>) – Peak to peak value of deviation from mean radius</p></li>
-</ul>
-</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="function">
-<dt id="trimesh.nsphere.is_nsphere">
-<code class="sig-prename descclassname">trimesh.nsphere.</code><code class="sig-name descname">is_nsphere</code><span class="sig-paren">(</span><em class="sig-param">points</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.nsphere.is_nsphere" title="Permalink to this definition">¶</a></dt>
-<dd><p>Check if a list of points is an nsphere.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>points</strong> (<em>(</em><em>n</em><em>, </em><em>dimension</em><em>) </em><em>float</em>) – Points in space</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>check</strong> – True if input points are on an nsphere</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>bool</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="function">
-<dt id="trimesh.nsphere.minimum_nsphere">
-<code class="sig-prename descclassname">trimesh.nsphere.</code><code class="sig-name descname">minimum_nsphere</code><span class="sig-paren">(</span><em class="sig-param">obj</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.nsphere.minimum_nsphere" title="Permalink to this definition">¶</a></dt>
-<dd><p>Compute the minimum n- sphere for a mesh or a set of points.</p>
-<p>Uses the fact that the minimum n- sphere will be centered at one of
-the vertices of the furthest site voronoi diagram, which is n*log(n)
-but should be pretty fast due to using the scipy/qhull implementations
-of convex hulls and voronoi diagrams.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>obj</strong> (<em>(</em><em>n</em><em>, </em><em>d</em><em>) </em><em>float</em><em> or </em><a class="reference internal" href="trimesh.html#trimesh.Trimesh" title="trimesh.Trimesh"><em>trimesh.Trimesh</em></a>) – Points or mesh to find minimum bounidng nsphere</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p><ul class="simple">
-<li><p><strong>center</strong> (<em>(d,) float</em>) – Center of fitted n- sphere</p></li>
-<li><p><strong>radius</strong> (<em>float</em>) – Radius of fitted n-sphere</p></li>
-</ul>
-</p>
-</dd>
-</dl>
-</dd></dl>
-
-</div>
+  <div class="section" id="trimesh-nsphere-module">
+<h1>trimesh.nsphere module<a class="headerlink" href="#trimesh-nsphere-module" title="Permalink to this headline">¶</a></h1>
 </div>
 
 

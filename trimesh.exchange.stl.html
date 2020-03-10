@@ -106,7 +106,7 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="trimesh.html#submodules">Submodules</a></li>
-<li class="toctree-l3"><a class="reference internal" href="trimesh.html#module-trimesh">Module contents</a></li>
+<li class="toctree-l3"><a class="reference internal" href="trimesh.html#module-contents">Module contents</a></li>
 </ul>
 </li>
 </ul>
@@ -181,143 +181,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="module-trimesh.exchange.stl">
-<span id="trimesh-exchange-stl-module"></span><h1>trimesh.exchange.stl module<a class="headerlink" href="#module-trimesh.exchange.stl" title="Permalink to this headline">¶</a></h1>
-<p><strong>Exceptions</strong></p>
-<table class="longtable docutils align-default">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#trimesh.exchange.stl.HeaderError" title="trimesh.exchange.stl.HeaderError"><code class="xref py py-obj docutils literal notranslate"><span class="pre">HeaderError</span></code></a></p></td>
-<td><p></p></td>
-</tr>
-</tbody>
-</table>
-<p><strong>Functions</strong></p>
-<table class="longtable docutils align-default">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#trimesh.exchange.stl.export_stl" title="trimesh.exchange.stl.export_stl"><code class="xref py py-obj docutils literal notranslate"><span class="pre">export_stl</span></code></a>(mesh)</p></td>
-<td><p>Convert a Trimesh object into a binary STL file.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#trimesh.exchange.stl.export_stl_ascii" title="trimesh.exchange.stl.export_stl_ascii"><code class="xref py py-obj docutils literal notranslate"><span class="pre">export_stl_ascii</span></code></a>(mesh)</p></td>
-<td><p>Convert a Trimesh object into an ASCII STL file.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#trimesh.exchange.stl.load_stl" title="trimesh.exchange.stl.load_stl"><code class="xref py py-obj docutils literal notranslate"><span class="pre">load_stl</span></code></a>(file_obj, **kwargs)</p></td>
-<td><p>Load an STL file from a file object.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#trimesh.exchange.stl.load_stl_ascii" title="trimesh.exchange.stl.load_stl_ascii"><code class="xref py py-obj docutils literal notranslate"><span class="pre">load_stl_ascii</span></code></a>(file_obj)</p></td>
-<td><p>Load an ASCII STL file from a file object.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#trimesh.exchange.stl.load_stl_binary" title="trimesh.exchange.stl.load_stl_binary"><code class="xref py py-obj docutils literal notranslate"><span class="pre">load_stl_binary</span></code></a>(file_obj)</p></td>
-<td><p>Load a binary STL file from a file object.</p></td>
-</tr>
-</tbody>
-</table>
-<dl class="exception">
-<dt id="trimesh.exchange.stl.HeaderError">
-<em class="property">exception </em><code class="sig-prename descclassname">trimesh.exchange.stl.</code><code class="sig-name descname">HeaderError</code><a class="headerlink" href="#trimesh.exchange.stl.HeaderError" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
-</dd></dl>
-
-<dl class="function">
-<dt id="trimesh.exchange.stl.export_stl">
-<code class="sig-prename descclassname">trimesh.exchange.stl.</code><code class="sig-name descname">export_stl</code><span class="sig-paren">(</span><em class="sig-param">mesh</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.exchange.stl.export_stl" title="Permalink to this definition">¶</a></dt>
-<dd><p>Convert a Trimesh object into a binary STL file.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>mesh</strong> (<em>Trimesh object</em>) – </p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>export</strong></p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>bytes, representing mesh in binary STL form</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="function">
-<dt id="trimesh.exchange.stl.export_stl_ascii">
-<code class="sig-prename descclassname">trimesh.exchange.stl.</code><code class="sig-name descname">export_stl_ascii</code><span class="sig-paren">(</span><em class="sig-param">mesh</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.exchange.stl.export_stl_ascii" title="Permalink to this definition">¶</a></dt>
-<dd><p>Convert a Trimesh object into an ASCII STL file.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>mesh</strong> (<a class="reference internal" href="trimesh.html#trimesh.Trimesh" title="trimesh.Trimesh"><em>trimesh.Trimesh</em></a>) – </p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>export</strong> – Mesh represented as an ASCII STL file</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>str</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="function">
-<dt id="trimesh.exchange.stl.load_stl">
-<code class="sig-prename descclassname">trimesh.exchange.stl.</code><code class="sig-name descname">load_stl</code><span class="sig-paren">(</span><em class="sig-param">file_obj</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.exchange.stl.load_stl" title="Permalink to this definition">¶</a></dt>
-<dd><p>Load an STL file from a file object.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>file_obj</strong> (<em>open file-like object</em>) – Containing STL data</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>loaded</strong> – kwargs for a Trimesh constructor with keys:
-vertices:     (n,3) float, vertices
-faces:        (m,3) int, indexes of vertices
-face_normals: (m,3) float, normal vector of each face</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>dict</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="function">
-<dt id="trimesh.exchange.stl.load_stl_ascii">
-<code class="sig-prename descclassname">trimesh.exchange.stl.</code><code class="sig-name descname">load_stl_ascii</code><span class="sig-paren">(</span><em class="sig-param">file_obj</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.exchange.stl.load_stl_ascii" title="Permalink to this definition">¶</a></dt>
-<dd><p>Load an ASCII STL file from a file object.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>file_obj</strong> (<em>open file- like object</em>) – Containing input data</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>loaded</strong> – kwargs for a Trimesh constructor with keys:
-vertices:     (n,3) float, vertices
-faces:        (m,3) int, indexes of vertices
-face_normals: (m,3) float, normal vector of each face</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>dict</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="function">
-<dt id="trimesh.exchange.stl.load_stl_binary">
-<code class="sig-prename descclassname">trimesh.exchange.stl.</code><code class="sig-name descname">load_stl_binary</code><span class="sig-paren">(</span><em class="sig-param">file_obj</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.exchange.stl.load_stl_binary" title="Permalink to this definition">¶</a></dt>
-<dd><p>Load a binary STL file from a file object.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>file_obj</strong> (<em>open file- like object</em>) – Containing STL data</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>loaded</strong> – vertices:     (n,3) float, vertices
-faces:        (m,3) int, indexes of vertices
-face_normals: (m,3) float, normal vector of each face</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>kwargs for a Trimesh constructor with keys:</p>
-</dd>
-</dl>
-</dd></dl>
-
+  <div class="section" id="trimesh-exchange-stl-module">
+<h1>trimesh.exchange.stl module<a class="headerlink" href="#trimesh-exchange-stl-module" title="Permalink to this headline">¶</a></h1>
 </div>
 
 

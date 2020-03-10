@@ -106,7 +106,7 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="trimesh.html#submodules">Submodules</a></li>
-<li class="toctree-l3"><a class="reference internal" href="trimesh.html#module-trimesh">Module contents</a></li>
+<li class="toctree-l3"><a class="reference internal" href="trimesh.html#module-contents">Module contents</a></li>
 </ul>
 </li>
 </ul>
@@ -183,68 +183,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="module-trimesh.path.exchange.load">
-<span id="trimesh-path-exchange-load-module"></span><h1>trimesh.path.exchange.load module<a class="headerlink" href="#module-trimesh.path.exchange.load" title="Permalink to this headline">¶</a></h1>
-<p><strong>Functions</strong></p>
-<table class="longtable docutils align-default">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#trimesh.path.exchange.load.load_path" title="trimesh.path.exchange.load.load_path"><code class="xref py py-obj docutils literal notranslate"><span class="pre">load_path</span></code></a>(obj[, file_type])</p></td>
-<td><p>Load a file to a Path object.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#trimesh.path.exchange.load.path_formats" title="trimesh.path.exchange.load.path_formats"><code class="xref py py-obj docutils literal notranslate"><span class="pre">path_formats</span></code></a>()</p></td>
-<td><p>Get a list of supported path formats.</p></td>
-</tr>
-</tbody>
-</table>
-<dl class="function">
-<dt id="trimesh.path.exchange.load.load_path">
-<code class="sig-prename descclassname">trimesh.path.exchange.load.</code><code class="sig-name descname">load_path</code><span class="sig-paren">(</span><em class="sig-param">obj</em>, <em class="sig-param">file_type=None</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.path.exchange.load.load_path" title="Permalink to this definition">¶</a></dt>
-<dd><p>Load a file to a Path object.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>obj</strong> (<em>One of the following:</em>) – <ul>
-<li><p>Path, Path2D, or Path3D objects</p></li>
-<li><p>open file object (dxf or svg)</p></li>
-<li><p>file name (dxf or svg)</p></li>
-<li><p>shapely.geometry.Polygon</p></li>
-<li><p>shapely.geometry.MultiLineString</p></li>
-<li><p>dict with kwargs for Path constructor</p></li>
-<li><p>(n,2,(2|3)) float, line segments</p></li>
-</ul>
-</p></li>
-<li><p><strong>file_type</strong> (<em>str</em>) – Type of file is required if file
-object passed.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>path</strong> – Data as a native trimesh Path object</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference internal" href="trimesh.path.path.html#trimesh.path.path.Path" title="trimesh.path.path.Path">Path</a>, <a class="reference internal" href="trimesh.path.html#trimesh.path.Path2D" title="trimesh.path.Path2D">Path2D</a>, Path3D object</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="function">
-<dt id="trimesh.path.exchange.load.path_formats">
-<code class="sig-prename descclassname">trimesh.path.exchange.load.</code><code class="sig-name descname">path_formats</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.path.exchange.load.path_formats" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get a list of supported path formats.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p><strong>loaders</strong> – Extensions of loadable formats, ie:
-[‘svg’, ‘dxf’]</p>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p>list of str</p>
-</dd>
-</dl>
-</dd></dl>
-
+  <div class="section" id="trimesh-path-exchange-load-module">
+<h1>trimesh.path.exchange.load module<a class="headerlink" href="#trimesh-path-exchange-load-module" title="Permalink to this headline">¶</a></h1>
 </div>
 
 

@@ -106,7 +106,7 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="trimesh.html#submodules">Submodules</a></li>
-<li class="toctree-l3"><a class="reference internal" href="trimesh.html#module-trimesh">Module contents</a></li>
+<li class="toctree-l3"><a class="reference internal" href="trimesh.html#module-contents">Module contents</a></li>
 </ul>
 </li>
 </ul>
@@ -181,46 +181,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="module-trimesh.path.repair">
-<span id="trimesh-path-repair-module"></span><h1>trimesh.path.repair module<a class="headerlink" href="#module-trimesh.path.repair" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="repair-py">
-<h2>repair.py<a class="headerlink" href="#repair-py" title="Permalink to this headline">¶</a></h2>
-<p>Try to fix problems with closed regions.</p>
-<p><strong>Functions</strong></p>
-<table class="longtable docutils align-default">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#trimesh.path.repair.fill_gaps" title="trimesh.path.repair.fill_gaps"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fill_gaps</span></code></a>(path[, distance])</p></td>
-<td><p>For 3D line segments defined by two points, turn them in to an origin defined as the closest point along the line to the zero origin as well as a direction vector and start and end parameter.</p></td>
-</tr>
-</tbody>
-</table>
-<dl class="function">
-<dt id="trimesh.path.repair.fill_gaps">
-<code class="sig-prename descclassname">trimesh.path.repair.</code><code class="sig-name descname">fill_gaps</code><span class="sig-paren">(</span><em class="sig-param">path</em>, <em class="sig-param">distance=0.025</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.path.repair.fill_gaps" title="Permalink to this definition">¶</a></dt>
-<dd><p>For 3D line segments defined by two points, turn
-them in to an origin defined as the closest point along
-the line to the zero origin as well as a direction vector
-and start and end parameter.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>segments</strong> (<em>(</em><em>n</em><em>, </em><em>2</em><em>, </em><em>3</em><em>) </em><em>float</em>) – Line segments defined by start and end points</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p><ul class="simple">
-<li><p><strong>origins</strong> (<em>(n, 3) float</em>) – Point on line closest to [0, 0, 0]</p></li>
-<li><p><strong>vectors</strong> (<em>(n, 3) float</em>) – Unit line directions</p></li>
-<li><p><strong>parameters</strong> (<em>(n, 2) float</em>) – Start and end distance pairs for each line</p></li>
-</ul>
-</p>
-</dd>
-</dl>
-</dd></dl>
-
-</div>
+  <div class="section" id="trimesh-path-repair-module">
+<h1>trimesh.path.repair module<a class="headerlink" href="#trimesh-path-repair-module" title="Permalink to this headline">¶</a></h1>
 </div>
 
 

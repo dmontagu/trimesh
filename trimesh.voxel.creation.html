@@ -106,7 +106,7 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="trimesh.html#submodules">Submodules</a></li>
-<li class="toctree-l3"><a class="reference internal" href="trimesh.html#module-trimesh">Module contents</a></li>
+<li class="toctree-l3"><a class="reference internal" href="trimesh.html#module-contents">Module contents</a></li>
 </ul>
 </li>
 </ul>
@@ -181,75 +181,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="module-trimesh.voxel.creation">
-<span id="trimesh-voxel-creation-module"></span><h1>trimesh.voxel.creation module<a class="headerlink" href="#module-trimesh.voxel.creation" title="Permalink to this headline">¶</a></h1>
-<p><strong>Functions</strong></p>
-<table class="longtable docutils align-default">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#trimesh.voxel.creation.local_voxelize" title="trimesh.voxel.creation.local_voxelize"><code class="xref py py-obj docutils literal notranslate"><span class="pre">local_voxelize</span></code></a>(mesh, point, pitch, radius[, …])</p></td>
-<td><p>Voxelize a mesh in the region of a cube around a point.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#trimesh.voxel.creation.voxelize" title="trimesh.voxel.creation.voxelize"><code class="xref py py-obj docutils literal notranslate"><span class="pre">voxelize</span></code></a>(mesh, pitch[, method])</p></td>
-<td><p>Voxelize the given mesh using the specified implementation.</p></td>
-</tr>
-</tbody>
-</table>
-<dl class="function">
-<dt id="trimesh.voxel.creation.local_voxelize">
-<code class="sig-prename descclassname">trimesh.voxel.creation.</code><code class="sig-name descname">local_voxelize</code><span class="sig-paren">(</span><em class="sig-param">mesh</em>, <em class="sig-param">point</em>, <em class="sig-param">pitch</em>, <em class="sig-param">radius</em>, <em class="sig-param">fill=True</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.voxel.creation.local_voxelize" title="Permalink to this definition">¶</a></dt>
-<dd><p>Voxelize a mesh in the region of a cube around a point. When fill=True,
-uses proximity.contains to fill the resulting voxels so may be meaningless
-for non-watertight meshes. Useful to reduce memory cost for small values of
-pitch as opposed to global voxelization.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>mesh</strong> (<a class="reference internal" href="trimesh.html#trimesh.Trimesh" title="trimesh.Trimesh"><em>trimesh.Trimesh</em></a>) – Source geometry</p></li>
-<li><p><strong>point</strong> (<em>(</em><em>3</em><em>, </em><em>) </em><em>float</em>) – Point in space to voxelize around</p></li>
-<li><p><strong>pitch</strong> (<em>float</em>) – Side length of a single voxel cube</p></li>
-<li><p><strong>radius</strong> (<em>int</em>) – Number of voxel cubes to return in each direction.</p></li>
-<li><p><strong>kwargs</strong> (<em>parameters to pass to voxelize_subdivide</em>) – </p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>voxels</strong> – or None if the volume is empty</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>VoxelGrid instance with resolution (m, m, m) where m=2*radius+1</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="function">
-<dt id="trimesh.voxel.creation.voxelize">
-<code class="sig-prename descclassname">trimesh.voxel.creation.</code><code class="sig-name descname">voxelize</code><span class="sig-paren">(</span><em class="sig-param">mesh</em>, <em class="sig-param">pitch</em>, <em class="sig-param">method='subdivide'</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.voxel.creation.voxelize" title="Permalink to this definition">¶</a></dt>
-<dd><p>Voxelize the given mesh using the specified implementation.</p>
-<p>See <cite>voxelizers</cite> for available implementations or to add your own, e.g. via
-<cite>voxelizers[‘custom_key’] = custom_fn</cite>.</p>
-<p><cite>custom_fn</cite> should have signature <cite>(mesh, pitch, **kwargs) -&gt; VoxelGrid</cite>
-and should not modify encoding.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>mesh</strong> (<em>Trimesh object</em><em> (</em><em>left unchanged</em><em>)</em><em></em>) – </p></li>
-<li><p><strong>pitch</strong> (<em>float</em><em>, </em><em>side length of each voxel.</em>) – </p></li>
-<li><p><strong>method</strong> (implementation method. Must be in <cite>fillers</cite>.) – </p></li>
-<li><p><strong>**kwargs</strong> (<em>additional kwargs passed to the specified implementation.</em>) – </p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p></p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>A VoxelGrid instance.</p>
-</dd>
-</dl>
-</dd></dl>
-
+  <div class="section" id="trimesh-voxel-creation-module">
+<h1>trimesh.voxel.creation module<a class="headerlink" href="#trimesh-voxel-creation-module" title="Permalink to this headline">¶</a></h1>
 </div>
 
 

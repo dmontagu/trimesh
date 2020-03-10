@@ -135,7 +135,7 @@
 <li class="toctree-l4"><a class="reference internal" href="trimesh.version.html">trimesh.version module</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="trimesh.html#module-trimesh">Module contents</a></li>
+<li class="toctree-l3"><a class="reference internal" href="trimesh.html#module-contents">Module contents</a></li>
 </ul>
 </li>
 </ul>
@@ -208,80 +208,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="module-trimesh.interval">
-<span id="trimesh-interval-module"></span><h1>trimesh.interval module<a class="headerlink" href="#module-trimesh.interval" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="interval-py">
-<h2>interval.py<a class="headerlink" href="#interval-py" title="Permalink to this headline">¶</a></h2>
-<dl class="simple">
-<dt>Deal with 1D intervals which are defined by:</dt><dd><p>[start position, end position]</p>
-</dd>
-</dl>
-<p><strong>Functions</strong></p>
-<table class="longtable docutils align-default">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#trimesh.interval.check" title="trimesh.interval.check"><code class="xref py py-obj docutils literal notranslate"><span class="pre">check</span></code></a>(a, b, digits)</p></td>
-<td><p>Check input ranges, convert them to vector form, and get a fixed precision integer version of them.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#trimesh.interval.intersection" title="trimesh.interval.intersection"><code class="xref py py-obj docutils literal notranslate"><span class="pre">intersection</span></code></a>(a, b[, digits])</p></td>
-<td><p>Given a pair of ranges, merge them in to</p></td>
-</tr>
-</tbody>
-</table>
-<dl class="function">
-<dt id="trimesh.interval.check">
-<code class="sig-prename descclassname">trimesh.interval.</code><code class="sig-name descname">check</code><span class="sig-paren">(</span><em class="sig-param">a</em>, <em class="sig-param">b</em>, <em class="sig-param">digits</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.interval.check" title="Permalink to this definition">¶</a></dt>
-<dd><p>Check input ranges, convert them to vector form,
-and get a fixed precision integer version of them.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>a</strong> (<em>(</em><em>2</em><em>, </em><em>) or </em><em>(</em><em>2</em><em>, </em><em>n</em><em>) </em><em>float</em>) – Start and end of a 1D interval</p></li>
-<li><p><strong>b</strong> (<em>(</em><em>2</em><em>, </em><em>) or </em><em>(</em><em>2</em><em>, </em><em>n</em><em>) </em><em>float</em>) – Start and end of a 1D interval</p></li>
-<li><p><strong>digits</strong> (<em>int</em>) – How many digits to consider</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p><ul class="simple">
-<li><p><strong>a</strong> (<em>(2, n) float</em>) – Ranges as vector</p></li>
-<li><p><strong>b</strong> (<em>(2, n) float</em>) – Ranges as vector</p></li>
-<li><p><strong>a_int</strong> (<em>(2, n) int64</em>) – Ranges rounded to digits, as vector</p></li>
-<li><p><strong>b_int</strong> (<em>(2, n) int64</em>) – Ranges rounded to digits, as vector</p></li>
-<li><p><strong>is_1D</strong> (<em>bool</em>) – If True, input was single pair of ranges</p></li>
-</ul>
-</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="function">
-<dt id="trimesh.interval.intersection">
-<code class="sig-prename descclassname">trimesh.interval.</code><code class="sig-name descname">intersection</code><span class="sig-paren">(</span><em class="sig-param">a</em>, <em class="sig-param">b</em>, <em class="sig-param">digits=8</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.interval.intersection" title="Permalink to this definition">¶</a></dt>
-<dd><p>Given a pair of ranges, merge them in to
-one range if they overlap at all</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>a</strong> (<em>(</em><em>2</em><em>, </em><em>) </em><em>float</em>) – Start and end of a 1D interval</p></li>
-<li><p><strong>b</strong> (<em>(</em><em>2</em><em>, </em><em>) </em><em>float</em>) – Start and end of a 1D interval</p></li>
-<li><p><strong>digits</strong> (<em>int</em>) – How many digits to consider</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p><ul class="simple">
-<li><p><strong>intersects</strong> (<em>bool or (n,) bool</em>) – Indicates if the ranges overlap at all</p></li>
-<li><p><strong>new_range</strong> (<em>(2, ) or (2, 2) float</em>) – The unioned range from the two inputs,
-or both of the original ranges if not overlapping</p></li>
-</ul>
-</p>
-</dd>
-</dl>
-</dd></dl>
-
-</div>
+  <div class="section" id="trimesh-interval-module">
+<h1>trimesh.interval module<a class="headerlink" href="#trimesh-interval-module" title="Permalink to this headline">¶</a></h1>
 </div>
 
 

@@ -135,7 +135,7 @@
 <li class="toctree-l4"><a class="reference internal" href="trimesh.version.html">trimesh.version module</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="trimesh.html#module-trimesh">Module contents</a></li>
+<li class="toctree-l3"><a class="reference internal" href="trimesh.html#module-contents">Module contents</a></li>
 </ul>
 </li>
 </ul>
@@ -208,79 +208,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="module-trimesh.remesh">
-<span id="trimesh-remesh-module"></span><h1>trimesh.remesh module<a class="headerlink" href="#module-trimesh.remesh" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="remesh-py">
-<h2>remesh.py<a class="headerlink" href="#remesh-py" title="Permalink to this headline">¶</a></h2>
-<p>Deal with re- triangulation of existing meshes.</p>
-<p><strong>Functions</strong></p>
-<table class="longtable docutils align-default">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#trimesh.remesh.subdivide" title="trimesh.remesh.subdivide"><code class="xref py py-obj docutils literal notranslate"><span class="pre">subdivide</span></code></a>(vertices, faces[, face_index, …])</p></td>
-<td><p>Subdivide a mesh into smaller triangles.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#trimesh.remesh.subdivide_to_size" title="trimesh.remesh.subdivide_to_size"><code class="xref py py-obj docutils literal notranslate"><span class="pre">subdivide_to_size</span></code></a>(vertices, faces, max_edge)</p></td>
-<td><p>Subdivide a mesh until every edge is shorter than a specified length.</p></td>
-</tr>
-</tbody>
-</table>
-<dl class="function">
-<dt id="trimesh.remesh.subdivide">
-<code class="sig-prename descclassname">trimesh.remesh.</code><code class="sig-name descname">subdivide</code><span class="sig-paren">(</span><em class="sig-param">vertices</em>, <em class="sig-param">faces</em>, <em class="sig-param">face_index=None</em>, <em class="sig-param">vertex_attributes=None</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.remesh.subdivide" title="Permalink to this definition">¶</a></dt>
-<dd><p>Subdivide a mesh into smaller triangles.</p>
-<p>Note that if <cite>face_index</cite> is passed, only those
-faces will be subdivided and their neighbors won’t
-be modified making the mesh no longer “watertight.”</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>vertices</strong> (<em>(</em><em>n</em><em>, </em><em>3</em><em>) </em><em>float</em>) – Vertices in space</p></li>
-<li><p><strong>faces</strong> (<em>(</em><em>m</em><em>, </em><em>3</em><em>) </em><em>int</em>) – Indexes of vertices which make up triangular faces</p></li>
-<li><p><strong>face_index</strong> (<em>faces to subdivide.</em>) – if None: all faces of mesh will be subdivided
-if (n,) int array of indices: only specified faces</p></li>
-<li><p><strong>vertex_attributes</strong> (<em>dict</em>) – Contains (n, d) attribute data</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p><ul class="simple">
-<li><p><strong>new_vertices</strong> (<em>(q, 3) float</em>) – Vertices in space</p></li>
-<li><p><strong>new_faces</strong> (<em>(p, 3) int</em>) – Remeshed faces</p></li>
-</ul>
-</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="function">
-<dt id="trimesh.remesh.subdivide_to_size">
-<code class="sig-prename descclassname">trimesh.remesh.</code><code class="sig-name descname">subdivide_to_size</code><span class="sig-paren">(</span><em class="sig-param">vertices</em>, <em class="sig-param">faces</em>, <em class="sig-param">max_edge</em>, <em class="sig-param">max_iter=10</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.remesh.subdivide_to_size" title="Permalink to this definition">¶</a></dt>
-<dd><p>Subdivide a mesh until every edge is shorter than a
-specified length.</p>
-<p>Will return a triangle soup, not a nicely structured mesh.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>vertices</strong> (<em>(</em><em>n</em><em>, </em><em>3</em><em>) </em><em>float</em>) – Vertices in space</p></li>
-<li><p><strong>faces</strong> (<em>(</em><em>m</em><em>, </em><em>3</em><em>) </em><em>int</em>) – Indices of vertices which make up triangles</p></li>
-<li><p><strong>max_edge</strong> (<em>float</em>) – Maximum length of any edge in the result</p></li>
-<li><p><strong>max_iter</strong> (<em>int</em>) – The maximum number of times to run subdivision</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p><ul class="simple">
-<li><p><strong>vertices</strong> (<em>(j, 3) float</em>) – Vertices in space</p></li>
-<li><p><strong>faces</strong> (<em>(q, 3) int</em>) – Indices of vertices</p></li>
-</ul>
-</p>
-</dd>
-</dl>
-</dd></dl>
-
-</div>
+  <div class="section" id="trimesh-remesh-module">
+<h1>trimesh.remesh module<a class="headerlink" href="#trimesh-remesh-module" title="Permalink to this headline">¶</a></h1>
 </div>
 
 

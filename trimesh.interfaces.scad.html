@@ -106,7 +106,7 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="trimesh.html#submodules">Submodules</a></li>
-<li class="toctree-l3"><a class="reference internal" href="trimesh.html#module-trimesh">Module contents</a></li>
+<li class="toctree-l3"><a class="reference internal" href="trimesh.html#module-contents">Module contents</a></li>
 </ul>
 </li>
 </ul>
@@ -181,47 +181,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="module-trimesh.interfaces.scad">
-<span id="trimesh-interfaces-scad-module"></span><h1>trimesh.interfaces.scad module<a class="headerlink" href="#module-trimesh.interfaces.scad" title="Permalink to this headline">¶</a></h1>
-<p><strong>Functions</strong></p>
-<table class="longtable docutils align-default">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#trimesh.interfaces.scad.boolean" title="trimesh.interfaces.scad.boolean"><code class="xref py py-obj docutils literal notranslate"><span class="pre">boolean</span></code></a>(meshes[, operation, debug])</p></td>
-<td><p>Run an operation on a set of meshes</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#trimesh.interfaces.scad.interface_scad" title="trimesh.interfaces.scad.interface_scad"><code class="xref py py-obj docutils literal notranslate"><span class="pre">interface_scad</span></code></a>(meshes, script[, debug])</p></td>
-<td><p>A way to interface with openSCAD which is itself an interface to the CGAL CSG bindings.</p></td>
-</tr>
-</tbody>
-</table>
-<dl class="function">
-<dt id="trimesh.interfaces.scad.boolean">
-<code class="sig-prename descclassname">trimesh.interfaces.scad.</code><code class="sig-name descname">boolean</code><span class="sig-paren">(</span><em class="sig-param">meshes</em>, <em class="sig-param">operation='difference'</em>, <em class="sig-param">debug=False</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.interfaces.scad.boolean" title="Permalink to this definition">¶</a></dt>
-<dd><p>Run an operation on a set of meshes</p>
-</dd></dl>
-
-<dl class="function">
-<dt id="trimesh.interfaces.scad.interface_scad">
-<code class="sig-prename descclassname">trimesh.interfaces.scad.</code><code class="sig-name descname">interface_scad</code><span class="sig-paren">(</span><em class="sig-param">meshes</em>, <em class="sig-param">script</em>, <em class="sig-param">debug=False</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.interfaces.scad.interface_scad" title="Permalink to this definition">¶</a></dt>
-<dd><p>A way to interface with openSCAD which is itself an interface
-to the CGAL CSG bindings.
-CGAL is very stable if difficult to install/use, so this function provides a
-tempfile- happy solution for getting the basic CGAL CSG functionality.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>meshes</strong> (<em>list of Trimesh objects</em>) – </p></li>
-<li><p><strong>script</strong> (<em>string of the script to send to scad.</em>) – Trimesh objects can be referenced in the script as
-$mesh_0, $mesh_1, etc.</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
+  <div class="section" id="trimesh-interfaces-scad-module">
+<h1>trimesh.interfaces.scad module<a class="headerlink" href="#trimesh-interfaces-scad-module" title="Permalink to this headline">¶</a></h1>
 </div>
 
 

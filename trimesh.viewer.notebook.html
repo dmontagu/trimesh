@@ -106,7 +106,7 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="trimesh.html#submodules">Submodules</a></li>
-<li class="toctree-l3"><a class="reference internal" href="trimesh.html#module-trimesh">Module contents</a></li>
+<li class="toctree-l3"><a class="reference internal" href="trimesh.html#module-contents">Module contents</a></li>
 </ul>
 </li>
 </ul>
@@ -181,82 +181,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="module-trimesh.viewer.notebook">
-<span id="trimesh-viewer-notebook-module"></span><h1>trimesh.viewer.notebook module<a class="headerlink" href="#module-trimesh.viewer.notebook" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="notebook-py">
-<h2>notebook.py<a class="headerlink" href="#notebook-py" title="Permalink to this headline">¶</a></h2>
-<p>Render trimesh.Scene objects in HTML
-and jupyter notebooks using three.js</p>
-<p><strong>Functions</strong></p>
-<table class="longtable docutils align-default">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#trimesh.viewer.notebook.in_notebook" title="trimesh.viewer.notebook.in_notebook"><code class="xref py py-obj docutils literal notranslate"><span class="pre">in_notebook</span></code></a>()</p></td>
-<td><p>Check to see if we are in an IPython or Jypyter notebook.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#trimesh.viewer.notebook.scene_to_html" title="trimesh.viewer.notebook.scene_to_html"><code class="xref py py-obj docutils literal notranslate"><span class="pre">scene_to_html</span></code></a>(scene)</p></td>
-<td><p>Return HTML that will render the scene using</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#trimesh.viewer.notebook.scene_to_notebook" title="trimesh.viewer.notebook.scene_to_notebook"><code class="xref py py-obj docutils literal notranslate"><span class="pre">scene_to_notebook</span></code></a>(scene[, height])</p></td>
-<td><p>Convert a scene to HTML containing embedded geometry and a three.js viewer that will display nicely in an IPython/Jupyter notebook.</p></td>
-</tr>
-</tbody>
-</table>
-<dl class="function">
-<dt id="trimesh.viewer.notebook.in_notebook">
-<code class="sig-prename descclassname">trimesh.viewer.notebook.</code><code class="sig-name descname">in_notebook</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.viewer.notebook.in_notebook" title="Permalink to this definition">¶</a></dt>
-<dd><p>Check to see if we are in an IPython or Jypyter notebook.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p><strong>in_notebook</strong> – Returns True if we are in a notebook</p>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p>bool</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="function">
-<dt id="trimesh.viewer.notebook.scene_to_html">
-<code class="sig-prename descclassname">trimesh.viewer.notebook.</code><code class="sig-name descname">scene_to_html</code><span class="sig-paren">(</span><em class="sig-param">scene</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.viewer.notebook.scene_to_html" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return HTML that will render the scene using
-GLTF/GLB encoded to base64 loaded by three.js</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>scene</strong> (<a class="reference internal" href="trimesh.html#trimesh.Scene" title="trimesh.Scene"><em>trimesh.Scene</em></a>) – Source geometry</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>html</strong> – HTML containing embedded geometry</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>str</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="function">
-<dt id="trimesh.viewer.notebook.scene_to_notebook">
-<code class="sig-prename descclassname">trimesh.viewer.notebook.</code><code class="sig-name descname">scene_to_notebook</code><span class="sig-paren">(</span><em class="sig-param">scene</em>, <em class="sig-param">height=500</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.viewer.notebook.scene_to_notebook" title="Permalink to this definition">¶</a></dt>
-<dd><p>Convert a scene to HTML containing embedded geometry
-and a three.js viewer that will display nicely in
-an IPython/Jupyter notebook.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>scene</strong> (<a class="reference internal" href="trimesh.html#trimesh.Scene" title="trimesh.Scene"><em>trimesh.Scene</em></a>) – Source geometry</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>html</strong> – Object containing rendered scene</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>IPython.display.HTML</p>
-</dd>
-</dl>
-</dd></dl>
-
-</div>
+  <div class="section" id="trimesh-viewer-notebook-module">
+<h1>trimesh.viewer.notebook module<a class="headerlink" href="#trimesh-viewer-notebook-module" title="Permalink to this headline">¶</a></h1>
 </div>
 
 
