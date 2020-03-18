@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>trimesh.geometry module &mdash; trimesh 3.6.1 documentation</title>
+  <title>trimesh.geometry module &mdash; trimesh 3.6.9 documentation</title>
   
 
   
@@ -60,7 +60,7 @@
             
             
               <div class="version">
-                3.6.1
+                3.6.9
               </div>
             
           
@@ -135,7 +135,7 @@
 <li class="toctree-l4"><a class="reference internal" href="trimesh.version.html">trimesh.version module</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="trimesh.html#module-contents">Module contents</a></li>
+<li class="toctree-l3"><a class="reference internal" href="trimesh.html#module-trimesh">Module contents</a></li>
 </ul>
 </li>
 </ul>
@@ -208,8 +208,261 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="trimesh-geometry-module">
-<h1>trimesh.geometry module<a class="headerlink" href="#trimesh-geometry-module" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="module-trimesh.geometry">
+<span id="trimesh-geometry-module"></span><h1>trimesh.geometry module<a class="headerlink" href="#module-trimesh.geometry" title="Permalink to this headline">¶</a></h1>
+<p><strong>Functions</strong></p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#trimesh.geometry.align_vectors" title="trimesh.geometry.align_vectors"><code class="xref py py-obj docutils literal notranslate"><span class="pre">align_vectors</span></code></a>(a, b[, return_angle])</p></td>
+<td><p>Find a transform between two 3D vectors.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#trimesh.geometry.faces_to_edges" title="trimesh.geometry.faces_to_edges"><code class="xref py py-obj docutils literal notranslate"><span class="pre">faces_to_edges</span></code></a>(faces[, return_index])</p></td>
+<td><p>Given a list of faces (n,3), return a list of edges (n*3,2)</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#trimesh.geometry.index_sparse" title="trimesh.geometry.index_sparse"><code class="xref py py-obj docutils literal notranslate"><span class="pre">index_sparse</span></code></a>(columns, indices[, data])</p></td>
+<td><p>Return a sparse matrix for which vertices are contained in which faces.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#trimesh.geometry.mean_vertex_normals" title="trimesh.geometry.mean_vertex_normals"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mean_vertex_normals</span></code></a>(vertex_count, faces, …)</p></td>
+<td><p>Find vertex normals from the mean of the faces that contain that vertex.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#trimesh.geometry.plane_transform" title="trimesh.geometry.plane_transform"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plane_transform</span></code></a>(origin, normal)</p></td>
+<td><p>Given the origin and normal of a plane find the transform that will move that plane to be coplanar with the XY plane.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#trimesh.geometry.triangulate_quads" title="trimesh.geometry.triangulate_quads"><code class="xref py py-obj docutils literal notranslate"><span class="pre">triangulate_quads</span></code></a>(quads)</p></td>
+<td><p>Given a set of quad faces, return them as triangle faces.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#trimesh.geometry.vector_angle" title="trimesh.geometry.vector_angle"><code class="xref py py-obj docutils literal notranslate"><span class="pre">vector_angle</span></code></a>(pairs)</p></td>
+<td><p>Find the angles between pairs of unit vectors.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#trimesh.geometry.vertex_face_indices" title="trimesh.geometry.vertex_face_indices"><code class="xref py py-obj docutils literal notranslate"><span class="pre">vertex_face_indices</span></code></a>(vertex_count, faces, …)</p></td>
+<td><p>Find vertex face indices from the faces array of vertices</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#trimesh.geometry.weighted_vertex_normals" title="trimesh.geometry.weighted_vertex_normals"><code class="xref py py-obj docutils literal notranslate"><span class="pre">weighted_vertex_normals</span></code></a>(vertex_count, faces, …)</p></td>
+<td><p>Compute vertex normals from the faces that contain that vertex.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="function">
+<dt id="trimesh.geometry.align_vectors">
+<code class="sig-prename descclassname">trimesh.geometry.</code><code class="sig-name descname">align_vectors</code><span class="sig-paren">(</span><em class="sig-param">a</em>, <em class="sig-param">b</em>, <em class="sig-param">return_angle=False</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.geometry.align_vectors" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find a transform between two 3D vectors.</p>
+<p>Implements the method described here:
+<a class="reference external" href="http://ethaneade.com/rot_between_vectors.pdf">http://ethaneade.com/rot_between_vectors.pdf</a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>a</strong> (<em>(</em><em>3</em><em>,</em><em>) </em><em>float</em>) – Source vector</p></li>
+<li><p><strong>b</strong> (<em>(</em><em>3</em><em>,</em><em>) </em><em>float</em>) – Target vector</p></li>
+<li><p><strong>return_angle</strong> (<em>bool</em>) – If True return the angle between the two vectors</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>transform</strong> (<em>(4, 4) float</em>) – Homogeneous transform from a to b</p></li>
+<li><p><strong>angle</strong> (<em>float</em>) – Angle between vectors in radians
+Only returned if return_angle</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="trimesh.geometry.faces_to_edges">
+<code class="sig-prename descclassname">trimesh.geometry.</code><code class="sig-name descname">faces_to_edges</code><span class="sig-paren">(</span><em class="sig-param">faces</em>, <em class="sig-param">return_index=False</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.geometry.faces_to_edges" title="Permalink to this definition">¶</a></dt>
+<dd><p>Given a list of faces (n,3), return a list of edges (n*3,2)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>faces</strong> (<em>(</em><em>n</em><em>, </em><em>3</em><em>) </em><em>int</em>) – Vertex indices representing faces</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>edges</strong> – Vertex indices representing edges</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>(n*3, 2) int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="trimesh.geometry.index_sparse">
+<code class="sig-prename descclassname">trimesh.geometry.</code><code class="sig-name descname">index_sparse</code><span class="sig-paren">(</span><em class="sig-param">columns</em>, <em class="sig-param">indices</em>, <em class="sig-param">data=None</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.geometry.index_sparse" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a sparse matrix for which vertices are contained in which faces.
+A data vector can be passed which is then used instead of booleans</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>columns</strong> (<em>int</em>) – Number of columns, usually number of vertices</p></li>
+<li><p><strong>indices</strong> (<em>(</em><em>m</em><em>, </em><em>d</em><em>) </em><em>int</em>) – Usually mesh.faces</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>sparse</strong> (<em>scipy.sparse.coo_matrix of shape (columns, len(faces))</em>) – dtype is boolean</p></li>
+<li><p><em>Examples</em> – ———-</p></li>
+<li><p><strong>In [1]</strong> (<em>sparse = faces_sparse(len(mesh.vertices), mesh.faces)</em>)</p></li>
+<li><p><strong>In [2]</strong> (<em>sparse.shape</em>)</p></li>
+<li><p><strong>Out[2]</strong> (<em>(12, 20)</em>)</p></li>
+<li><p><strong>In [3]</strong> (<em>mesh.faces.shape</em>)</p></li>
+<li><p><strong>Out[3]</strong> (<em>(20, 3)</em>)</p></li>
+<li><p><strong>In [4]</strong> (<em>mesh.vertices.shape</em>)</p></li>
+<li><p><strong>Out[4]</strong> (<em>(12, 3)</em>)</p></li>
+<li><p><strong>In [5]</strong> (<em>dense = sparse.toarray().astype(int)</em>)</p></li>
+<li><p><strong>In [6]</strong> (<em>dense</em>)</p></li>
+<li><p><em>Out[6]</em></p></li>
+<li><p><em>array([[1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],</em> – [0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+[1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0],
+[0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0],
+[0, 0, 1, 1, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0],
+[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 1, 1, 0, 0, 1, 0, 0],
+[0, 0, 1, 0, 1, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0],
+[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 1, 0, 1, 0, 0, 0, 1],
+[1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 1, 0, 0],
+[0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1, 1, 0, 0],
+[0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 1],
+[0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 1, 1]])</p></li>
+<li><p><strong>In [7]</strong> (<em>dense.sum(axis=0)</em>)</p></li>
+<li><p><strong>Out[7]</strong> (<em>array([3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3])</em>)</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="trimesh.geometry.mean_vertex_normals">
+<code class="sig-prename descclassname">trimesh.geometry.</code><code class="sig-name descname">mean_vertex_normals</code><span class="sig-paren">(</span><em class="sig-param">vertex_count</em>, <em class="sig-param">faces</em>, <em class="sig-param">face_normals</em>, <em class="sig-param">sparse=None</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.geometry.mean_vertex_normals" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find vertex normals from the mean of the faces that contain
+that vertex.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>vertex_count</strong> (<em>int</em>) – The number of vertices faces refer to</p></li>
+<li><p><strong>faces</strong> (<em>(</em><em>n</em><em>, </em><em>3</em><em>) </em><em>int</em>) – List of vertex indices</p></li>
+<li><p><strong>face_normals</strong> (<em>(</em><em>n</em><em>, </em><em>3</em><em>) </em><em>float</em>) – Normal vector for each face</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>vertex_normals</strong> – Normals for every vertex
+Vertices unreferenced by faces will be zero.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>(vertex_count, 3) float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="trimesh.geometry.plane_transform">
+<code class="sig-prename descclassname">trimesh.geometry.</code><code class="sig-name descname">plane_transform</code><span class="sig-paren">(</span><em class="sig-param">origin</em>, <em class="sig-param">normal</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.geometry.plane_transform" title="Permalink to this definition">¶</a></dt>
+<dd><p>Given the origin and normal of a plane find the transform
+that will move that plane to be coplanar with the XY plane.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>origin</strong> (<em>(</em><em>3</em><em>,</em><em>) </em><em>float</em>) – Point that lies on the plane</p></li>
+<li><p><strong>normal</strong> (<em>(</em><em>3</em><em>,</em><em>) </em><em>float</em>) – Vector that points along normal of plane</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>transform</strong> – Transformation matrix to move points onto XY plane</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>(4,4) float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="trimesh.geometry.triangulate_quads">
+<code class="sig-prename descclassname">trimesh.geometry.</code><code class="sig-name descname">triangulate_quads</code><span class="sig-paren">(</span><em class="sig-param">quads</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.geometry.triangulate_quads" title="Permalink to this definition">¶</a></dt>
+<dd><p>Given a set of quad faces, return them as triangle faces.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>quads</strong> (<em>(</em><em>n</em><em>, </em><em>4</em><em>) </em><em>int</em>) – Vertex indices of quad faces</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>faces</strong> – Vertex indices of triangular faces</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>(m, 3) int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="trimesh.geometry.vector_angle">
+<code class="sig-prename descclassname">trimesh.geometry.</code><code class="sig-name descname">vector_angle</code><span class="sig-paren">(</span><em class="sig-param">pairs</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.geometry.vector_angle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find the angles between pairs of unit vectors.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>pairs</strong> (<em>(</em><em>n</em><em>, </em><em>2</em><em>, </em><em>3</em><em>) </em><em>float</em>) – Unit vector pairs</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>angles</strong> – Angles between vectors in radians</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>(n,) float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="trimesh.geometry.vertex_face_indices">
+<code class="sig-prename descclassname">trimesh.geometry.</code><code class="sig-name descname">vertex_face_indices</code><span class="sig-paren">(</span><em class="sig-param">vertex_count</em>, <em class="sig-param">faces</em>, <em class="sig-param">faces_sparse</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.geometry.vertex_face_indices" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find vertex face indices from the faces array of vertices</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>vertex_count</strong> (<em>int</em>) – The number of vertices faces refer to</p></li>
+<li><p><strong>faces</strong> (<em>(</em><em>n</em><em>, </em><em>3</em><em>) </em><em>int</em>) – List of vertex indices</p></li>
+<li><p><strong>faces_sparse</strong> (<em>scipy.sparse.COO</em>) – Sparse matrix</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>vertex_faces</strong> – Face indices for every vertex
+Array padded with -1 in each row for all vertices with fewer
+face indices than the max number of face indices.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>(vertex_count, ) int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="trimesh.geometry.weighted_vertex_normals">
+<code class="sig-prename descclassname">trimesh.geometry.</code><code class="sig-name descname">weighted_vertex_normals</code><span class="sig-paren">(</span><em class="sig-param">vertex_count</em>, <em class="sig-param">faces</em>, <em class="sig-param">face_normals</em>, <em class="sig-param">face_angles</em>, <em class="sig-param">use_loop=False</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.geometry.weighted_vertex_normals" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute vertex normals from the faces that contain that vertex.
+The contibution of a face’s normal to a vertex normal is the
+ratio of the corner-angle in which the vertex is, with respect
+to the sum of all corner-angles surrounding the vertex.</p>
+<p>Grit Thuerrner &amp; Charles A. Wuethrich (1998)
+Computing Vertex Normals from Polygonal Facets,
+Journal of Graphics Tools, 3:1, 43-46</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>vertex_count</strong> (<em>int</em>) – The number of vertices faces refer to</p></li>
+<li><p><strong>faces</strong> (<em>(</em><em>n</em><em>, </em><em>3</em><em>) </em><em>int</em>) – List of vertex indices</p></li>
+<li><p><strong>face_normals</strong> (<em>(</em><em>n</em><em>, </em><em>3</em><em>) </em><em>float</em>) – Normal vector for each face</p></li>
+<li><p><strong>face_angles</strong> (<em>(</em><em>n</em><em>, </em><em>3</em><em>) </em><em>float</em>) – Angles at each vertex in the face</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>vertex_normals</strong> – Normals for every vertex
+Vertices unreferenced by faces will be zero.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>(vertex_count, 3) float</p>
+</dd>
+</dl>
+</dd></dl>
+
 </div>
 
 

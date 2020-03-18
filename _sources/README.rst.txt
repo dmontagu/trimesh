@@ -1,9 +1,11 @@
-|trimesh|
+`trimesh <http://trimsh.org>`__
 
 --------------
 
-|Build Status| |Coverage Status| |PyPI version| |CircleCI| |Join the
-chat at https://gitter.im/trimsh/Lobby|
+`Github Actions <https://github.com/mikedh/trimesh/actions>`__ `Coverage
+Status <https://coveralls.io/github/mikedh/trimesh>`__ `PyPI
+version <https://badge.fury.io/py/trimesh>`__ `Join the chat at
+https://gitter.im/trimsh/Lobby <https://gitter.im/trimsh/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge>`__
 
 Trimesh is a pure Python (2.7-3.4+) library for loading and using
 `triangular meshes <https://en.wikipedia.org/wiki/Triangle_mesh>`__ with
@@ -16,7 +18,7 @@ The API is mostly stable, but this should not be relied on and is not
 guaranteed: install a specific version if you plan on deploying
 something using trimesh.
 
-Pull requests are appreciated and responded to promptly! If you'd like
+Pull requests are appreciated and responded to promptly! If you’d like
 to contribute, here is an `up to date list of potential
 enhancements <https://github.com/mikedh/trimesh/issues/199>`__ although
 things not on that list are also welcome. Here are some `tips for
@@ -34,7 +36,7 @@ Windows, Linux, and OSX:
 
 .. code:: bash
 
-    pip install trimesh
+   pip install trimesh
 
 For more functionality, like convex hulls (``scipy``), graph operations
 (``networkx``), faster ray queries (``pyembree``), vector path handling
@@ -44,15 +46,15 @@ install is a `conda environment <https://conda.io/miniconda.html>`__:
 
 .. code:: bash
 
-    # this will install all soft dependencies available on your current platform
-    conda install -c conda-forge trimesh
+   # this will install all soft dependencies available on your current platform
+   conda install -c conda-forge trimesh
 
 To install ``trimesh`` with the soft dependencies which install cleanly
 on Linux, OSX, and Windows\* using ``pip``:
 
 .. code:: bash
 
-    pip install trimesh[easy]
+   pip install trimesh[easy]
 
 Further information is available in the `advanced installation
 documentation <https://trimsh.org/install.html>`__.
@@ -70,87 +72,87 @@ example <https://github.com/mikedh/trimesh/blob/master/examples/integrate.ipynb>
 
 .. code:: python
 
-    import numpy as np
-    import trimesh
+   import numpy as np
+   import trimesh
 
-    # attach to logger so trimesh messages will be printed to console
-    trimesh.util.attach_to_log()
+   # attach to logger so trimesh messages will be printed to console
+   trimesh.util.attach_to_log()
 
-    # mesh objects can be created from existing faces and vertex data
-    mesh = trimesh.Trimesh(vertices=[[0, 0, 0], [0, 0, 1], [0, 1, 0]],
-                           faces=[[0, 1, 2]])
+   # mesh objects can be created from existing faces and vertex data
+   mesh = trimesh.Trimesh(vertices=[[0, 0, 0], [0, 0, 1], [0, 1, 0]],
+                          faces=[[0, 1, 2]])
 
-    # by default, Trimesh will do a light processing, which will
-    # remove any NaN values and merge vertices that share position
-    # if you want to not do this on load, you can pass `process=False`
-    mesh = trimesh.Trimesh(vertices=[[0, 0, 0], [0, 0, 1], [0, 1, 0]],
-                           faces=[[0, 1, 2]],
-                           process=False)
+   # by default, Trimesh will do a light processing, which will
+   # remove any NaN values and merge vertices that share position
+   # if you want to not do this on load, you can pass `process=False`
+   mesh = trimesh.Trimesh(vertices=[[0, 0, 0], [0, 0, 1], [0, 1, 0]],
+                          faces=[[0, 1, 2]],
+                          process=False)
 
-    # mesh objects can be loaded from a file name or from a buffer
-    # you can pass any of the kwargs for the `Trimesh` constructor
-    # to `trimesh.load`, including `process=False` if you would like
-    # to preserve the original loaded data without merging vertices
-    # STL files will be a soup of disconnected triangles without
-    # merging vertices however and will not register as watertight
-    mesh = trimesh.load('../models/featuretype.STL')
+   # mesh objects can be loaded from a file name or from a buffer
+   # you can pass any of the kwargs for the `Trimesh` constructor
+   # to `trimesh.load`, including `process=False` if you would like
+   # to preserve the original loaded data without merging vertices
+   # STL files will be a soup of disconnected triangles without
+   # merging vertices however and will not register as watertight
+   mesh = trimesh.load('../models/featuretype.STL')
 
-    # is the current mesh watertight?
-    mesh.is_watertight
+   # is the current mesh watertight?
+   mesh.is_watertight
 
-    # what's the euler number for the mesh?
-    mesh.euler_number
+   # what's the euler number for the mesh?
+   mesh.euler_number
 
-    # the convex hull is another Trimesh object that is available as a property
-    # lets compare the volume of our mesh with the volume of its convex hull
-    print(mesh.volume / mesh.convex_hull.volume)
+   # the convex hull is another Trimesh object that is available as a property
+   # lets compare the volume of our mesh with the volume of its convex hull
+   print(mesh.volume / mesh.convex_hull.volume)
 
-    # since the mesh is watertight, it means there is a
-    # volumetric center of mass which we can set as the origin for our mesh
-    mesh.vertices -= mesh.center_mass
+   # since the mesh is watertight, it means there is a
+   # volumetric center of mass which we can set as the origin for our mesh
+   mesh.vertices -= mesh.center_mass
 
-    # what's the moment of inertia for the mesh?
-    mesh.moment_inertia
+   # what's the moment of inertia for the mesh?
+   mesh.moment_inertia
 
-    # if there are multiple bodies in the mesh we can split the mesh by
-    # connected components of face adjacency
-    # since this example mesh is a single watertight body we get a list of one mesh
-    mesh.split()
+   # if there are multiple bodies in the mesh we can split the mesh by
+   # connected components of face adjacency
+   # since this example mesh is a single watertight body we get a list of one mesh
+   mesh.split()
 
-    # facets are groups of coplanar adjacent faces
-    # set each facet to a random color
-    # colors are 8 bit RGBA by default (n, 4) np.uint8
-    for facet in mesh.facets:
-        mesh.visual.face_colors[facet] = trimesh.visual.random_color()
+   # facets are groups of coplanar adjacent faces
+   # set each facet to a random color
+   # colors are 8 bit RGBA by default (n, 4) np.uint8
+   for facet in mesh.facets:
+       mesh.visual.face_colors[facet] = trimesh.visual.random_color()
 
-    # preview mesh in an opengl window if you installed pyglet with pip
-    mesh.show()
+   # preview mesh in an opengl window if you installed pyglet with pip
+   mesh.show()
 
-    # transform method can be passed a (4, 4) matrix and will cleanly apply the transform
-    mesh.apply_transform(trimesh.transformations.random_rotation_matrix())
+   # transform method can be passed a (4, 4) matrix and will cleanly apply the transform
+   mesh.apply_transform(trimesh.transformations.random_rotation_matrix())
 
-    # axis aligned bounding box is available
-    mesh.bounding_box.extents
+   # axis aligned bounding box is available
+   mesh.bounding_box.extents
 
-    # a minimum volume oriented bounding box also available
-    # primitives are subclasses of Trimesh objects which automatically generate
-    # faces and vertices from data stored in the 'primitive' attribute
-    mesh.bounding_box_oriented.primitive.extents
-    mesh.bounding_box_oriented.primitive.transform
+   # a minimum volume oriented bounding box also available
+   # primitives are subclasses of Trimesh objects which automatically generate
+   # faces and vertices from data stored in the 'primitive' attribute
+   mesh.bounding_box_oriented.primitive.extents
+   mesh.bounding_box_oriented.primitive.transform
 
-    # show the mesh appended with its oriented bounding box
-    # the bounding box is a trimesh.primitives.Box object, which subclasses
-    # Trimesh and lazily evaluates to fill in vertices and faces when requested
-    # (press w in viewer to see triangles)
-    (mesh + mesh.bounding_box_oriented).show()
+   # show the mesh appended with its oriented bounding box
+   # the bounding box is a trimesh.primitives.Box object, which subclasses
+   # Trimesh and lazily evaluates to fill in vertices and faces when requested
+   # (press w in viewer to see triangles)
+   (mesh + mesh.bounding_box_oriented).show()
 
-    # bounding spheres and bounding cylinders of meshes are also
-    # available, and will be the minimum volume version of each
-    # except in certain degenerate cases, where they will be no worse
-    # than a least squares fit version of the primitive.
-    print(mesh.bounding_box_oriented.volume, 
-          mesh.bounding_cylinder.volume,
-          mesh.bounding_sphere.volume)
+   # bounding spheres and bounding cylinders of meshes are also
+   # available, and will be the minimum volume version of each
+   # except in certain degenerate cases, where they will be no worse
+   # than a least squares fit version of the primitive.
+   print(mesh.bounding_box_oriented.volume, 
+         mesh.bounding_cylinder.volume,
+         mesh.bounding_sphere.volume)
 
 Features
 --------
@@ -170,7 +172,7 @@ Features
    CRC, or xxhash
 -  Internal caching of computed values validated from hashes
 -  Calculate face adjacencies, face angles, vertex defects, etc.
--  Calculate cross sections, i.e. the slicing operation used in 3D
+-  Calculate cross sections, i.e. the slicing operation used in 3D
    printing
 -  Slice meshes with one or multiple arbitrary planes and return the
    resulting surface
@@ -242,15 +244,15 @@ Projects Using Trimesh
 
 You can check out the `Github
 network <https://github.com/mikedh/trimesh/network/dependents>`__ for
-things using trimesh. A select few: - Nvidia's
+things using trimesh. A select few: - Nvidia’s
 `kaolin <https://github.com/NVIDIAGameWorks/kaolin>`__ for deep learning
-on 3D geometry. - Berkeley's
+on 3D geometry. - Berkeley’s
 `DexNet4 <https://www.youtube.com/watch?v=GBiAxoWBNho&feature=emb_logo>`__
 and related `ambidextrous.ai <https://www.ambidextrous.ai/>`__ work with
-robotic grasp planning and manipulation. - Kerfed's `Kerfed's
+robotic grasp planning and manipulation. - Kerfed’s `Kerfed’s
 Engine <https://kerfed.com/technology>`__ for analyzing assembly
 geometry for manufacturing. -
-`MyMiniFactory's <https://www.myminifactory.com/>`__ P2Slice for
+`MyMiniFactory’s <https://www.myminifactory.com/>`__ P2Slice for
 preparing models for 3D printing. -
 `pyrender <https://github.com/mmatl/pyrender>`__ A library to render
 scenes from Python using nice looking PBR materials. -
@@ -285,7 +287,7 @@ are extremely simple: it is basically just a list of triangles. They are
 robust and are a good choice for basic geometry. Binary ``PLY`` files
 are a good step up, as they support indexed faces and colors.
 
-Wavefront ``OBJ`` is also pretty common: unfortunately OBJ doesn't have
+Wavefront ``OBJ`` is also pretty common: unfortunately OBJ doesn’t have
 a widely accepted specification so every importer and exporter
 implements things slightly differently, making it tough to support. It
 also allows unfortunate things like arbitrary sized polygons, has a face
@@ -302,13 +304,13 @@ quick BibTex recommendation:
 
 ::
 
-    @software{trimesh,
-        author = {{Dawson-Haggerty et al.}},
-        title = {trimesh},
-        url = {https://trimsh.org/},
-        version = {3.2.0},
-        date = {2019-12-8},
-    }
+   @software{trimesh,
+       author = {{Dawson-Haggerty et al.}},
+       title = {trimesh},
+       url = {https://trimsh.org/},
+       version = {3.2.0},
+       date = {2019-12-8},
+   }
 
 Containers
 ----------
@@ -323,19 +325,6 @@ image tags for ``latest``, git short hash for the commit in master (i.e.
 
 ``docker pull trimesh/trimesh``
 
-`Here's an
+`Here’s an
 example <https://github.com/mikedh/trimesh/tree/master/examples/dockerRender>`__
 of how to render meshes using LLVMpipe and XVFB inside a container.
-
-.. |trimesh| image:: https://trimsh.org/images/logotype-a.svg
-   :target: http://trimsh.org
-.. |Build Status| image:: https://travis-ci.org/mikedh/trimesh.svg?branch=master
-   :target: https://travis-ci.org/mikedh/trimesh
-.. |Coverage Status| image:: https://coveralls.io/repos/github/mikedh/trimesh/badge.svg
-   :target: https://coveralls.io/github/mikedh/trimesh
-.. |PyPI version| image:: https://badge.fury.io/py/trimesh.svg
-   :target: https://badge.fury.io/py/trimesh
-.. |CircleCI| image:: https://circleci.com/gh/mikedh/trimesh/tree/master.svg?style=svg
-   :target: https://circleci.com/gh/mikedh/trimesh/tree/master
-.. |Join the chat at https://gitter.im/trimsh/Lobby| image:: https://badges.gitter.im/trimsh/Lobby.svg
-   :target: https://gitter.im/trimsh/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge

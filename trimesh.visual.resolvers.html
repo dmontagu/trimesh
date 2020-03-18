@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>trimesh.visual.resolvers module &mdash; trimesh 3.6.1 documentation</title>
+  <title>trimesh.visual.resolvers module &mdash; trimesh 3.6.9 documentation</title>
   
 
   
@@ -60,7 +60,7 @@
             
             
               <div class="version">
-                3.6.1
+                3.6.9
               </div>
             
           
@@ -106,7 +106,7 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="trimesh.html#submodules">Submodules</a></li>
-<li class="toctree-l3"><a class="reference internal" href="trimesh.html#module-contents">Module contents</a></li>
+<li class="toctree-l3"><a class="reference internal" href="trimesh.html#module-trimesh">Module contents</a></li>
 </ul>
 </li>
 </ul>
@@ -181,8 +181,142 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="trimesh-visual-resolvers-module">
-<h1>trimesh.visual.resolvers module<a class="headerlink" href="#trimesh-visual-resolvers-module" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="module-trimesh.visual.resolvers">
+<span id="trimesh-visual-resolvers-module"></span><h1>trimesh.visual.resolvers module<a class="headerlink" href="#module-trimesh.visual.resolvers" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="resolvers-py">
+<h2>resolvers.py<a class="headerlink" href="#resolvers-py" title="Permalink to this headline">¶</a></h2>
+<p>Tools to load assets referenced in meshes, like MTL files
+or texture images.</p>
+<p><strong>Classes</strong></p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#trimesh.visual.resolvers.FilePathResolver" title="trimesh.visual.resolvers.FilePathResolver"><code class="xref py py-obj docutils literal notranslate"><span class="pre">FilePathResolver</span></code></a>(source)</p></td>
+<td><p>Resolve files from a source path on the file system.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#trimesh.visual.resolvers.Resolver" title="trimesh.visual.resolvers.Resolver"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Resolver</span></code></a>(*args, **kwargs)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#trimesh.visual.resolvers.WebResolver" title="trimesh.visual.resolvers.WebResolver"><code class="xref py py-obj docutils literal notranslate"><span class="pre">WebResolver</span></code></a>(url)</p></td>
+<td><p>Resolve assets from a remote URL.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#trimesh.visual.resolvers.ZipResolver" title="trimesh.visual.resolvers.ZipResolver"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ZipResolver</span></code></a>(archive)</p></td>
+<td><p>Resolve files inside a ZIP archive.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="class">
+<dt id="trimesh.visual.resolvers.FilePathResolver">
+<em class="property">class </em><code class="sig-prename descclassname">trimesh.visual.resolvers.</code><code class="sig-name descname">FilePathResolver</code><span class="sig-paren">(</span><em class="sig-param">source</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.visual.resolvers.FilePathResolver" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#trimesh.visual.resolvers.Resolver" title="trimesh.visual.resolvers.Resolver"><code class="xref py py-class docutils literal notranslate"><span class="pre">trimesh.visual.resolvers.Resolver</span></code></a></p>
+<p>Resolve files from a source path on the file system.</p>
+<p><strong>Methods</strong></p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#trimesh.visual.resolvers.FilePathResolver.get" title="trimesh.visual.resolvers.FilePathResolver.get"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get</span></code></a>(name)</p></td>
+<td><p>Get an asset.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="trimesh.visual.resolvers.FilePathResolver.get">
+<code class="sig-name descname">get</code><span class="sig-paren">(</span><em class="sig-param">name</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.visual.resolvers.FilePathResolver.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get an asset.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>name</strong> (<em>str</em>) – Name of the asset</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>data</strong> – Loaded data from asset</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>bytes</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="trimesh.visual.resolvers.Resolver">
+<em class="property">class </em><code class="sig-prename descclassname">trimesh.visual.resolvers.</code><code class="sig-name descname">Resolver</code><span class="sig-paren">(</span><em class="sig-param">*args</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.visual.resolvers.Resolver" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="trimesh.visual.resolvers.WebResolver">
+<em class="property">class </em><code class="sig-prename descclassname">trimesh.visual.resolvers.</code><code class="sig-name descname">WebResolver</code><span class="sig-paren">(</span><em class="sig-param">url</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.visual.resolvers.WebResolver" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#trimesh.visual.resolvers.Resolver" title="trimesh.visual.resolvers.Resolver"><code class="xref py py-class docutils literal notranslate"><span class="pre">trimesh.visual.resolvers.Resolver</span></code></a></p>
+<p>Resolve assets from a remote URL.</p>
+<p><strong>Methods</strong></p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#trimesh.visual.resolvers.WebResolver.get" title="trimesh.visual.resolvers.WebResolver.get"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get</span></code></a>(name)</p></td>
+<td><p>Get a resource from the remote site.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="trimesh.visual.resolvers.WebResolver.get">
+<code class="sig-name descname">get</code><span class="sig-paren">(</span><em class="sig-param">name</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.visual.resolvers.WebResolver.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a resource from the remote site.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>name</strong> (<em>str</em>) – Asset name, i.e. ‘quadknot.obj.mtl’</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="trimesh.visual.resolvers.ZipResolver">
+<em class="property">class </em><code class="sig-prename descclassname">trimesh.visual.resolvers.</code><code class="sig-name descname">ZipResolver</code><span class="sig-paren">(</span><em class="sig-param">archive</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.visual.resolvers.ZipResolver" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#trimesh.visual.resolvers.Resolver" title="trimesh.visual.resolvers.Resolver"><code class="xref py py-class docutils literal notranslate"><span class="pre">trimesh.visual.resolvers.Resolver</span></code></a></p>
+<p>Resolve files inside a ZIP archive.</p>
+<p><strong>Methods</strong></p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#trimesh.visual.resolvers.ZipResolver.get" title="trimesh.visual.resolvers.ZipResolver.get"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get</span></code></a>(name)</p></td>
+<td><p>Get an asset from the ZIP archive.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="trimesh.visual.resolvers.ZipResolver.get">
+<code class="sig-name descname">get</code><span class="sig-paren">(</span><em class="sig-param">name</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.visual.resolvers.ZipResolver.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get an asset from the ZIP archive.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>name</strong> (<em>str</em>) – Name of the asset</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>data</strong> – Loaded data from asset</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>bytes</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
 </div>
 
 

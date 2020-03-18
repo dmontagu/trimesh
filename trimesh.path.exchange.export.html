@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>trimesh.path.exchange.export module &mdash; trimesh 3.6.1 documentation</title>
+  <title>trimesh.path.exchange.export module &mdash; trimesh 3.6.9 documentation</title>
   
 
   
@@ -60,7 +60,7 @@
             
             
               <div class="version">
-                3.6.1
+                3.6.9
               </div>
             
           
@@ -106,7 +106,7 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="trimesh.html#submodules">Submodules</a></li>
-<li class="toctree-l3"><a class="reference internal" href="trimesh.html#module-contents">Module contents</a></li>
+<li class="toctree-l3"><a class="reference internal" href="trimesh.html#module-trimesh">Module contents</a></li>
 </ul>
 </li>
 </ul>
@@ -183,8 +183,50 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="trimesh-path-exchange-export-module">
-<h1>trimesh.path.exchange.export module<a class="headerlink" href="#trimesh-path-exchange-export-module" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="module-trimesh.path.exchange.export">
+<span id="trimesh-path-exchange-export-module"></span><h1>trimesh.path.exchange.export module<a class="headerlink" href="#module-trimesh.path.exchange.export" title="Permalink to this headline">¶</a></h1>
+<p><strong>Functions</strong></p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#trimesh.path.exchange.export.export_dict" title="trimesh.path.exchange.export.export_dict"><code class="xref py py-obj docutils literal notranslate"><span class="pre">export_dict</span></code></a>(path)</p></td>
+<td><p>Export a path as a dict of kwargs for the Path constructor.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#trimesh.path.exchange.export.export_path" title="trimesh.path.exchange.export.export_path"><code class="xref py py-obj docutils literal notranslate"><span class="pre">export_path</span></code></a>(path[, file_type, file_obj])</p></td>
+<td><p>Export a Path object to a file- like object, or to a filename</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="function">
+<dt id="trimesh.path.exchange.export.export_dict">
+<code class="sig-prename descclassname">trimesh.path.exchange.export.</code><code class="sig-name descname">export_dict</code><span class="sig-paren">(</span><em class="sig-param">path</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.path.exchange.export.export_dict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Export a path as a dict of kwargs for the Path constructor.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="trimesh.path.exchange.export.export_path">
+<code class="sig-prename descclassname">trimesh.path.exchange.export.</code><code class="sig-name descname">export_path</code><span class="sig-paren">(</span><em class="sig-param">path</em>, <em class="sig-param">file_type=None</em>, <em class="sig-param">file_obj=None</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.path.exchange.export.export_path" title="Permalink to this definition">¶</a></dt>
+<dd><p>Export a Path object to a file- like object, or to a filename</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>file_obj</strong> (<em>None</em><em>, </em><em>str</em><em>, or </em><em>file object</em>) – A filename string or a file-like object</p></li>
+<li><p><strong>file_type</strong> (<em>None</em><em> or </em><em>str</em>) – File type, e.g.: ‘svg’, ‘dxf’</p></li>
+<li><p><strong>kwargs</strong> (<em>passed to loader</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>exported</strong> – Data exported</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>str or bytes</p>
+</dd>
+</dl>
+</dd></dl>
+
 </div>
 
 

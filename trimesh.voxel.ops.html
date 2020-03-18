@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>trimesh.voxel.ops module &mdash; trimesh 3.6.1 documentation</title>
+  <title>trimesh.voxel.ops module &mdash; trimesh 3.6.9 documentation</title>
   
 
   
@@ -60,7 +60,7 @@
             
             
               <div class="version">
-                3.6.1
+                3.6.9
               </div>
             
           
@@ -106,7 +106,7 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="trimesh.html#submodules">Submodules</a></li>
-<li class="toctree-l3"><a class="reference internal" href="trimesh.html#module-contents">Module contents</a></li>
+<li class="toctree-l3"><a class="reference internal" href="trimesh.html#module-trimesh">Module contents</a></li>
 </ul>
 </li>
 </ul>
@@ -181,8 +181,259 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="trimesh-voxel-ops-module">
-<h1>trimesh.voxel.ops module<a class="headerlink" href="#trimesh-voxel-ops-module" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="module-trimesh.voxel.ops">
+<span id="trimesh-voxel-ops-module"></span><h1>trimesh.voxel.ops module<a class="headerlink" href="#module-trimesh.voxel.ops" title="Permalink to this headline">¶</a></h1>
+<p><strong>Functions</strong></p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#trimesh.voxel.ops.boolean_sparse" title="trimesh.voxel.ops.boolean_sparse"><code class="xref py py-obj docutils literal notranslate"><span class="pre">boolean_sparse</span></code></a>(a, b[, operation])</p></td>
+<td><p>Find common rows between two arrays very quickly using 3D boolean sparse matrices.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#trimesh.voxel.ops.fill_base" title="trimesh.voxel.ops.fill_base"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fill_base</span></code></a>(sparse_indices)</p></td>
+<td><p>Given a sparse surface voxelization, fill in between columns.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#trimesh.voxel.ops.fill_orthographic" title="trimesh.voxel.ops.fill_orthographic"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fill_orthographic</span></code></a>(dense)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#trimesh.voxel.ops.fill_voxelization" title="trimesh.voxel.ops.fill_voxelization"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fill_voxelization</span></code></a>(sparse_indices)</p></td>
+<td><p>Given a sparse surface voxelization, fill in between columns.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#trimesh.voxel.ops.indices_to_points" title="trimesh.voxel.ops.indices_to_points"><code class="xref py py-obj docutils literal notranslate"><span class="pre">indices_to_points</span></code></a>(indices[, pitch, origin])</p></td>
+<td><p>Convert indices of an (n,m,p) matrix into a set of voxel center points.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#trimesh.voxel.ops.matrix_to_marching_cubes" title="trimesh.voxel.ops.matrix_to_marching_cubes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">matrix_to_marching_cubes</span></code></a>(matrix[, pitch])</p></td>
+<td><p>Convert an (n,m,p) matrix into a mesh, using marching_cubes.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#trimesh.voxel.ops.matrix_to_points" title="trimesh.voxel.ops.matrix_to_points"><code class="xref py py-obj docutils literal notranslate"><span class="pre">matrix_to_points</span></code></a>(matrix[, pitch, origin])</p></td>
+<td><p>Convert an (n,m,p) matrix into a set of points for each voxel center.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#trimesh.voxel.ops.multibox" title="trimesh.voxel.ops.multibox"><code class="xref py py-obj docutils literal notranslate"><span class="pre">multibox</span></code></a>(centers[, pitch, colors])</p></td>
+<td><p>Return a Trimesh object with a box at every center.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#trimesh.voxel.ops.points_to_indices" title="trimesh.voxel.ops.points_to_indices"><code class="xref py py-obj docutils literal notranslate"><span class="pre">points_to_indices</span></code></a>(points[, pitch, origin])</p></td>
+<td><p>Convert center points of an (n,m,p) matrix into its indices.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#trimesh.voxel.ops.points_to_marching_cubes" title="trimesh.voxel.ops.points_to_marching_cubes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">points_to_marching_cubes</span></code></a>(points[, pitch])</p></td>
+<td><p>Mesh points by assuming they fill a voxel box, and then</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#trimesh.voxel.ops.sparse_to_matrix" title="trimesh.voxel.ops.sparse_to_matrix"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sparse_to_matrix</span></code></a>(sparse)</p></td>
+<td><p>Take a sparse (n,3) list of integer indexes of filled cells, turn it into a dense (m,o,p) matrix.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#trimesh.voxel.ops.strip_array" title="trimesh.voxel.ops.strip_array"><code class="xref py py-obj docutils literal notranslate"><span class="pre">strip_array</span></code></a>(data)</p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<dl class="function">
+<dt id="trimesh.voxel.ops.boolean_sparse">
+<code class="sig-prename descclassname">trimesh.voxel.ops.</code><code class="sig-name descname">boolean_sparse</code><span class="sig-paren">(</span><em class="sig-param">a</em>, <em class="sig-param">b</em>, <em class="sig-param">operation=&lt;ufunc 'logical_and'&gt;</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.voxel.ops.boolean_sparse" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find common rows between two arrays very quickly
+using 3D boolean sparse matrices.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>a</strong> (<em>(</em><em>n</em><em>, </em><em>d</em><em>)  </em><em>int</em><em>, </em><em>coordinates in space</em>) – </p></li>
+<li><p><strong>b</strong> (<em>(</em><em>m</em><em>, </em><em>d</em><em>)  </em><em>int</em><em>, </em><em>coordinates in space</em>) – </p></li>
+<li><p><strong>operation</strong> (<em>numpy operation function</em><em>, </em><em>ie:</em>) – np.logical_and
+np.logical_or</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>coords</strong></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>(q, d) int, coordinates in space</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="trimesh.voxel.ops.fill_base">
+<code class="sig-prename descclassname">trimesh.voxel.ops.</code><code class="sig-name descname">fill_base</code><span class="sig-paren">(</span><em class="sig-param">sparse_indices</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.voxel.ops.fill_base" title="Permalink to this definition">¶</a></dt>
+<dd><p>Given a sparse surface voxelization, fill in between columns.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>sparse_indices</strong> (<em>(</em><em>n</em><em>, </em><em>3</em><em>) </em><em>int</em><em>, </em><em>location of filled cells</em>) – </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>filled</strong></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>(m, 3) int, location of filled cells</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="trimesh.voxel.ops.fill_orthographic">
+<code class="sig-prename descclassname">trimesh.voxel.ops.</code><code class="sig-name descname">fill_orthographic</code><span class="sig-paren">(</span><em class="sig-param">dense</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.voxel.ops.fill_orthographic" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="trimesh.voxel.ops.fill_voxelization">
+<code class="sig-prename descclassname">trimesh.voxel.ops.</code><code class="sig-name descname">fill_voxelization</code><span class="sig-paren">(</span><em class="sig-param">sparse_indices</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.voxel.ops.fill_voxelization" title="Permalink to this definition">¶</a></dt>
+<dd><p>Given a sparse surface voxelization, fill in between columns.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>sparse_indices</strong> (<em>(</em><em>n</em><em>, </em><em>3</em><em>) </em><em>int</em><em>, </em><em>location of filled cells</em>) – </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>filled</strong></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>(m, 3) int, location of filled cells</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="trimesh.voxel.ops.indices_to_points">
+<code class="sig-prename descclassname">trimesh.voxel.ops.</code><code class="sig-name descname">indices_to_points</code><span class="sig-paren">(</span><em class="sig-param">indices</em>, <em class="sig-param">pitch=None</em>, <em class="sig-param">origin=None</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.voxel.ops.indices_to_points" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert indices of an (n,m,p) matrix into a set of voxel center points.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>indices</strong> (<em>(</em><em>q</em><em>, </em><em>3</em><em>) </em><em>int</em><em>, </em><em>index of voxel matrix</em><em> (</em><em>n</em><em>,</em><em>m</em><em>,</em><em>p</em><em>)</em>) – </p></li>
+<li><p><strong>pitch</strong> (<em>float</em><em>, </em><em>what pitch was the voxel matrix computed with</em>) – </p></li>
+<li><p><strong>origin</strong> (<em>(</em><em>3</em><em>,</em><em>) </em><em>float</em><em>, </em><em>what is the origin of the voxel matrix</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>points</strong></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>(q, 3) float, list of points</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="trimesh.voxel.ops.matrix_to_marching_cubes">
+<code class="sig-prename descclassname">trimesh.voxel.ops.</code><code class="sig-name descname">matrix_to_marching_cubes</code><span class="sig-paren">(</span><em class="sig-param">matrix</em>, <em class="sig-param">pitch=1.0</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.voxel.ops.matrix_to_marching_cubes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert an (n,m,p) matrix into a mesh, using marching_cubes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>matrix</strong> (<em>(</em><em>n</em><em>, </em><em>m</em><em>, </em><em>p</em><em>) </em><em>bool</em>) – Occupancy array</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>mesh</strong> – Mesh generated by meshing voxels using
+the marching cubes algorithm in skimage</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="trimesh.html#trimesh.Trimesh" title="trimesh.Trimesh">trimesh.Trimesh</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="trimesh.voxel.ops.matrix_to_points">
+<code class="sig-prename descclassname">trimesh.voxel.ops.</code><code class="sig-name descname">matrix_to_points</code><span class="sig-paren">(</span><em class="sig-param">matrix</em>, <em class="sig-param">pitch=None</em>, <em class="sig-param">origin=None</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.voxel.ops.matrix_to_points" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert an (n,m,p) matrix into a set of points for each voxel center.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>matrix</strong> (<em>(</em><em>n</em><em>,</em><em>m</em><em>,</em><em>p</em><em>) </em><em>bool</em><em>, </em><em>voxel matrix</em>) – </p></li>
+<li><p><strong>pitch</strong> (<em>float</em><em>, </em><em>what pitch was the voxel matrix computed with</em>) – </p></li>
+<li><p><strong>origin</strong> (<em>(</em><em>3</em><em>,</em><em>) </em><em>float</em><em>, </em><em>what is the origin of the voxel matrix</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>points</strong></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>(q, 3) list of points</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="trimesh.voxel.ops.multibox">
+<code class="sig-prename descclassname">trimesh.voxel.ops.</code><code class="sig-name descname">multibox</code><span class="sig-paren">(</span><em class="sig-param">centers</em>, <em class="sig-param">pitch=1.0</em>, <em class="sig-param">colors=None</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.voxel.ops.multibox" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a Trimesh object with a box at every center.</p>
+<p>Doesn’t do anything nice or fancy.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>centers</strong> (<em>(</em><em>n</em><em>, </em><em>3</em><em>) </em><em>float</em>) – Center of boxes that are occupied</p></li>
+<li><p><strong>pitch</strong> (<em>float</em>) – The edge length of a voxel</p></li>
+<li><p><strong>colors</strong> (<em>(</em><em>3</em><em>,</em><em>) or </em><em>(</em><em>4</em><em>,</em><em>) or </em><em>(</em><em>n</em><em>,</em><em>3</em><em>) or </em><em>(</em><em>n</em><em>, </em><em>4</em><em>) </em><em>float</em>) – Color of boxes</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>rough</strong> – Mesh object representing inputs</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="trimesh.html#trimesh.Trimesh" title="trimesh.Trimesh">Trimesh</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="trimesh.voxel.ops.points_to_indices">
+<code class="sig-prename descclassname">trimesh.voxel.ops.</code><code class="sig-name descname">points_to_indices</code><span class="sig-paren">(</span><em class="sig-param">points</em>, <em class="sig-param">pitch=None</em>, <em class="sig-param">origin=None</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.voxel.ops.points_to_indices" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert center points of an (n,m,p) matrix into its indices.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>points</strong> (<em>(</em><em>q</em><em>, </em><em>3</em><em>) </em><em>float</em>) – Center points of voxel matrix (n,m,p)</p></li>
+<li><p><strong>pitch</strong> (<em>float</em>) – What pitch was the voxel matrix computed with</p></li>
+<li><p><strong>origin</strong> (<em>(</em><em>3</em><em>,</em><em>) </em><em>float</em>) – What is the origin of the voxel matrix</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>indices</strong> – List of indices</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>(q, 3) int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="trimesh.voxel.ops.points_to_marching_cubes">
+<code class="sig-prename descclassname">trimesh.voxel.ops.</code><code class="sig-name descname">points_to_marching_cubes</code><span class="sig-paren">(</span><em class="sig-param">points</em>, <em class="sig-param">pitch=1.0</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.voxel.ops.points_to_marching_cubes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Mesh points by assuming they fill a voxel box, and then
+running marching cubes on them</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>points</strong> (<em>(</em><em>n</em><em>, </em><em>3</em><em>) </em><em>float</em>) – Points in 3D space</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>mesh</strong> – Points meshed using marching cubes</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="trimesh.html#trimesh.Trimesh" title="trimesh.Trimesh">trimesh.Trimesh</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="trimesh.voxel.ops.sparse_to_matrix">
+<code class="sig-prename descclassname">trimesh.voxel.ops.</code><code class="sig-name descname">sparse_to_matrix</code><span class="sig-paren">(</span><em class="sig-param">sparse</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.voxel.ops.sparse_to_matrix" title="Permalink to this definition">¶</a></dt>
+<dd><p>Take a sparse (n,3) list of integer indexes of filled cells,
+turn it into a dense (m,o,p) matrix.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>sparse</strong> (<em>(</em><em>n</em><em>, </em><em>3</em><em>) </em><em>int</em>) – Index of filled cells</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>dense</strong> – Matrix of filled cells</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>(m, o, p) bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="trimesh.voxel.ops.strip_array">
+<code class="sig-prename descclassname">trimesh.voxel.ops.</code><code class="sig-name descname">strip_array</code><span class="sig-paren">(</span><em class="sig-param">data</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.voxel.ops.strip_array" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
 </div>
 
 

@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>trimesh.path.util module &mdash; trimesh 3.6.1 documentation</title>
+  <title>trimesh.path.util module &mdash; trimesh 3.6.9 documentation</title>
   
 
   
@@ -60,7 +60,7 @@
             
             
               <div class="version">
-                3.6.1
+                3.6.9
               </div>
             
           
@@ -106,7 +106,7 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="trimesh.html#submodules">Submodules</a></li>
-<li class="toctree-l3"><a class="reference internal" href="trimesh.html#module-contents">Module contents</a></li>
+<li class="toctree-l3"><a class="reference internal" href="trimesh.html#module-trimesh">Module contents</a></li>
 </ul>
 </li>
 </ul>
@@ -181,8 +181,57 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="trimesh-path-util-module">
-<h1>trimesh.path.util module<a class="headerlink" href="#trimesh-path-util-module" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="module-trimesh.path.util">
+<span id="trimesh-path-util-module"></span><h1>trimesh.path.util module<a class="headerlink" href="#module-trimesh.path.util" title="Permalink to this headline">¶</a></h1>
+<p><strong>Functions</strong></p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#trimesh.path.util.concatenate" title="trimesh.path.util.concatenate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">concatenate</span></code></a>(paths)</p></td>
+<td><p>Concatenate multiple paths into a single path.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#trimesh.path.util.is_ccw" title="trimesh.path.util.is_ccw"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_ccw</span></code></a>(points)</p></td>
+<td><p>Check if connected planar points are counterclockwise.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="function">
+<dt id="trimesh.path.util.concatenate">
+<code class="sig-prename descclassname">trimesh.path.util.</code><code class="sig-name descname">concatenate</code><span class="sig-paren">(</span><em class="sig-param">paths</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.path.util.concatenate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Concatenate multiple paths into a single path.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>paths</strong> (<em>list of Path</em><em>, </em><a class="reference internal" href="trimesh.path.html#trimesh.path.Path2D" title="trimesh.path.Path2D"><em>Path2D</em></a><em>, or </em><em>Path3D objects</em>) – </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>concat</strong></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="trimesh.path.path.html#trimesh.path.path.Path" title="trimesh.path.path.Path">Path</a>, <a class="reference internal" href="trimesh.path.html#trimesh.path.Path2D" title="trimesh.path.Path2D">Path2D</a>, or Path3D object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="trimesh.path.util.is_ccw">
+<code class="sig-prename descclassname">trimesh.path.util.</code><code class="sig-name descname">is_ccw</code><span class="sig-paren">(</span><em class="sig-param">points</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.path.util.is_ccw" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if connected planar points are counterclockwise.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>points</strong> (<em>(</em><em>n</em><em>,</em><em>2</em><em>) </em><em>float</em><em>, </em><em>connected points on a plane</em>) – </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>ccw</strong></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>bool, True if points are counterclockwise</p>
+</dd>
+</dl>
+</dd></dl>
+
 </div>
 
 

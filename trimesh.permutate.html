@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>trimesh.permutate module &mdash; trimesh 3.6.1 documentation</title>
+  <title>trimesh.permutate module &mdash; trimesh 3.6.9 documentation</title>
   
 
   
@@ -60,7 +60,7 @@
             
             
               <div class="version">
-                3.6.1
+                3.6.9
               </div>
             
           
@@ -135,7 +135,7 @@
 <li class="toctree-l4"><a class="reference internal" href="trimesh.version.html">trimesh.version module</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="trimesh.html#module-contents">Module contents</a></li>
+<li class="toctree-l3"><a class="reference internal" href="trimesh.html#module-trimesh">Module contents</a></li>
 </ul>
 </li>
 </ul>
@@ -208,8 +208,188 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="trimesh-permutate-module">
-<h1>trimesh.permutate module<a class="headerlink" href="#trimesh-permutate-module" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="module-trimesh.permutate">
+<span id="trimesh-permutate-module"></span><h1>trimesh.permutate module<a class="headerlink" href="#module-trimesh.permutate" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="permutate-py">
+<h2>permutate.py<a class="headerlink" href="#permutate-py" title="Permalink to this headline">¶</a></h2>
+<p>Randomly deform meshes in different ways.</p>
+<p><strong>Classes</strong></p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#trimesh.permutate.Permutator" title="trimesh.permutate.Permutator"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Permutator</span></code></a>(mesh)</p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Functions</strong></p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#trimesh.permutate.noise" title="trimesh.permutate.noise"><code class="xref py py-obj docutils literal notranslate"><span class="pre">noise</span></code></a>(mesh[, magnitude])</p></td>
+<td><p>Add gaussian noise to every vertex of a mesh, making no effort to maintain topology or sanity.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#trimesh.permutate.tessellation" title="trimesh.permutate.tessellation"><code class="xref py py-obj docutils literal notranslate"><span class="pre">tessellation</span></code></a>(mesh)</p></td>
+<td><p>Subdivide each face of a mesh into three faces with the new vertex randomly placed inside the old face.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#trimesh.permutate.transform" title="trimesh.permutate.transform"><code class="xref py py-obj docutils literal notranslate"><span class="pre">transform</span></code></a>(mesh[, translation_scale])</p></td>
+<td><p>Return a permutated variant of a mesh by randomly reording faces and rotatating + translating a mesh by a random matrix.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="class">
+<dt id="trimesh.permutate.Permutator">
+<em class="property">class </em><code class="sig-prename descclassname">trimesh.permutate.</code><code class="sig-name descname">Permutator</code><span class="sig-paren">(</span><em class="sig-param">mesh</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.permutate.Permutator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p><strong>Methods</strong></p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#trimesh.permutate.Permutator.noise" title="trimesh.permutate.Permutator.noise"><code class="xref py py-obj docutils literal notranslate"><span class="pre">noise</span></code></a>([magnitude])</p></td>
+<td><p>Add gaussian noise to every vertex of a mesh, making no effort to maintain topology or sanity.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#trimesh.permutate.Permutator.tessellation" title="trimesh.permutate.Permutator.tessellation"><code class="xref py py-obj docutils literal notranslate"><span class="pre">tessellation</span></code></a>()</p></td>
+<td><p>Subdivide each face of a mesh into three faces with the new vertex randomly placed inside the old face.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#trimesh.permutate.Permutator.transform" title="trimesh.permutate.Permutator.transform"><code class="xref py py-obj docutils literal notranslate"><span class="pre">transform</span></code></a>([translation_scale])</p></td>
+<td><p>Return a permutated variant of a mesh by randomly reording faces and rotatating + translating a mesh by a random matrix.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="trimesh.permutate.Permutator.noise">
+<code class="sig-name descname">noise</code><span class="sig-paren">(</span><em class="sig-param">magnitude=None</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.permutate.Permutator.noise" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add gaussian noise to every vertex of a mesh, making
+no effort to maintain topology or sanity.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>mesh</strong> (<a class="reference internal" href="trimesh.html#trimesh.Trimesh" title="trimesh.Trimesh"><em>trimesh.Trimesh</em></a>) – Input geometry, will not be altered</p></li>
+<li><p><strong>magnitude</strong> (<em>float</em>) – What is the maximum distance per axis we can displace a vertex.
+If None, value defaults to (mesh.scale / 100.0)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>permutated</strong> – Input mesh with noise applied</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="trimesh.html#trimesh.Trimesh" title="trimesh.Trimesh">trimesh.Trimesh</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="trimesh.permutate.Permutator.tessellation">
+<code class="sig-name descname">tessellation</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.permutate.Permutator.tessellation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Subdivide each face of a mesh into three faces with the new vertex
+randomly placed inside the old face.</p>
+<p>This produces a mesh with exactly the same surface area and volume
+but with different tessellation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>mesh</strong> (<a class="reference internal" href="trimesh.html#trimesh.Trimesh" title="trimesh.Trimesh"><em>trimesh.Trimesh</em></a>) – Input geometry</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>permutated</strong> – Mesh with remeshed facets</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="trimesh.html#trimesh.Trimesh" title="trimesh.Trimesh">trimesh.Trimesh</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="trimesh.permutate.Permutator.transform">
+<code class="sig-name descname">transform</code><span class="sig-paren">(</span><em class="sig-param">translation_scale=1000</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.permutate.Permutator.transform" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a permutated variant of a mesh by randomly reording faces
+and rotatating + translating a mesh by a random matrix.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>mesh</strong> (<a class="reference internal" href="trimesh.html#trimesh.Trimesh" title="trimesh.Trimesh"><em>trimesh.Trimesh</em></a>) – Mesh, will not be altered by this function</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>permutated</strong> – Mesh with same faces as input mesh but reordered
+and rigidly transformed in space.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="trimesh.html#trimesh.Trimesh" title="trimesh.Trimesh">trimesh.Trimesh</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="trimesh.permutate.noise">
+<code class="sig-prename descclassname">trimesh.permutate.</code><code class="sig-name descname">noise</code><span class="sig-paren">(</span><em class="sig-param">mesh</em>, <em class="sig-param">magnitude=None</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.permutate.noise" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add gaussian noise to every vertex of a mesh, making
+no effort to maintain topology or sanity.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>mesh</strong> (<a class="reference internal" href="trimesh.html#trimesh.Trimesh" title="trimesh.Trimesh"><em>trimesh.Trimesh</em></a>) – Input geometry, will not be altered</p></li>
+<li><p><strong>magnitude</strong> (<em>float</em>) – What is the maximum distance per axis we can displace a vertex.
+If None, value defaults to (mesh.scale / 100.0)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>permutated</strong> – Input mesh with noise applied</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="trimesh.html#trimesh.Trimesh" title="trimesh.Trimesh">trimesh.Trimesh</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="trimesh.permutate.tessellation">
+<code class="sig-prename descclassname">trimesh.permutate.</code><code class="sig-name descname">tessellation</code><span class="sig-paren">(</span><em class="sig-param">mesh</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.permutate.tessellation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Subdivide each face of a mesh into three faces with the new vertex
+randomly placed inside the old face.</p>
+<p>This produces a mesh with exactly the same surface area and volume
+but with different tessellation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>mesh</strong> (<a class="reference internal" href="trimesh.html#trimesh.Trimesh" title="trimesh.Trimesh"><em>trimesh.Trimesh</em></a>) – Input geometry</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>permutated</strong> – Mesh with remeshed facets</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="trimesh.html#trimesh.Trimesh" title="trimesh.Trimesh">trimesh.Trimesh</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="trimesh.permutate.transform">
+<code class="sig-prename descclassname">trimesh.permutate.</code><code class="sig-name descname">transform</code><span class="sig-paren">(</span><em class="sig-param">mesh</em>, <em class="sig-param">translation_scale=1000.0</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.permutate.transform" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a permutated variant of a mesh by randomly reording faces
+and rotatating + translating a mesh by a random matrix.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>mesh</strong> (<a class="reference internal" href="trimesh.html#trimesh.Trimesh" title="trimesh.Trimesh"><em>trimesh.Trimesh</em></a>) – Mesh, will not be altered by this function</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>permutated</strong> – Mesh with same faces as input mesh but reordered
+and rigidly transformed in space.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="trimesh.html#trimesh.Trimesh" title="trimesh.Trimesh">trimesh.Trimesh</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
 </div>
 
 

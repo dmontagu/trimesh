@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>trimesh.interfaces.vhacd module &mdash; trimesh 3.6.1 documentation</title>
+  <title>trimesh.interfaces.vhacd module &mdash; trimesh 3.6.9 documentation</title>
   
 
   
@@ -60,7 +60,7 @@
             
             
               <div class="version">
-                3.6.1
+                3.6.9
               </div>
             
           
@@ -106,7 +106,7 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="trimesh.html#submodules">Submodules</a></li>
-<li class="toctree-l3"><a class="reference internal" href="trimesh.html#module-contents">Module contents</a></li>
+<li class="toctree-l3"><a class="reference internal" href="trimesh.html#module-trimesh">Module contents</a></li>
 </ul>
 </li>
 </ul>
@@ -181,8 +181,38 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="trimesh-interfaces-vhacd-module">
-<h1>trimesh.interfaces.vhacd module<a class="headerlink" href="#trimesh-interfaces-vhacd-module" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="module-trimesh.interfaces.vhacd">
+<span id="trimesh-interfaces-vhacd-module"></span><h1>trimesh.interfaces.vhacd module<a class="headerlink" href="#module-trimesh.interfaces.vhacd" title="Permalink to this headline">¶</a></h1>
+<p><strong>Functions</strong></p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#trimesh.interfaces.vhacd.convex_decomposition" title="trimesh.interfaces.vhacd.convex_decomposition"><code class="xref py py-obj docutils literal notranslate"><span class="pre">convex_decomposition</span></code></a>(mesh[, debug])</p></td>
+<td><p>Run VHACD to generate an approximate convex decomposition of a single mesh.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="function">
+<dt id="trimesh.interfaces.vhacd.convex_decomposition">
+<code class="sig-prename descclassname">trimesh.interfaces.vhacd.</code><code class="sig-name descname">convex_decomposition</code><span class="sig-paren">(</span><em class="sig-param">mesh</em>, <em class="sig-param">debug=False</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.interfaces.vhacd.convex_decomposition" title="Permalink to this definition">¶</a></dt>
+<dd><p>Run VHACD to generate an approximate convex decomposition
+of a single mesh.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>mesh</strong> (<a class="reference internal" href="trimesh.html#trimesh.Trimesh" title="trimesh.Trimesh"><em>trimesh.Trimesh</em></a>) – Mesh to be decomposed into convex components</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>meshes</strong> – List of convex meshes</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>(n,) <a class="reference internal" href="trimesh.html#trimesh.Trimesh" title="trimesh.Trimesh">trimesh.Trimesh</a></p>
+</dd>
+</dl>
+</dd></dl>
+
 </div>
 
 

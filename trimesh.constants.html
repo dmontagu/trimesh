@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>trimesh.constants module &mdash; trimesh 3.6.1 documentation</title>
+  <title>trimesh.constants module &mdash; trimesh 3.6.9 documentation</title>
   
 
   
@@ -60,7 +60,7 @@
             
             
               <div class="version">
-                3.6.1
+                3.6.9
               </div>
             
           
@@ -135,7 +135,7 @@
 <li class="toctree-l4"><a class="reference internal" href="trimesh.version.html">trimesh.version module</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="trimesh.html#module-contents">Module contents</a></li>
+<li class="toctree-l3"><a class="reference internal" href="trimesh.html#module-trimesh">Module contents</a></li>
 </ul>
 </li>
 </ul>
@@ -208,8 +208,119 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="trimesh-constants-module">
-<h1>trimesh.constants module<a class="headerlink" href="#trimesh-constants-module" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="module-trimesh.constants">
+<span id="trimesh-constants-module"></span><h1>trimesh.constants module<a class="headerlink" href="#module-trimesh.constants" title="Permalink to this headline">¶</a></h1>
+<p><strong>Classes</strong></p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#trimesh.constants.ResolutionPath" title="trimesh.constants.ResolutionPath"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ResolutionPath</span></code></a>(**kwargs)</p></td>
+<td><p>res.seg_frac: when discretizing curves, what percentage of the drawing</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#trimesh.constants.ToleranceMesh" title="trimesh.constants.ToleranceMesh"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ToleranceMesh</span></code></a>(**kwargs)</p></td>
+<td><p>ToleranceMesh objects hold tolerance information about meshes.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#trimesh.constants.TolerancePath" title="trimesh.constants.TolerancePath"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TolerancePath</span></code></a>(**kwargs)</p></td>
+<td><p>TolerancePath objects contain tolerance information used in Path objects.</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Functions</strong></p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#trimesh.constants.log_time" title="trimesh.constants.log_time"><code class="xref py py-obj docutils literal notranslate"><span class="pre">log_time</span></code></a>(method)</p></td>
+<td><p>A decorator for methods which will time the method and then emit a log.debug message with the method name and how long it took to execute.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="class">
+<dt id="trimesh.constants.ResolutionPath">
+<em class="property">class </em><code class="sig-prename descclassname">trimesh.constants.</code><code class="sig-name descname">ResolutionPath</code><span class="sig-paren">(</span><em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.constants.ResolutionPath" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="simple">
+<dt>res.seg_frac: when discretizing curves, what percentage of the drawing</dt><dd><p>scale should we aim to make a single segment</p>
+</dd>
+</dl>
+<p>res.seg_angle: when discretizing curves, what angle should a section span
+res.max_sections: when discretizing splines, what is the maximum number</p>
+<blockquote>
+<div><p>of segments per control point</p>
+</div></blockquote>
+<dl class="simple">
+<dt>res.min_sections: when discretizing splines, what is the minimum number</dt><dd><p>of segments per control point</p>
+</dd>
+</dl>
+<p>res.export: format string to use when exporting floating point vertices</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="trimesh.constants.ToleranceMesh">
+<em class="property">class </em><code class="sig-prename descclassname">trimesh.constants.</code><code class="sig-name descname">ToleranceMesh</code><span class="sig-paren">(</span><em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.constants.ToleranceMesh" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>ToleranceMesh objects hold tolerance information about meshes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>tol.zero</strong> (<em>float</em>) – Floating point numbers smaller than this are considered zero</p></li>
+<li><p><strong>tol.merge</strong> (<em>float</em>) – When merging vertices, consider vertices closer than this
+to be the same vertex. Here we use the same value (1e-8)
+as SolidWorks uses, according to their documentation.</p></li>
+<li><p><strong>tol.planar</strong> (<em>float</em>) – The maximum distance from a plane a point can be and
+still be considered to be on the plane</p></li>
+<li><p><strong>tol.facet_threshold</strong> (<em>float</em>) – Threshold for two facets to be considered coplanar</p></li>
+<li><p><strong>tol.strict</strong> (<em>bool</em>) – If True, run additional in- process checks (slower)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="class">
+<dt id="trimesh.constants.TolerancePath">
+<em class="property">class </em><code class="sig-prename descclassname">trimesh.constants.</code><code class="sig-name descname">TolerancePath</code><span class="sig-paren">(</span><em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.constants.TolerancePath" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>TolerancePath objects contain tolerance information used in
+Path objects.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>tol.zero</strong> (<em>float</em>) – Floating point numbers smaller than this are considered zero</p></li>
+<li><p><strong>tol.merge</strong> (<em>float</em>) – When merging vertices, consider vertices closer than this
+to be the same vertex. Here we use the same value (1e-8)
+as SolidWorks uses, according to their documentation.</p></li>
+<li><p><strong>tol.planar</strong> (<em>float</em>) – The maximum distance from a plane a point can be and
+still be considered to be on the plane</p></li>
+<li><p><strong>tol.seg_frac</strong> (<em>float</em>) – <dl class="simple">
+<dt>When simplifying line segments what percentage of the drawing</dt><dd><p>scale can a segment be and have a curve fitted</p>
+</dd>
+</dl>
+</p></li>
+<li><p><strong>tol.seg_angle</strong> (<em>when simplifying line segments to arcs</em><em>, </em><em>what angle</em>) – can a segment span to be acceptable.</p></li>
+<li><p><strong>tol.aspect_frac</strong> (<em>when simplifying line segments to closed arcs</em><em> (</em><em>circles</em><em>)</em>) – what percentage can the aspect ratio differfrom 1:1
+before escaping the fit early</p></li>
+<li><p><strong>tol.radius_frac</strong> (<em>when simplifying line segments to arcs</em><em>, </em><em>what percentage</em>) – of the fit radius can vertices deviate to be acceptable</p></li>
+<li><p><strong>tol.radius_min</strong> (<em>when simplifying line segments to arcs</em><em>, </em><em>what is the minimum</em>) – radius multiplied by document scale for an acceptable fit</p></li>
+<li><p><strong>tol.radius_max</strong> (<em>when simplifying line segments to arcs</em><em>, </em><em>what is the maximum</em>) – radius multiplied by document scale for an acceptable fit</p></li>
+<li><p><strong>tol.tangent</strong> (<em>when simplifying line segments to curves</em><em>, </em><em>what is the maximum</em>) – angle the end sections can deviate from tangent that is acceptable.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="trimesh.constants.log_time">
+<code class="sig-prename descclassname">trimesh.constants.</code><code class="sig-name descname">log_time</code><span class="sig-paren">(</span><em class="sig-param">method</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.constants.log_time" title="Permalink to this definition">¶</a></dt>
+<dd><p>A decorator for methods which will time the method
+and then emit a log.debug message with the method name
+and how long it took to execute.</p>
+</dd></dl>
+
 </div>
 
 

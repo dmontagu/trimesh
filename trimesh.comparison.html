@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>trimesh.comparison module &mdash; trimesh 3.6.1 documentation</title>
+  <title>trimesh.comparison module &mdash; trimesh 3.6.9 documentation</title>
   
 
   
@@ -60,7 +60,7 @@
             
             
               <div class="version">
-                3.6.1
+                3.6.9
               </div>
             
           
@@ -135,7 +135,7 @@
 <li class="toctree-l4"><a class="reference internal" href="trimesh.version.html">trimesh.version module</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="trimesh.html#module-contents">Module contents</a></li>
+<li class="toctree-l3"><a class="reference internal" href="trimesh.html#module-trimesh">Module contents</a></li>
 </ul>
 </li>
 </ul>
@@ -208,8 +208,96 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="trimesh-comparison-module">
-<h1>trimesh.comparison module<a class="headerlink" href="#trimesh-comparison-module" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="module-trimesh.comparison">
+<span id="trimesh-comparison-module"></span><h1>trimesh.comparison module<a class="headerlink" href="#module-trimesh.comparison" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="comparison-py">
+<h2>comparison.py<a class="headerlink" href="#comparison-py" title="Permalink to this headline">¶</a></h2>
+<p>Provide methods for quickly hashing and comparing meshes.</p>
+<p><strong>Functions</strong></p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#trimesh.comparison.face_ordering" title="trimesh.comparison.face_ordering"><code class="xref py py-obj docutils literal notranslate"><span class="pre">face_ordering</span></code></a>(mesh)</p></td>
+<td><p>Triangles with three different length sides are</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#trimesh.comparison.identifier_hash" title="trimesh.comparison.identifier_hash"><code class="xref py py-obj docutils literal notranslate"><span class="pre">identifier_hash</span></code></a>(identifier[, sigfig])</p></td>
+<td><p>Hash an identifier array to a specified number of significant figures.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#trimesh.comparison.identifier_simple" title="trimesh.comparison.identifier_simple"><code class="xref py py-obj docutils literal notranslate"><span class="pre">identifier_simple</span></code></a>(mesh)</p></td>
+<td><p>Return a basic identifier for a mesh, consisting of properties that have been hand tuned to be somewhat robust to rigid transformations and different tesselations.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="function">
+<dt id="trimesh.comparison.face_ordering">
+<code class="sig-prename descclassname">trimesh.comparison.</code><code class="sig-name descname">face_ordering</code><span class="sig-paren">(</span><em class="sig-param">mesh</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.comparison.face_ordering" title="Permalink to this definition">¶</a></dt>
+<dd><p>Triangles with three different length sides are
+ordered in two ways:
+[small edge, medium edge, large edge] (SML)
+[small edge, large edge,  medium edge] (SLM)</p>
+<p>This function returns [-1, 0, 1], depending on whether
+the triangle is SML or SLM, and 0 if M == L.</p>
+<p>The reason this is useful as it as a rare property that is
+invariant to translation and rotation but changes when a
+mesh is reflected or inverted. It is NOT invariant to
+different tesselations of the same surface.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>mesh</strong> (<a class="reference internal" href="trimesh.html#trimesh.Trimesh" title="trimesh.Trimesh"><em>trimesh.Trimesh</em></a>) – Source geometry to calculate ordering on</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>order</strong> – Is each face SML (-1), SLM (+1), or M==L (0)</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>(len(mesh.faces), ) int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="trimesh.comparison.identifier_hash">
+<code class="sig-prename descclassname">trimesh.comparison.</code><code class="sig-name descname">identifier_hash</code><span class="sig-paren">(</span><em class="sig-param">identifier</em>, <em class="sig-param">sigfig=None</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.comparison.identifier_hash" title="Permalink to this definition">¶</a></dt>
+<dd><p>Hash an identifier array to a specified number of
+significant figures.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>identifier</strong> (<em>(</em><em>n</em><em>,</em><em>) </em><em>float</em>) – Vector of properties</p></li>
+<li><p><strong>sigfig</strong> (<em>(</em><em>n</em><em>,</em><em>) </em><em>int</em>) – Number of sigfigs per property</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>md5</strong> – MD5 hash of identifier</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="trimesh.comparison.identifier_simple">
+<code class="sig-prename descclassname">trimesh.comparison.</code><code class="sig-name descname">identifier_simple</code><span class="sig-paren">(</span><em class="sig-param">mesh</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.comparison.identifier_simple" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a basic identifier for a mesh, consisting of properties
+that have been hand tuned to be somewhat robust to rigid
+transformations and different tesselations.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>mesh</strong> (<em>Trimesh object</em>) – Source geometry</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>identifier</strong> – Identifying values of the mesh</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>(6,) float</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
 </div>
 
 

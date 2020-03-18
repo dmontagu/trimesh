@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>trimesh.exchange.xml_based module &mdash; trimesh 3.6.1 documentation</title>
+  <title>trimesh.exchange.xml_based module &mdash; trimesh 3.6.9 documentation</title>
   
 
   
@@ -60,7 +60,7 @@
             
             
               <div class="version">
-                3.6.1
+                3.6.9
               </div>
             
           
@@ -106,7 +106,7 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="trimesh.html#submodules">Submodules</a></li>
-<li class="toctree-l3"><a class="reference internal" href="trimesh.html#module-contents">Module contents</a></li>
+<li class="toctree-l3"><a class="reference internal" href="trimesh.html#module-trimesh">Module contents</a></li>
 </ul>
 </li>
 </ul>
@@ -181,8 +181,75 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="trimesh-exchange-xml-based-module">
-<h1>trimesh.exchange.xml_based module<a class="headerlink" href="#trimesh-exchange-xml-based-module" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="module-trimesh.exchange.xml_based">
+<span id="trimesh-exchange-xml-based-module"></span><h1>trimesh.exchange.xml_based module<a class="headerlink" href="#module-trimesh.exchange.xml_based" title="Permalink to this headline">¶</a></h1>
+<p><strong>Functions</strong></p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#trimesh.exchange.xml_based.load_3DXML" title="trimesh.exchange.xml_based.load_3DXML"><code class="xref py py-obj docutils literal notranslate"><span class="pre">load_3DXML</span></code></a>(file_obj, *args, **kwargs)</p></td>
+<td><p>Load a 3DXML scene into kwargs.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#trimesh.exchange.xml_based.load_XAML" title="trimesh.exchange.xml_based.load_XAML"><code class="xref py py-obj docutils literal notranslate"><span class="pre">load_XAML</span></code></a>(file_obj, *args, **kwargs)</p></td>
+<td><p>Load a 3D XAML file.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#trimesh.exchange.xml_based.print_element" title="trimesh.exchange.xml_based.print_element"><code class="xref py py-obj docutils literal notranslate"><span class="pre">print_element</span></code></a>(element)</p></td>
+<td><p>Pretty- print an lxml.etree element.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="function">
+<dt id="trimesh.exchange.xml_based.load_3DXML">
+<code class="sig-prename descclassname">trimesh.exchange.xml_based.</code><code class="sig-name descname">load_3DXML</code><span class="sig-paren">(</span><em class="sig-param">file_obj</em>, <em class="sig-param">*args</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.exchange.xml_based.load_3DXML" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load a 3DXML scene into kwargs.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>file_obj</strong> (<em>file object</em>) – Open and containing 3DXML data</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>kwargs</strong> – Can be passed to trimesh.exchange.load.load_kwargs</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="trimesh.exchange.xml_based.load_XAML">
+<code class="sig-prename descclassname">trimesh.exchange.xml_based.</code><code class="sig-name descname">load_XAML</code><span class="sig-paren">(</span><em class="sig-param">file_obj</em>, <em class="sig-param">*args</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.exchange.xml_based.load_XAML" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load a 3D XAML file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>file_obj</strong> (<em>file object</em>) – Open, containing XAML file</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>result</strong> – kwargs for a trimesh constructor, including:
+vertices:       (n,3) np.float64, points in space
+faces:          (m,3) np.int64, indices of vertices
+face_colors:    (m,4) np.uint8, RGBA colors
+vertex_normals: (n,3) np.float64, vertex normals</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="trimesh.exchange.xml_based.print_element">
+<code class="sig-prename descclassname">trimesh.exchange.xml_based.</code><code class="sig-name descname">print_element</code><span class="sig-paren">(</span><em class="sig-param">element</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.exchange.xml_based.print_element" title="Permalink to this definition">¶</a></dt>
+<dd><p>Pretty- print an lxml.etree element.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>element</strong> (<em>etree element</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
 </div>
 
 

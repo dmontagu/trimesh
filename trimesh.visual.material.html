@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>trimesh.visual.material module &mdash; trimesh 3.6.1 documentation</title>
+  <title>trimesh.visual.material module &mdash; trimesh 3.6.9 documentation</title>
   
 
   
@@ -60,7 +60,7 @@
             
             
               <div class="version">
-                3.6.1
+                3.6.9
               </div>
             
           
@@ -106,7 +106,7 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="trimesh.html#submodules">Submodules</a></li>
-<li class="toctree-l3"><a class="reference internal" href="trimesh.html#module-contents">Module contents</a></li>
+<li class="toctree-l3"><a class="reference internal" href="trimesh.html#module-trimesh">Module contents</a></li>
 </ul>
 </li>
 </ul>
@@ -181,8 +181,198 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="trimesh-visual-material-module">
-<h1>trimesh.visual.material module<a class="headerlink" href="#trimesh-visual-material-module" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="module-trimesh.visual.material">
+<span id="trimesh-visual-material-module"></span><h1>trimesh.visual.material module<a class="headerlink" href="#module-trimesh.visual.material" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="material-py">
+<h2>material.py<a class="headerlink" href="#material-py" title="Permalink to this headline">¶</a></h2>
+<p>Store visual materials as objects.</p>
+<p><strong>Classes</strong></p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#trimesh.visual.material.Material" title="trimesh.visual.material.Material"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Material</span></code></a>(*args, **kwargs)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#trimesh.visual.material.PBRMaterial" title="trimesh.visual.material.PBRMaterial"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PBRMaterial</span></code></a>([name, emissiveFactor, …])</p></td>
+<td><p>Create a material for physically based rendering as</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#trimesh.visual.material.SimpleMaterial" title="trimesh.visual.material.SimpleMaterial"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SimpleMaterial</span></code></a>([image, diffuse, ambient, …])</p></td>
+<td><p>Hold a single image texture.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="class">
+<dt id="trimesh.visual.material.Material">
+<em class="property">class </em><code class="sig-prename descclassname">trimesh.visual.material.</code><code class="sig-name descname">Material</code><span class="sig-paren">(</span><em class="sig-param">*args</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.visual.material.Material" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p><strong>Attributes</strong></p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#trimesh.visual.material.Material.main_color" title="trimesh.visual.material.Material.main_color"><code class="xref py py-obj docutils literal notranslate"><span class="pre">main_color</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="trimesh.visual.material.Material.main_color">
+<em class="property">property </em><code class="sig-name descname">main_color</code><a class="headerlink" href="#trimesh.visual.material.Material.main_color" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="trimesh.visual.material.PBRMaterial">
+<em class="property">class </em><code class="sig-prename descclassname">trimesh.visual.material.</code><code class="sig-name descname">PBRMaterial</code><span class="sig-paren">(</span><em class="sig-param">name=None</em>, <em class="sig-param">emissiveFactor=None</em>, <em class="sig-param">emissiveTexture=None</em>, <em class="sig-param">normalTexture=None</em>, <em class="sig-param">occlusionTexture=None</em>, <em class="sig-param">baseColorTexture=None</em>, <em class="sig-param">baseColorFactor=None</em>, <em class="sig-param">metallicFactor=None</em>, <em class="sig-param">roughnessFactor=None</em>, <em class="sig-param">metallicRoughnessTexture=None</em>, <em class="sig-param">doubleSided=False</em>, <em class="sig-param">alphaMode='OPAQUE'</em>, <em class="sig-param">alphaCutoff=0.5</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.visual.material.PBRMaterial" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#trimesh.visual.material.Material" title="trimesh.visual.material.Material"><code class="xref py py-class docutils literal notranslate"><span class="pre">trimesh.visual.material.Material</span></code></a></p>
+<p>Create a material for physically based rendering as
+specified by GLTF 2.0:
+<a class="reference external" href="https://git.io/fhkPZ">https://git.io/fhkPZ</a></p>
+<p>Parameters with <cite>Texture</cite> in them must be PIL.Image objects</p>
+<p><strong>Attributes</strong></p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#trimesh.visual.material.PBRMaterial.main_color" title="trimesh.visual.material.PBRMaterial.main_color"><code class="xref py py-obj docutils literal notranslate"><span class="pre">main_color</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Methods</strong></p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#trimesh.visual.material.PBRMaterial.to_color" title="trimesh.visual.material.PBRMaterial.to_color"><code class="xref py py-obj docutils literal notranslate"><span class="pre">to_color</span></code></a>(uv)</p></td>
+<td><p>Get the rough color at a list of specified UV coordinates.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="trimesh.visual.material.PBRMaterial.main_color">
+<em class="property">property </em><code class="sig-name descname">main_color</code><a class="headerlink" href="#trimesh.visual.material.PBRMaterial.main_color" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="trimesh.visual.material.PBRMaterial.to_color">
+<code class="sig-name descname">to_color</code><span class="sig-paren">(</span><em class="sig-param">uv</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.visual.material.PBRMaterial.to_color" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the rough color at a list of specified UV coordinates.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>uv</strong> (<em>(</em><em>n</em><em>, </em><em>2</em><em>) </em><em>float</em>) – UV coordinates on the material</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>colors</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="trimesh.visual.material.SimpleMaterial">
+<em class="property">class </em><code class="sig-prename descclassname">trimesh.visual.material.</code><code class="sig-name descname">SimpleMaterial</code><span class="sig-paren">(</span><em class="sig-param">image=None</em>, <em class="sig-param">diffuse=None</em>, <em class="sig-param">ambient=None</em>, <em class="sig-param">specular=None</em>, <em class="sig-param">glossiness=None</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.visual.material.SimpleMaterial" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#trimesh.visual.material.Material" title="trimesh.visual.material.Material"><code class="xref py py-class docutils literal notranslate"><span class="pre">trimesh.visual.material.Material</span></code></a></p>
+<p>Hold a single image texture.</p>
+<p><strong>Attributes</strong></p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#trimesh.visual.material.SimpleMaterial.glossiness" title="trimesh.visual.material.SimpleMaterial.glossiness"><code class="xref py py-obj docutils literal notranslate"><span class="pre">glossiness</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#trimesh.visual.material.SimpleMaterial.main_color" title="trimesh.visual.material.SimpleMaterial.main_color"><code class="xref py py-obj docutils literal notranslate"><span class="pre">main_color</span></code></a></p></td>
+<td><p>Return the most prominent color.</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Methods</strong></p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#trimesh.visual.material.SimpleMaterial.to_color" title="trimesh.visual.material.SimpleMaterial.to_color"><code class="xref py py-obj docutils literal notranslate"><span class="pre">to_color</span></code></a>(uv)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#trimesh.visual.material.SimpleMaterial.to_obj" title="trimesh.visual.material.SimpleMaterial.to_obj"><code class="xref py py-obj docutils literal notranslate"><span class="pre">to_obj</span></code></a>([tex_name, mtl_name])</p></td>
+<td><p>Convert the current material to an OBJ format material.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#trimesh.visual.material.SimpleMaterial.to_pbr" title="trimesh.visual.material.SimpleMaterial.to_pbr"><code class="xref py py-obj docutils literal notranslate"><span class="pre">to_pbr</span></code></a>()</p></td>
+<td><p>Convert the current simple material to a PBR material.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="trimesh.visual.material.SimpleMaterial.glossiness">
+<em class="property">property </em><code class="sig-name descname">glossiness</code><a class="headerlink" href="#trimesh.visual.material.SimpleMaterial.glossiness" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="trimesh.visual.material.SimpleMaterial.main_color">
+<em class="property">property </em><code class="sig-name descname">main_color</code><a class="headerlink" href="#trimesh.visual.material.SimpleMaterial.main_color" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the most prominent color.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="trimesh.visual.material.SimpleMaterial.to_color">
+<code class="sig-name descname">to_color</code><span class="sig-paren">(</span><em class="sig-param">uv</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.visual.material.SimpleMaterial.to_color" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="trimesh.visual.material.SimpleMaterial.to_obj">
+<code class="sig-name descname">to_obj</code><span class="sig-paren">(</span><em class="sig-param">tex_name=None</em>, <em class="sig-param">mtl_name=None</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.visual.material.SimpleMaterial.to_obj" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert the current material to an OBJ format material.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>name</strong> (<em>str</em><em> or </em><em>None</em>) – Name to apply to the material</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>tex_name</strong> (<em>str</em>) – Name of material</p></li>
+<li><p><strong>mtl_name</strong> (<em>str</em>) – Name of mtl file in files</p></li>
+<li><p><strong>files</strong> (<em>dict</em>) – Data as {file name : bytes}</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="trimesh.visual.material.SimpleMaterial.to_pbr">
+<code class="sig-name descname">to_pbr</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.visual.material.SimpleMaterial.to_pbr" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert the current simple material to a PBR material.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>pbr</strong> – Contains material information in PBR format.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="#trimesh.visual.material.PBRMaterial" title="trimesh.visual.material.PBRMaterial">PBRMaterial</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
 </div>
 
 

@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>trimesh.exchange.export module &mdash; trimesh 3.6.1 documentation</title>
+  <title>trimesh.exchange.export module &mdash; trimesh 3.6.9 documentation</title>
   
 
   
@@ -60,7 +60,7 @@
             
             
               <div class="version">
-                3.6.1
+                3.6.9
               </div>
             
           
@@ -106,7 +106,7 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="trimesh.html#submodules">Submodules</a></li>
-<li class="toctree-l3"><a class="reference internal" href="trimesh.html#module-contents">Module contents</a></li>
+<li class="toctree-l3"><a class="reference internal" href="trimesh.html#module-trimesh">Module contents</a></li>
 </ul>
 </li>
 </ul>
@@ -181,8 +181,109 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="trimesh-exchange-export-module">
-<h1>trimesh.exchange.export module<a class="headerlink" href="#trimesh-exchange-export-module" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="module-trimesh.exchange.export">
+<span id="trimesh-exchange-export-module"></span><h1>trimesh.exchange.export module<a class="headerlink" href="#module-trimesh.exchange.export" title="Permalink to this headline">¶</a></h1>
+<p><strong>Functions</strong></p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#trimesh.exchange.export.export_dict" title="trimesh.exchange.export.export_dict"><code class="xref py py-obj docutils literal notranslate"><span class="pre">export_dict</span></code></a>(mesh[, encoding])</p></td>
+<td><p>Export a mesh to a dict</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#trimesh.exchange.export.export_dict64" title="trimesh.exchange.export.export_dict64"><code class="xref py py-obj docutils literal notranslate"><span class="pre">export_dict64</span></code></a>(mesh)</p></td>
+<td><p>Export a mesh as a dictionary, with data encoded to base64.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#trimesh.exchange.export.export_json" title="trimesh.exchange.export.export_json"><code class="xref py py-obj docutils literal notranslate"><span class="pre">export_json</span></code></a>(mesh)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#trimesh.exchange.export.export_mesh" title="trimesh.exchange.export.export_mesh"><code class="xref py py-obj docutils literal notranslate"><span class="pre">export_mesh</span></code></a>(mesh, file_obj[, file_type])</p></td>
+<td><p>Export a Trimesh object to a file- like object, or to a filename</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#trimesh.exchange.export.export_msgpack" title="trimesh.exchange.export.export_msgpack"><code class="xref py py-obj docutils literal notranslate"><span class="pre">export_msgpack</span></code></a>(mesh)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#trimesh.exchange.export.scene_to_dict" title="trimesh.exchange.export.scene_to_dict"><code class="xref py py-obj docutils literal notranslate"><span class="pre">scene_to_dict</span></code></a>(scene[, use_base64])</p></td>
+<td><p>Export a Scene object as a dict.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="function">
+<dt id="trimesh.exchange.export.export_dict">
+<code class="sig-prename descclassname">trimesh.exchange.export.</code><code class="sig-name descname">export_dict</code><span class="sig-paren">(</span><em class="sig-param">mesh</em>, <em class="sig-param">encoding=None</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.exchange.export.export_dict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Export a mesh to a dict</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>mesh</strong> (<em>Trimesh object</em>) – Mesh to be exported</p></li>
+<li><p><strong>encoding</strong> (<em>str</em><em>, or </em><em>None</em>) – ‘base64’</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>export</strong> – Data stored in dict</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="trimesh.exchange.export.export_dict64">
+<code class="sig-prename descclassname">trimesh.exchange.export.</code><code class="sig-name descname">export_dict64</code><span class="sig-paren">(</span><em class="sig-param">mesh</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.exchange.export.export_dict64" title="Permalink to this definition">¶</a></dt>
+<dd><p>Export a mesh as a dictionary, with data encoded
+to base64.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="trimesh.exchange.export.export_json">
+<code class="sig-prename descclassname">trimesh.exchange.export.</code><code class="sig-name descname">export_json</code><span class="sig-paren">(</span><em class="sig-param">mesh</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.exchange.export.export_json" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="trimesh.exchange.export.export_mesh">
+<code class="sig-prename descclassname">trimesh.exchange.export.</code><code class="sig-name descname">export_mesh</code><span class="sig-paren">(</span><em class="sig-param">mesh</em>, <em class="sig-param">file_obj</em>, <em class="sig-param">file_type=None</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.exchange.export.export_mesh" title="Permalink to this definition">¶</a></dt>
+<dd><p>Export a Trimesh object to a file- like object, or to a filename</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>file_obj</strong> (<em>str</em><em>, </em><em>file-like</em>) – Where should mesh be exported to</p></li>
+<li><p><strong>file_type</strong> (<em>str</em><em> or </em><em>None</em>) – Represents file type (eg: ‘stl’)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>exported</strong> – Result of exporter</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>bytes or str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="trimesh.exchange.export.export_msgpack">
+<code class="sig-prename descclassname">trimesh.exchange.export.</code><code class="sig-name descname">export_msgpack</code><span class="sig-paren">(</span><em class="sig-param">mesh</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.exchange.export.export_msgpack" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="trimesh.exchange.export.scene_to_dict">
+<code class="sig-prename descclassname">trimesh.exchange.export.</code><code class="sig-name descname">scene_to_dict</code><span class="sig-paren">(</span><em class="sig-param">scene</em>, <em class="sig-param">use_base64=False</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.exchange.export.scene_to_dict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Export a Scene object as a dict.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>scene</strong> (<a class="reference internal" href="trimesh.html#trimesh.Scene" title="trimesh.Scene"><em>trimesh.Scene</em></a>) – Scene object to be exported</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>as_dict</strong> – Scene as a dict</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
 </div>
 
 

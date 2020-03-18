@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>trimesh.path.simplify module &mdash; trimesh 3.6.1 documentation</title>
+  <title>trimesh.path.simplify module &mdash; trimesh 3.6.9 documentation</title>
   
 
   
@@ -60,7 +60,7 @@
             
             
               <div class="version">
-                3.6.1
+                3.6.9
               </div>
             
           
@@ -106,7 +106,7 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="trimesh.html#submodules">Submodules</a></li>
-<li class="toctree-l3"><a class="reference internal" href="trimesh.html#module-contents">Module contents</a></li>
+<li class="toctree-l3"><a class="reference internal" href="trimesh.html#module-trimesh">Module contents</a></li>
 </ul>
 </li>
 </ul>
@@ -181,8 +181,193 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="trimesh-path-simplify-module">
-<h1>trimesh.path.simplify module<a class="headerlink" href="#trimesh-path-simplify-module" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="module-trimesh.path.simplify">
+<span id="trimesh-path-simplify-module"></span><h1>trimesh.path.simplify module<a class="headerlink" href="#module-trimesh.path.simplify" title="Permalink to this headline">¶</a></h1>
+<p><strong>Functions</strong></p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#trimesh.path.simplify.fit_circle_check" title="trimesh.path.simplify.fit_circle_check"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fit_circle_check</span></code></a>(points, scale[, prior, …])</p></td>
+<td><p>Fit a circle, and reject the fit if:</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#trimesh.path.simplify.is_circle" title="trimesh.path.simplify.is_circle"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_circle</span></code></a>(points, scale[, verbose])</p></td>
+<td><p>Given a set of points, quickly determine if they represent a circle or not.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#trimesh.path.simplify.merge_colinear" title="trimesh.path.simplify.merge_colinear"><code class="xref py py-obj docutils literal notranslate"><span class="pre">merge_colinear</span></code></a>(points, scale)</p></td>
+<td><p>Given a set of points representing a path in space, merge points which are colinear.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#trimesh.path.simplify.points_to_spline_entity" title="trimesh.path.simplify.points_to_spline_entity"><code class="xref py py-obj docutils literal notranslate"><span class="pre">points_to_spline_entity</span></code></a>(points[, smooth, count])</p></td>
+<td><p>Create a spline entity from a curve in space</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#trimesh.path.simplify.resample_spline" title="trimesh.path.simplify.resample_spline"><code class="xref py py-obj docutils literal notranslate"><span class="pre">resample_spline</span></code></a>(points[, smooth, count, degree])</p></td>
+<td><p>Resample a path in space, smoothing along a b-spline.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#trimesh.path.simplify.simplify_basic" title="trimesh.path.simplify.simplify_basic"><code class="xref py py-obj docutils literal notranslate"><span class="pre">simplify_basic</span></code></a>(drawing[, process])</p></td>
+<td><p>Merge colinear segments and fit circles.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#trimesh.path.simplify.simplify_spline" title="trimesh.path.simplify.simplify_spline"><code class="xref py py-obj docutils literal notranslate"><span class="pre">simplify_spline</span></code></a>(path[, smooth, verbose])</p></td>
+<td><p>Replace discrete curves with b-spline or Arc and return the result as a new Path2D object.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="function">
+<dt id="trimesh.path.simplify.fit_circle_check">
+<code class="sig-prename descclassname">trimesh.path.simplify.</code><code class="sig-name descname">fit_circle_check</code><span class="sig-paren">(</span><em class="sig-param">points</em>, <em class="sig-param">scale</em>, <em class="sig-param">prior=None</em>, <em class="sig-param">final=False</em>, <em class="sig-param">verbose=False</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.path.simplify.fit_circle_check" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fit a circle, and reject the fit if:
+* the radius is larger than tol.radius_min*scale or tol.radius_max*scale
+* any segment spans more than tol.seg_angle
+* any segment is longer than tol.seg_frac*scale
+* the fit deviates by more than tol.radius_frac*radius
+* the segments on the ends deviate from tangent by more than tol.tangent</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>points</strong> (<em>(</em><em>n</em><em>, </em><em>d</em><em>)</em>) – List of points which represent a path</p></li>
+<li><p><strong>prior</strong> (<em>(</em><em>center</em><em>, </em><em>radius</em><em>) </em><em>tuple</em>) – Best guess or None if unknown</p></li>
+<li><p><strong>scale</strong> (<em>float</em>) – What is the overall scale of the set of points</p></li>
+<li><p><strong>verbose</strong> (<em>bool</em>) – Output log.debug messages for the reasons
+for fit rejection only suggested for manual debugging</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><em>if fit is acceptable</em> – (center, radius) tuple</p></li>
+<li><p><em>else</em> – None</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="trimesh.path.simplify.is_circle">
+<code class="sig-prename descclassname">trimesh.path.simplify.</code><code class="sig-name descname">is_circle</code><span class="sig-paren">(</span><em class="sig-param">points</em>, <em class="sig-param">scale</em>, <em class="sig-param">verbose=False</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.path.simplify.is_circle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Given a set of points, quickly determine if they represent
+a circle or not.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>points</strong> (<em>(</em><em>n</em><em>,</em><em>2</em><em> ) </em><em>float</em>) – Points in space</p></li>
+<li><p><strong>scale</strong> (<em>float</em>) – Scale of overall drawing</p></li>
+<li><p><strong>verbose</strong> (<em>bool</em>) – Print all fit messages or not</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>control</strong> – None, if not a circle</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>(3,2) float, points in space, OR</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="trimesh.path.simplify.merge_colinear">
+<code class="sig-prename descclassname">trimesh.path.simplify.</code><code class="sig-name descname">merge_colinear</code><span class="sig-paren">(</span><em class="sig-param">points</em>, <em class="sig-param">scale</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.path.simplify.merge_colinear" title="Permalink to this definition">¶</a></dt>
+<dd><p>Given a set of points representing a path in space,
+merge points which are colinear.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>points</strong> (<em>(</em><em>n</em><em>, </em><em>dimension</em><em>) </em><em>float</em>) – Points in space</p></li>
+<li><p><strong>scale</strong> (<em>float</em>) – Scale of drawing for precision</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>merged</strong> – Points with colinear and duplicate
+points merged, where (j &lt; n)</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>(j, d) float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="trimesh.path.simplify.points_to_spline_entity">
+<code class="sig-prename descclassname">trimesh.path.simplify.</code><code class="sig-name descname">points_to_spline_entity</code><span class="sig-paren">(</span><em class="sig-param">points</em>, <em class="sig-param">smooth=None</em>, <em class="sig-param">count=None</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.path.simplify.points_to_spline_entity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a spline entity from a curve in space</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>points</strong> (<em>(</em><em>n</em><em>, </em><em>dimension</em><em>) </em><em>float</em>) – Points in space</p></li>
+<li><p><strong>smooth</strong> (<em>float</em>) – Smoothing distance</p></li>
+<li><p><strong>count</strong> (<em>int</em><em> or </em><em>None</em>) – Number of samples desired in result</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>entity</strong> (<em>entities.BSpline</em>) – Entity object with points indexed at zero</p></li>
+<li><p><strong>control</strong> (<em>(m, dimension) float</em>) – New vertices for entity</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="trimesh.path.simplify.resample_spline">
+<code class="sig-prename descclassname">trimesh.path.simplify.</code><code class="sig-name descname">resample_spline</code><span class="sig-paren">(</span><em class="sig-param">points</em>, <em class="sig-param">smooth=0.001</em>, <em class="sig-param">count=None</em>, <em class="sig-param">degree=3</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.path.simplify.resample_spline" title="Permalink to this definition">¶</a></dt>
+<dd><p>Resample a path in space, smoothing along a b-spline.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>points</strong> (<em>(</em><em>n</em><em>, </em><em>dimension</em><em>) </em><em>float</em>) – Points in space</p></li>
+<li><p><strong>smooth</strong> (<em>float</em>) – Smoothing distance</p></li>
+<li><p><strong>count</strong> (<em>int</em><em> or </em><em>None</em>) – Number of samples desired in output</p></li>
+<li><p><strong>degree</strong> (<em>int</em>) – Degree of spline polynomial</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>resampled</strong> – Points in space</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>(count, dimension) float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="trimesh.path.simplify.simplify_basic">
+<code class="sig-prename descclassname">trimesh.path.simplify.</code><code class="sig-name descname">simplify_basic</code><span class="sig-paren">(</span><em class="sig-param">drawing</em>, <em class="sig-param">process=False</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.path.simplify.simplify_basic" title="Permalink to this definition">¶</a></dt>
+<dd><p>Merge colinear segments and fit circles.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>drawing</strong> (<a class="reference internal" href="trimesh.path.html#trimesh.path.Path2D" title="trimesh.path.Path2D"><em>Path2D</em></a>) – Source geometry, will not be modified</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>simplified</strong> – Original path but with some closed line-loops converted to circles</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="trimesh.path.html#trimesh.path.Path2D" title="trimesh.path.Path2D">Path2D</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="trimesh.path.simplify.simplify_spline">
+<code class="sig-prename descclassname">trimesh.path.simplify.</code><code class="sig-name descname">simplify_spline</code><span class="sig-paren">(</span><em class="sig-param">path</em>, <em class="sig-param">smooth=None</em>, <em class="sig-param">verbose=False</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.path.simplify.simplify_spline" title="Permalink to this definition">¶</a></dt>
+<dd><p>Replace discrete curves with b-spline or Arc and
+return the result as a new Path2D object.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>path</strong> (<a class="reference internal" href="trimesh.path.html#trimesh.path.Path2D" title="trimesh.path.Path2D"><em>trimesh.path.Path2D</em></a>) – Input geometry</p></li>
+<li><p><strong>smooth</strong> (<em>float</em>) – Distance to smooth</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>simplified</strong> – Consists of Arc and BSpline entities</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="trimesh.path.html#trimesh.path.Path2D" title="trimesh.path.Path2D">Path2D</a></p>
+</dd>
+</dl>
+</dd></dl>
+
 </div>
 
 

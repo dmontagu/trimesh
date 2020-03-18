@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>trimesh.path.curve module &mdash; trimesh 3.6.1 documentation</title>
+  <title>trimesh.path.curve module &mdash; trimesh 3.6.9 documentation</title>
   
 
   
@@ -60,7 +60,7 @@
             
             
               <div class="version">
-                3.6.1
+                3.6.9
               </div>
             
           
@@ -106,7 +106,7 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="trimesh.html#submodules">Submodules</a></li>
-<li class="toctree-l3"><a class="reference internal" href="trimesh.html#module-contents">Module contents</a></li>
+<li class="toctree-l3"><a class="reference internal" href="trimesh.html#module-trimesh">Module contents</a></li>
 </ul>
 </li>
 </ul>
@@ -181,8 +181,94 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="trimesh-path-curve-module">
-<h1>trimesh.path.curve module<a class="headerlink" href="#trimesh-path-curve-module" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="module-trimesh.path.curve">
+<span id="trimesh-path-curve-module"></span><h1>trimesh.path.curve module<a class="headerlink" href="#module-trimesh.path.curve" title="Permalink to this headline">¶</a></h1>
+<p><strong>Functions</strong></p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#trimesh.path.curve.binomial" title="trimesh.path.curve.binomial"><code class="xref py py-obj docutils literal notranslate"><span class="pre">binomial</span></code></a>(n)</p></td>
+<td><p>Return all binomial coefficients for a given order.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#trimesh.path.curve.discretize_bezier" title="trimesh.path.curve.discretize_bezier"><code class="xref py py-obj docutils literal notranslate"><span class="pre">discretize_bezier</span></code></a>(points[, count, scale])</p></td>
+<td><p><dl class="field-list simple">
+<dt class="field-odd">param points</dt>
+<dd class="field-odd"><p>Control points of the bezier curve</p>
+</dd>
+</dl>
+</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#trimesh.path.curve.discretize_bspline" title="trimesh.path.curve.discretize_bspline"><code class="xref py py-obj docutils literal notranslate"><span class="pre">discretize_bspline</span></code></a>(control, knots[, count, …])</p></td>
+<td><p>Given a B-Splines control points and knot vector, return a sampled version of the curve.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="function">
+<dt id="trimesh.path.curve.binomial">
+<code class="sig-prename descclassname">trimesh.path.curve.</code><code class="sig-name descname">binomial</code><span class="sig-paren">(</span><em class="sig-param">n</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.path.curve.binomial" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return all binomial coefficients for a given order.</p>
+<p>For n &gt; 5, scipy.special.binom is used, below we hardcode
+to avoid the scipy.special dependency.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>n</strong> (<em>int</em>) – Order of binomial</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>binom</strong> – Binomial coefficients of a given order</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>(n + 1,) int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="trimesh.path.curve.discretize_bezier">
+<code class="sig-prename descclassname">trimesh.path.curve.</code><code class="sig-name descname">discretize_bezier</code><span class="sig-paren">(</span><em class="sig-param">points</em>, <em class="sig-param">count=None</em>, <em class="sig-param">scale=1.0</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.path.curve.discretize_bezier" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>points</strong> (<em>(</em><em>order</em><em>, </em><em>dimension</em><em>) </em><em>float</em>) – Control points of the bezier curve
+For a 2D cubic bezier, order=3, dimension=2</p></li>
+<li><p><strong>count</strong> (<em>int</em><em>, or </em><em>None</em>) – Number of segments</p></li>
+<li><p><strong>scale</strong> (<em>float</em>) – Scale of curve</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>discrete</strong> – Points forming a a polyline representation</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>(n, dimension) float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="trimesh.path.curve.discretize_bspline">
+<code class="sig-prename descclassname">trimesh.path.curve.</code><code class="sig-name descname">discretize_bspline</code><span class="sig-paren">(</span><em class="sig-param">control</em>, <em class="sig-param">knots</em>, <em class="sig-param">count=None</em>, <em class="sig-param">scale=1.0</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.path.curve.discretize_bspline" title="Permalink to this definition">¶</a></dt>
+<dd><p>Given a B-Splines control points and knot vector, return
+a sampled version of the curve.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>control</strong> (<em>(</em><em>o</em><em>, </em><em>d</em><em>) </em><em>float</em>) – Control points of the b- spline</p></li>
+<li><p><strong>knots</strong> (<em>(</em><em>j</em><em>,</em><em>) </em><em>float</em>) – B-spline knots</p></li>
+<li><p><strong>count</strong> (<em>int</em>) – Number of line segments to discretize the spline
+If not specified will be calculated as something reasonable</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>discrete</strong> – Points on a polyline version of the B-spline</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>(count, dimension) float</p>
+</dd>
+</dl>
+</dd></dl>
+
 </div>
 
 

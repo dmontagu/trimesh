@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>trimesh.exceptions module &mdash; trimesh 3.6.1 documentation</title>
+  <title>trimesh.exceptions module &mdash; trimesh 3.6.9 documentation</title>
   
 
   
@@ -60,7 +60,7 @@
             
             
               <div class="version">
-                3.6.1
+                3.6.9
               </div>
             
           
@@ -135,7 +135,7 @@
 <li class="toctree-l4"><a class="reference internal" href="trimesh.version.html">trimesh.version module</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="trimesh.html#module-contents">Module contents</a></li>
+<li class="toctree-l3"><a class="reference internal" href="trimesh.html#module-trimesh">Module contents</a></li>
 </ul>
 </li>
 </ul>
@@ -208,8 +208,65 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="trimesh-exceptions-module">
-<h1>trimesh.exceptions module<a class="headerlink" href="#trimesh-exceptions-module" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="module-trimesh.exceptions">
+<span id="trimesh-exceptions-module"></span><h1>trimesh.exceptions module<a class="headerlink" href="#module-trimesh.exceptions" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="exceptions-py">
+<h2>exceptions.py<a class="headerlink" href="#exceptions-py" title="Permalink to this headline">¶</a></h2>
+<p>Handle things related to exceptions.</p>
+<p><strong>Classes</strong></p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#trimesh.exceptions.ExceptionModule" title="trimesh.exceptions.ExceptionModule"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ExceptionModule</span></code></a>(exc)</p></td>
+<td><p>Create a dummy module which will raise an exception when attributes are accessed.</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Functions</strong></p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#trimesh.exceptions.closure" title="trimesh.exceptions.closure"><code class="xref py py-obj docutils literal notranslate"><span class="pre">closure</span></code></a>(exc)</p></td>
+<td><p>Return a function which will accept any arguments but raise the exception when called.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="class">
+<dt id="trimesh.exceptions.ExceptionModule">
+<em class="property">class </em><code class="sig-prename descclassname">trimesh.exceptions.</code><code class="sig-name descname">ExceptionModule</code><span class="sig-paren">(</span><em class="sig-param">exc</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.exceptions.ExceptionModule" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Create a dummy module which will raise an exception when attributes
+are accessed.</p>
+<p>For soft dependencies we want to survive failing to import but
+we would like to raise an appropriate error when the functionality is
+actually requested so the user gets an easily debuggable message.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="trimesh.exceptions.closure">
+<code class="sig-prename descclassname">trimesh.exceptions.</code><code class="sig-name descname">closure</code><span class="sig-paren">(</span><em class="sig-param">exc</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.exceptions.closure" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a function which will accept any arguments
+but raise the exception when called.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>exc</strong> (<em>Exception</em>) – Will be raised later</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>failed</strong> – When called will raise <cite>exc</cite></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>function</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
 </div>
 
 

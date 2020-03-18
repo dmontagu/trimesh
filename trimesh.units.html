@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>trimesh.units module &mdash; trimesh 3.6.1 documentation</title>
+  <title>trimesh.units module &mdash; trimesh 3.6.9 documentation</title>
   
 
   
@@ -60,7 +60,7 @@
             
             
               <div class="version">
-                3.6.1
+                3.6.9
               </div>
             
           
@@ -135,7 +135,7 @@
 <li class="toctree-l4"><a class="reference internal" href="trimesh.version.html">trimesh.version module</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="trimesh.html#module-contents">Module contents</a></li>
+<li class="toctree-l3"><a class="reference internal" href="trimesh.html#module-trimesh">Module contents</a></li>
 </ul>
 </li>
 </ul>
@@ -208,8 +208,70 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="trimesh-units-module">
-<h1>trimesh.units module<a class="headerlink" href="#trimesh-units-module" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="module-trimesh.units">
+<span id="trimesh-units-module"></span><h1>trimesh.units module<a class="headerlink" href="#module-trimesh.units" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="units-py">
+<h2>units.py<a class="headerlink" href="#units-py" title="Permalink to this headline">¶</a></h2>
+<p>Deal with physical unit systems (i.e. inches, mm)</p>
+<p>Very basic conversions, and no requirement for
+sympy.physics.units or pint.</p>
+<p><strong>Functions</strong></p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#trimesh.units.unit_conversion" title="trimesh.units.unit_conversion"><code class="xref py py-obj docutils literal notranslate"><span class="pre">unit_conversion</span></code></a>(current, desired)</p></td>
+<td><p>Calculate the conversion from one set of units to another.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#trimesh.units.units_from_metadata" title="trimesh.units.units_from_metadata"><code class="xref py py-obj docutils literal notranslate"><span class="pre">units_from_metadata</span></code></a>(obj[, guess])</p></td>
+<td><p>Try to extract hints from metadata and if that fails guess based on the object scale.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="function">
+<dt id="trimesh.units.unit_conversion">
+<code class="sig-prename descclassname">trimesh.units.</code><code class="sig-name descname">unit_conversion</code><span class="sig-paren">(</span><em class="sig-param">current</em>, <em class="sig-param">desired</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.units.unit_conversion" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate the conversion from one set of units to another.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>current</strong> (<em>str</em>) – Unit system values are in now (eg ‘millimeters’)</p></li>
+<li><p><strong>desired</strong> (<em>str</em>) – Unit system we’d like values in (eg ‘inches’)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>conversion</strong> – Number to multiply by to put values into desired units</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="trimesh.units.units_from_metadata">
+<code class="sig-prename descclassname">trimesh.units.</code><code class="sig-name descname">units_from_metadata</code><span class="sig-paren">(</span><em class="sig-param">obj</em>, <em class="sig-param">guess=True</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.units.units_from_metadata" title="Permalink to this definition">¶</a></dt>
+<dd><p>Try to extract hints from metadata and if that fails
+guess based on the object scale.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>obj</strong> (<em>object</em>) – Has attributes ‘metadata’ (dict) and ‘scale’ (float)</p></li>
+<li><p><strong>guess</strong> (<em>bool</em>) – If metadata doesn’t indicate units, guess from scale</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>units</strong> – A guess of what the units might be</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
 </div>
 
 

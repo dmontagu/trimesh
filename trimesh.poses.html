@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>trimesh.poses module &mdash; trimesh 3.6.1 documentation</title>
+  <title>trimesh.poses module &mdash; trimesh 3.6.9 documentation</title>
   
 
   
@@ -60,7 +60,7 @@
             
             
               <div class="version">
-                3.6.1
+                3.6.9
               </div>
             
           
@@ -135,7 +135,7 @@
 <li class="toctree-l4"><a class="reference internal" href="trimesh.version.html">trimesh.version module</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="trimesh.html#module-contents">Module contents</a></li>
+<li class="toctree-l3"><a class="reference internal" href="trimesh.html#module-trimesh">Module contents</a></li>
 </ul>
 </li>
 </ul>
@@ -208,8 +208,66 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="trimesh-poses-module">
-<h1>trimesh.poses module<a class="headerlink" href="#trimesh-poses-module" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="module-trimesh.poses">
+<span id="trimesh-poses-module"></span><h1>trimesh.poses module<a class="headerlink" href="#module-trimesh.poses" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="poses-py">
+<h2>poses.py<a class="headerlink" href="#poses-py" title="Permalink to this headline">¶</a></h2>
+<p>Find stable orientations of meshes.</p>
+<p><strong>Functions</strong></p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#trimesh.poses.compute_stable_poses" title="trimesh.poses.compute_stable_poses"><code class="xref py py-obj docutils literal notranslate"><span class="pre">compute_stable_poses</span></code></a>(mesh[, center_mass, …])</p></td>
+<td><p>Computes stable orientations of a mesh and their quasi-static probabilites.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="function">
+<dt id="trimesh.poses.compute_stable_poses">
+<code class="sig-prename descclassname">trimesh.poses.</code><code class="sig-name descname">compute_stable_poses</code><span class="sig-paren">(</span><em class="sig-param">mesh</em>, <em class="sig-param">center_mass=None</em>, <em class="sig-param">sigma=0.0</em>, <em class="sig-param">n_samples=1</em>, <em class="sig-param">threshold=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.poses.compute_stable_poses" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes stable orientations of a mesh and their quasi-static probabilites.</p>
+<p>This method samples the location of the center of mass from a multivariate
+gaussian with the mean at the center of mass, and a covariance
+equal to and identity matrix times sigma, over n_samples.</p>
+<p>For each sample, it computes the stable resting poses of the mesh on a
+a planar workspace and evaluates the probabilities of landing in
+each pose if the object is dropped onto the table randomly.</p>
+<p>This method returns the 4x4 homogeneous transform matrices that place
+the shape against the planar surface with the z-axis pointing upwards
+and a list of the probabilities for each pose.</p>
+<p>The transforms and probabilties that are returned are sorted, with the
+most probable pose first.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>mesh</strong> (<a class="reference internal" href="trimesh.html#trimesh.Trimesh" title="trimesh.Trimesh"><em>trimesh.Trimesh</em></a>) – The target mesh</p></li>
+<li><p><strong>com</strong> (<em>(</em><em>3</em><em>,</em><em>) </em><em>float</em>) – Rhe object center of mass. If None, this method
+assumes uniform density and watertightness and
+computes a center of mass explicitly</p></li>
+<li><p><strong>sigma</strong> (<em>float</em>) – Rhe covariance for the multivariate gaussian used
+to sample center of mass locations</p></li>
+<li><p><strong>n_samples</strong> (<em>int</em>) – The number of samples of the center of mass location</p></li>
+<li><p><strong>threshold</strong> (<em>float</em>) – The probability value at which to threshold
+returned stable poses</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>transforms</strong> (<em>(n, 4, 4) float</em>) – The homogeneous matrices that transform the
+object to rest in a stable pose, with the
+new z-axis pointing upwards from the table
+and the object just touching the table.</p></li>
+<li><p><strong>probs</strong> (<em>(n,) float</em>) – Probability in (0, 1) for each pose</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
 </div>
 
 

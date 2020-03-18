@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>trimesh.inertia module &mdash; trimesh 3.6.1 documentation</title>
+  <title>trimesh.inertia module &mdash; trimesh 3.6.9 documentation</title>
   
 
   
@@ -60,7 +60,7 @@
             
             
               <div class="version">
-                3.6.1
+                3.6.9
               </div>
             
           
@@ -135,7 +135,7 @@
 <li class="toctree-l4"><a class="reference internal" href="trimesh.version.html">trimesh.version module</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="trimesh.html#module-contents">Module contents</a></li>
+<li class="toctree-l3"><a class="reference internal" href="trimesh.html#module-trimesh">Module contents</a></li>
 </ul>
 </li>
 </ul>
@@ -208,8 +208,141 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="trimesh-inertia-module">
-<h1>trimesh.inertia module<a class="headerlink" href="#trimesh-inertia-module" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="module-trimesh.inertia">
+<span id="trimesh-inertia-module"></span><h1>trimesh.inertia module<a class="headerlink" href="#module-trimesh.inertia" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="inertia-py">
+<h2>inertia.py<a class="headerlink" href="#inertia-py" title="Permalink to this headline">¶</a></h2>
+<p>Functions for dealing with inertia tensors.</p>
+<p>Results validated against known geometries and checked for
+internal consistency.</p>
+<p><strong>Functions</strong></p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#trimesh.inertia.cylinder_inertia" title="trimesh.inertia.cylinder_inertia"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cylinder_inertia</span></code></a>(mass, radius, height[, …])</p></td>
+<td><p>Return the inertia tensor of a cylinder.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#trimesh.inertia.principal_axis" title="trimesh.inertia.principal_axis"><code class="xref py py-obj docutils literal notranslate"><span class="pre">principal_axis</span></code></a>(inertia)</p></td>
+<td><p>Find the principal components and principal axis of inertia from the inertia tensor.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#trimesh.inertia.radial_symmetry" title="trimesh.inertia.radial_symmetry"><code class="xref py py-obj docutils literal notranslate"><span class="pre">radial_symmetry</span></code></a>(mesh)</p></td>
+<td><p>Check whether a mesh has radial symmetry.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#trimesh.inertia.sphere_inertia" title="trimesh.inertia.sphere_inertia"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sphere_inertia</span></code></a>(mass, radius)</p></td>
+<td><p>Return the inertia tensor of a sphere.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#trimesh.inertia.transform_inertia" title="trimesh.inertia.transform_inertia"><code class="xref py py-obj docutils literal notranslate"><span class="pre">transform_inertia</span></code></a>(transform, inertia_tensor)</p></td>
+<td><p>Transform an inertia tensor to a new frame.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="function">
+<dt id="trimesh.inertia.cylinder_inertia">
+<code class="sig-prename descclassname">trimesh.inertia.</code><code class="sig-name descname">cylinder_inertia</code><span class="sig-paren">(</span><em class="sig-param">mass</em>, <em class="sig-param">radius</em>, <em class="sig-param">height</em>, <em class="sig-param">transform=None</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.inertia.cylinder_inertia" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the inertia tensor of a cylinder.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>mass</strong> (<em>float</em>) – Mass of cylinder</p></li>
+<li><p><strong>radius</strong> (<em>float</em>) – Radius of cylinder</p></li>
+<li><p><strong>height</strong> (<em>float</em>) – Height of cylinder</p></li>
+<li><p><strong>transform</strong> (<em>(</em><em>4</em><em>, </em><em>4</em><em>) </em><em>float</em>) – Transformation of cylinder</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>inertia</strong> – Inertia tensor</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>(3, 3) float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="trimesh.inertia.principal_axis">
+<code class="sig-prename descclassname">trimesh.inertia.</code><code class="sig-name descname">principal_axis</code><span class="sig-paren">(</span><em class="sig-param">inertia</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.inertia.principal_axis" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find the principal components and principal axis
+of inertia from the inertia tensor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>inertia</strong> (<em>(</em><em>3</em><em>, </em><em>3</em><em>) </em><em>float</em>) – Inertia tensor</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>components</strong> (<em>(3,) float</em>) – Principal components of inertia</p></li>
+<li><p><strong>vectors</strong> (<em>(3, 3) float</em>) – Row vectors pointing along the
+principal axes of inertia</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="trimesh.inertia.radial_symmetry">
+<code class="sig-prename descclassname">trimesh.inertia.</code><code class="sig-name descname">radial_symmetry</code><span class="sig-paren">(</span><em class="sig-param">mesh</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.inertia.radial_symmetry" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check whether a mesh has radial symmetry.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><ul class="simple">
+<li><p><strong>symmetry</strong> (<em>None or str</em>) – None         No rotational symmetry
+‘radial’     Symmetric around an axis
+‘spherical’  Symmetric around a point</p></li>
+<li><p><strong>axis</strong> (<em>None or (3,) float</em>) – Rotation axis or point</p></li>
+<li><p><strong>section</strong> (<em>None or (3, 2) float</em>) – If radial symmetry provide vectors
+to get cross section</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="trimesh.inertia.sphere_inertia">
+<code class="sig-prename descclassname">trimesh.inertia.</code><code class="sig-name descname">sphere_inertia</code><span class="sig-paren">(</span><em class="sig-param">mass</em>, <em class="sig-param">radius</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.inertia.sphere_inertia" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the inertia tensor of a sphere.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>mass</strong> (<em>float</em>) – Mass of sphere</p></li>
+<li><p><strong>radius</strong> (<em>float</em>) – Radius of sphere</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>inertia</strong> – Inertia tensor</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>(3, 3) float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="trimesh.inertia.transform_inertia">
+<code class="sig-prename descclassname">trimesh.inertia.</code><code class="sig-name descname">transform_inertia</code><span class="sig-paren">(</span><em class="sig-param">transform</em>, <em class="sig-param">inertia_tensor</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.inertia.transform_inertia" title="Permalink to this definition">¶</a></dt>
+<dd><p>Transform an inertia tensor to a new frame.</p>
+<p>More details in OCW PDF:
+MIT16_07F09_Lec26.pdf</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>transform</strong> (<em>(</em><em>3</em><em>, </em><em>3</em><em>) or </em><em>(</em><em>4</em><em>, </em><em>4</em><em>) </em><em>float</em>) – Transformation matrix</p></li>
+<li><p><strong>inertia_tensor</strong> (<em>(</em><em>3</em><em>, </em><em>3</em><em>) </em><em>float</em>) – Inertia tensor</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>transformed</strong> – Inertia tensor in new frame</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>(3, 3) float</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
 </div>
 
 

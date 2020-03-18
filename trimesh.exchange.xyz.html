@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>trimesh.exchange.xyz module &mdash; trimesh 3.6.1 documentation</title>
+  <title>trimesh.exchange.xyz module &mdash; trimesh 3.6.9 documentation</title>
   
 
   
@@ -60,7 +60,7 @@
             
             
               <div class="version">
-                3.6.1
+                3.6.9
               </div>
             
           
@@ -106,7 +106,7 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="trimesh.html#submodules">Submodules</a></li>
-<li class="toctree-l3"><a class="reference internal" href="trimesh.html#module-contents">Module contents</a></li>
+<li class="toctree-l3"><a class="reference internal" href="trimesh.html#module-trimesh">Module contents</a></li>
 </ul>
 </li>
 </ul>
@@ -181,8 +181,65 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="trimesh-exchange-xyz-module">
-<h1>trimesh.exchange.xyz module<a class="headerlink" href="#trimesh-exchange-xyz-module" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="module-trimesh.exchange.xyz">
+<span id="trimesh-exchange-xyz-module"></span><h1>trimesh.exchange.xyz module<a class="headerlink" href="#module-trimesh.exchange.xyz" title="Permalink to this headline">¶</a></h1>
+<p><strong>Functions</strong></p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#trimesh.exchange.xyz.export_xyz" title="trimesh.exchange.xyz.export_xyz"><code class="xref py py-obj docutils literal notranslate"><span class="pre">export_xyz</span></code></a>(cloud[, write_colors, delimiter])</p></td>
+<td><p>Export a PointCloud object to an XYZ format string.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#trimesh.exchange.xyz.load_xyz" title="trimesh.exchange.xyz.load_xyz"><code class="xref py py-obj docutils literal notranslate"><span class="pre">load_xyz</span></code></a>(file_obj[, delimiter])</p></td>
+<td><p>Load an XYZ file into a PointCloud.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="function">
+<dt id="trimesh.exchange.xyz.export_xyz">
+<code class="sig-prename descclassname">trimesh.exchange.xyz.</code><code class="sig-name descname">export_xyz</code><span class="sig-paren">(</span><em class="sig-param">cloud</em>, <em class="sig-param">write_colors=True</em>, <em class="sig-param">delimiter=None</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.exchange.xyz.export_xyz" title="Permalink to this definition">¶</a></dt>
+<dd><p>Export a PointCloud object to an XYZ format string.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>cloud</strong> (<a class="reference internal" href="trimesh.html#trimesh.PointCloud" title="trimesh.PointCloud"><em>trimesh.PointCloud</em></a>) – Geometry in space</p></li>
+<li><p><strong>write_colors</strong> (<em>bool</em>) – Write colors or not</p></li>
+<li><p><strong>delimiter</strong> (<em>None</em><em> or </em><em>str</em>) – What to separate columns with</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>export</strong> – Pointcloud in XYZ format</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="trimesh.exchange.xyz.load_xyz">
+<code class="sig-prename descclassname">trimesh.exchange.xyz.</code><code class="sig-name descname">load_xyz</code><span class="sig-paren">(</span><em class="sig-param">file_obj</em>, <em class="sig-param">delimiter=None</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.exchange.xyz.load_xyz" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load an XYZ file into a PointCloud.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>file_obj</strong> (<em>an open file-like object</em>) – Source data, ASCII XYZ</p></li>
+<li><p><strong>delimiter</strong> (<em>None</em><em> or </em><em>string</em>) – Characters used to separate the columns of the file
+If not passed will use whitespace or commas</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>kwargs</strong> – Data which can be passed to PointCloud constructor</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
 </div>
 
 

@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>trimesh.rendering module &mdash; trimesh 3.6.1 documentation</title>
+  <title>trimesh.rendering module &mdash; trimesh 3.6.9 documentation</title>
   
 
   
@@ -60,7 +60,7 @@
             
             
               <div class="version">
-                3.6.1
+                3.6.9
               </div>
             
           
@@ -135,7 +135,7 @@
 <li class="toctree-l4"><a class="reference internal" href="trimesh.version.html">trimesh.version module</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="trimesh.html#module-contents">Module contents</a></li>
+<li class="toctree-l3"><a class="reference internal" href="trimesh.html#module-trimesh">Module contents</a></li>
 </ul>
 </li>
 </ul>
@@ -208,8 +208,222 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="trimesh-rendering-module">
-<h1>trimesh.rendering module<a class="headerlink" href="#trimesh-rendering-module" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="module-trimesh.rendering">
+<span id="trimesh-rendering-module"></span><h1>trimesh.rendering module<a class="headerlink" href="#module-trimesh.rendering" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="rendering-py">
+<h2>rendering.py<a class="headerlink" href="#rendering-py" title="Permalink to this headline">¶</a></h2>
+<p>Functions to convert trimesh objects to pyglet/opengl objects.</p>
+<p><strong>Functions</strong></p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#trimesh.rendering.colors_to_gl" title="trimesh.rendering.colors_to_gl"><code class="xref py py-obj docutils literal notranslate"><span class="pre">colors_to_gl</span></code></a>(colors, count)</p></td>
+<td><p>Given a list of colors (or None) return a GL-acceptable list of colors.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#trimesh.rendering.convert_to_vertexlist" title="trimesh.rendering.convert_to_vertexlist"><code class="xref py py-obj docutils literal notranslate"><span class="pre">convert_to_vertexlist</span></code></a>(geometry, **kwargs)</p></td>
+<td><p>Try to convert various geometry objects to the constructor args for a pyglet indexed vertex list.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#trimesh.rendering.light_to_gl" title="trimesh.rendering.light_to_gl"><code class="xref py py-obj docutils literal notranslate"><span class="pre">light_to_gl</span></code></a>(light, transform, lightN)</p></td>
+<td><p>Convert trimesh.scene.lighting.Light objects into</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#trimesh.rendering.material_to_texture" title="trimesh.rendering.material_to_texture"><code class="xref py py-obj docutils literal notranslate"><span class="pre">material_to_texture</span></code></a>(material[, upsize])</p></td>
+<td><p>Convert a trimesh.visual.texture.Material object into a pyglet-compatible texture object.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#trimesh.rendering.matrix_to_gl" title="trimesh.rendering.matrix_to_gl"><code class="xref py py-obj docutils literal notranslate"><span class="pre">matrix_to_gl</span></code></a>(matrix)</p></td>
+<td><p>Convert a numpy row-major homogeneous transformation matrix to a flat column-major GLfloat transformation.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#trimesh.rendering.mesh_to_vertexlist" title="trimesh.rendering.mesh_to_vertexlist"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mesh_to_vertexlist</span></code></a>(mesh[, group, smooth, …])</p></td>
+<td><p>Convert a Trimesh object to arguments for an indexed vertex list constructor.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#trimesh.rendering.path_to_vertexlist" title="trimesh.rendering.path_to_vertexlist"><code class="xref py py-obj docutils literal notranslate"><span class="pre">path_to_vertexlist</span></code></a>(path[, group])</p></td>
+<td><p>Convert a Path3D object to arguments for a pyglet indexed vertex list constructor.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#trimesh.rendering.points_to_vertexlist" title="trimesh.rendering.points_to_vertexlist"><code class="xref py py-obj docutils literal notranslate"><span class="pre">points_to_vertexlist</span></code></a>(points[, colors, group])</p></td>
+<td><p>Convert a numpy array of 3D points to args for a vertex list constructor.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#trimesh.rendering.vector_to_gl" title="trimesh.rendering.vector_to_gl"><code class="xref py py-obj docutils literal notranslate"><span class="pre">vector_to_gl</span></code></a>(array, *args)</p></td>
+<td><p>Convert an array and an optional set of args into a</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="function">
+<dt id="trimesh.rendering.colors_to_gl">
+<code class="sig-prename descclassname">trimesh.rendering.</code><code class="sig-name descname">colors_to_gl</code><span class="sig-paren">(</span><em class="sig-param">colors</em>, <em class="sig-param">count</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.rendering.colors_to_gl" title="Permalink to this definition">¶</a></dt>
+<dd><p>Given a list of colors (or None) return a GL-acceptable
+list of colors.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>colors</strong> (<em>(</em><em>count</em><em>, </em><em>(</em><em>3</em><em> or </em><em>4</em><em>)</em><em>) </em><em>float</em>) – Input colors as an array</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>colors_type</strong> (<em>str</em>) – Color type</p></li>
+<li><p><strong>colors_gl</strong> (<em>(count,) list</em>) – Colors to pass to pyglet</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="trimesh.rendering.convert_to_vertexlist">
+<code class="sig-prename descclassname">trimesh.rendering.</code><code class="sig-name descname">convert_to_vertexlist</code><span class="sig-paren">(</span><em class="sig-param">geometry</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.rendering.convert_to_vertexlist" title="Permalink to this definition">¶</a></dt>
+<dd><p>Try to convert various geometry objects to the constructor
+args for a pyglet indexed vertex list.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>obj</strong> (<a class="reference internal" href="trimesh.html#trimesh.Trimesh" title="trimesh.Trimesh"><em>Trimesh</em></a><em>, </em><a class="reference internal" href="trimesh.path.html#trimesh.path.Path2D" title="trimesh.path.Path2D"><em>Path2D</em></a><em>, </em><a class="reference internal" href="trimesh.path.html#trimesh.path.Path3D" title="trimesh.path.Path3D"><em>Path3D</em></a><em>, </em><em>(</em><em>n</em><em>,</em><em>2</em><em>) </em><em>float</em><em>, </em><em>(</em><em>n</em><em>,</em><em>3</em><em>) </em><em>float</em>) – Object to render</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>args</strong> – Args to be passed to pyglet indexed vertex list
+constructor.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>tuple</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="trimesh.rendering.light_to_gl">
+<code class="sig-prename descclassname">trimesh.rendering.</code><code class="sig-name descname">light_to_gl</code><span class="sig-paren">(</span><em class="sig-param">light</em>, <em class="sig-param">transform</em>, <em class="sig-param">lightN</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.rendering.light_to_gl" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert trimesh.scene.lighting.Light objects into
+args for gl.glLightFv calls</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>light</strong> (<a class="reference internal" href="trimesh.scene.lighting.html#trimesh.scene.lighting.Light" title="trimesh.scene.lighting.Light"><em>trimesh.scene.lighting.Light</em></a>) – Light object to be converted to GL</p></li>
+<li><p><strong>transform</strong> (<em>(</em><em>4</em><em>, </em><em>4</em><em>) </em><em>float</em>) – Transformation matrix of light</p></li>
+<li><p><strong>lightN</strong> (<em>int</em>) – Result of gl.GL_LIGHT0, gl.GL_LIGHT1, etc</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>multiarg</strong> – List of args to pass to gl.glLightFv eg:
+[gl.glLightfb(<a href="#id1"><span class="problematic" id="id2">*</span></a>a) for a in multiarg]</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>[tuple]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="trimesh.rendering.material_to_texture">
+<code class="sig-prename descclassname">trimesh.rendering.</code><code class="sig-name descname">material_to_texture</code><span class="sig-paren">(</span><em class="sig-param">material</em>, <em class="sig-param">upsize=True</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.rendering.material_to_texture" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert a trimesh.visual.texture.Material object into
+a pyglet-compatible texture object.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>material</strong> (<em>trimesh.visual.texture.Material</em>) – Material to be converted</p></li>
+<li><p><strong>upsize</strong> (<em>bool</em>) – If True, will upscale textures to their nearest power
+of two resolution to avoid weirdness</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>texture</strong> – Texture loaded into pyglet form</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>pyglet.image.Texture</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="trimesh.rendering.matrix_to_gl">
+<code class="sig-prename descclassname">trimesh.rendering.</code><code class="sig-name descname">matrix_to_gl</code><span class="sig-paren">(</span><em class="sig-param">matrix</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.rendering.matrix_to_gl" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert a numpy row-major homogeneous transformation matrix
+to a flat column-major GLfloat transformation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>matrix</strong> (<em>(</em><em>4</em><em>,</em><em>4</em><em>) </em><em>float</em>) – Row-major homogeneous transform</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>glmatrix</strong> – Transform in pyglet format</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>(16,) gl.GLfloat</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="trimesh.rendering.mesh_to_vertexlist">
+<code class="sig-prename descclassname">trimesh.rendering.</code><code class="sig-name descname">mesh_to_vertexlist</code><span class="sig-paren">(</span><em class="sig-param">mesh</em>, <em class="sig-param">group=None</em>, <em class="sig-param">smooth=True</em>, <em class="sig-param">smooth_threshold=60000</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.rendering.mesh_to_vertexlist" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert a Trimesh object to arguments for an
+indexed vertex list constructor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>mesh</strong> (<a class="reference internal" href="trimesh.html#trimesh.Trimesh" title="trimesh.Trimesh"><em>trimesh.Trimesh</em></a>) – Mesh to be rendered</p></li>
+<li><p><strong>group</strong> (<em>str</em>) – Rendering group for the vertex list</p></li>
+<li><p><strong>smooth</strong> (<em>bool</em>) – Should we try to smooth shade the mesh</p></li>
+<li><p><strong>smooth_threshold</strong> (<em>int</em>) – Maximum number of faces to smooth shade</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>args</strong> – Args for vertex list constructor</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>(7,) tuple</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="trimesh.rendering.path_to_vertexlist">
+<code class="sig-prename descclassname">trimesh.rendering.</code><code class="sig-name descname">path_to_vertexlist</code><span class="sig-paren">(</span><em class="sig-param">path</em>, <em class="sig-param">group=None</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.rendering.path_to_vertexlist" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert a Path3D object to arguments for a
+pyglet indexed vertex list constructor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>path</strong> (<em>trimesh.path.Path3D object</em>) – Mesh to be rendered</p></li>
+<li><p><strong>group</strong> (<em>str</em>) – Rendering group for the vertex list</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>args</strong> – Args for vertex list constructor</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>(7,) tuple</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="trimesh.rendering.points_to_vertexlist">
+<code class="sig-prename descclassname">trimesh.rendering.</code><code class="sig-name descname">points_to_vertexlist</code><span class="sig-paren">(</span><em class="sig-param">points</em>, <em class="sig-param">colors=None</em>, <em class="sig-param">group=None</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.rendering.points_to_vertexlist" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert a numpy array of 3D points to args for
+a vertex list constructor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>points</strong> (<em>(</em><em>n</em><em>, </em><em>3</em><em>) </em><em>float</em>) – Points to be rendered</p></li>
+<li><p><strong>colors</strong> (<em>(</em><em>n</em><em>, </em><em>3</em><em>) or </em><em>(</em><em>n</em><em>, </em><em>4</em><em>) </em><em>float</em>) – Colors for each point</p></li>
+<li><p><strong>group</strong> (<em>str</em>) – Rendering group for the vertex list</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>args</strong> – Args for vertex list constructor</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>(7,) tuple</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="trimesh.rendering.vector_to_gl">
+<code class="sig-prename descclassname">trimesh.rendering.</code><code class="sig-name descname">vector_to_gl</code><span class="sig-paren">(</span><em class="sig-param">array</em>, <em class="sig-param">*args</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.rendering.vector_to_gl" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert an array and an optional set of args into a
+flat vector of gl.GLfloat</p>
+</dd></dl>
+
+</div>
 </div>
 
 

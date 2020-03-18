@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>trimesh.schemas module &mdash; trimesh 3.6.1 documentation</title>
+  <title>trimesh.schemas module &mdash; trimesh 3.6.9 documentation</title>
   
 
   
@@ -60,7 +60,7 @@
             
             
               <div class="version">
-                3.6.1
+                3.6.9
               </div>
             
           
@@ -135,7 +135,7 @@
 <li class="toctree-l4"><a class="reference internal" href="trimesh.version.html">trimesh.version module</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="trimesh.html#module-contents">Module contents</a></li>
+<li class="toctree-l3"><a class="reference internal" href="trimesh.html#module-trimesh">Module contents</a></li>
 </ul>
 </li>
 </ul>
@@ -208,8 +208,46 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="trimesh-schemas-module">
-<h1>trimesh.schemas module<a class="headerlink" href="#trimesh-schemas-module" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="module-trimesh.schemas">
+<span id="trimesh-schemas-module"></span><h1>trimesh.schemas module<a class="headerlink" href="#module-trimesh.schemas" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="schemas-py">
+<h2>schemas.py<a class="headerlink" href="#schemas-py" title="Permalink to this headline">¶</a></h2>
+<p>Tools for dealing with schemas, particularly JSONschema</p>
+<p><strong>Functions</strong></p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#trimesh.schemas.resolve" title="trimesh.schemas.resolve"><code class="xref py py-obj docutils literal notranslate"><span class="pre">resolve</span></code></a>(item, resolver)</p></td>
+<td><p>Given a JSON Schema containing <cite>$ref</cite> keys recursively evaluate to find and replace referenced files with their actual values using trimesh.visual.Resolver objects.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="function">
+<dt id="trimesh.schemas.resolve">
+<code class="sig-prename descclassname">trimesh.schemas.</code><code class="sig-name descname">resolve</code><span class="sig-paren">(</span><em class="sig-param">item</em>, <em class="sig-param">resolver</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.schemas.resolve" title="Permalink to this definition">¶</a></dt>
+<dd><p>Given a JSON Schema containing <cite>$ref</cite> keys recursively
+evaluate to find and replace referenced files with their
+actual values using trimesh.visual.Resolver objects.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>item</strong> (<em>any</em>) – JSON schema including <cite>$ref</cite> to other files</p></li>
+<li><p><strong>resolver</strong> (<em>trimesh.visual.resolver.Resolver</em>) – Resolver to fetch referenced assets</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>result</strong> – JSONSchema with references replaced</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>any</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
 </div>
 
 

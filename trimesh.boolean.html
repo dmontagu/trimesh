@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>trimesh.boolean module &mdash; trimesh 3.6.1 documentation</title>
+  <title>trimesh.boolean module &mdash; trimesh 3.6.9 documentation</title>
   
 
   
@@ -60,7 +60,7 @@
             
             
               <div class="version">
-                3.6.1
+                3.6.9
               </div>
             
           
@@ -135,7 +135,7 @@
 <li class="toctree-l4"><a class="reference internal" href="trimesh.version.html">trimesh.version module</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="trimesh.html#module-contents">Module contents</a></li>
+<li class="toctree-l3"><a class="reference internal" href="trimesh.html#module-trimesh">Module contents</a></li>
 </ul>
 </li>
 </ul>
@@ -208,8 +208,113 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="trimesh-boolean-module">
-<h1>trimesh.boolean module<a class="headerlink" href="#trimesh-boolean-module" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="module-trimesh.boolean">
+<span id="trimesh-boolean-module"></span><h1>trimesh.boolean module<a class="headerlink" href="#module-trimesh.boolean" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="boolean-py">
+<h2>boolean.py<a class="headerlink" href="#boolean-py" title="Permalink to this headline">¶</a></h2>
+<p>Do boolean operations on meshes using either Blender or OpenSCAD.</p>
+<p><strong>Functions</strong></p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#trimesh.boolean.boolean_automatic" title="trimesh.boolean.boolean_automatic"><code class="xref py py-obj docutils literal notranslate"><span class="pre">boolean_automatic</span></code></a>(meshes, operation, **kwargs)</p></td>
+<td><p>Automatically pick an engine for booleans based on availability.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#trimesh.boolean.difference" title="trimesh.boolean.difference"><code class="xref py py-obj docutils literal notranslate"><span class="pre">difference</span></code></a>(meshes[, engine])</p></td>
+<td><p>Compute the boolean difference between a mesh an n other meshes.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#trimesh.boolean.intersection" title="trimesh.boolean.intersection"><code class="xref py py-obj docutils literal notranslate"><span class="pre">intersection</span></code></a>(meshes[, engine])</p></td>
+<td><p>Compute the boolean intersection between a mesh an n other meshes.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#trimesh.boolean.union" title="trimesh.boolean.union"><code class="xref py py-obj docutils literal notranslate"><span class="pre">union</span></code></a>(meshes[, engine])</p></td>
+<td><p>Compute the boolean union between a mesh an n other meshes.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="function">
+<dt id="trimesh.boolean.boolean_automatic">
+<code class="sig-prename descclassname">trimesh.boolean.</code><code class="sig-name descname">boolean_automatic</code><span class="sig-paren">(</span><em class="sig-param">meshes</em>, <em class="sig-param">operation</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.boolean.boolean_automatic" title="Permalink to this definition">¶</a></dt>
+<dd><p>Automatically pick an engine for booleans based on availability.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>meshes</strong> (<em>list of Trimesh</em>) – Meshes to be booleaned</p></li>
+<li><p><strong>operation</strong> (<em>str</em>) – Type of boolean, i.e. ‘union’, ‘intersection’, ‘difference’</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>result</strong> – Result of boolean operation</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="trimesh.html#trimesh.Trimesh" title="trimesh.Trimesh">trimesh.Trimesh</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="trimesh.boolean.difference">
+<code class="sig-prename descclassname">trimesh.boolean.</code><code class="sig-name descname">difference</code><span class="sig-paren">(</span><em class="sig-param">meshes</em>, <em class="sig-param">engine=None</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.boolean.difference" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute the boolean difference between a mesh an n other meshes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>meshes</strong> (<em>list of trimesh.Trimesh</em>) – Meshes to be processed</p></li>
+<li><p><strong>engine</strong> (<em>str</em>) – Which backend to use, i.e. ‘blender’ or ‘scad’</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>difference</strong></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>a - (other meshes), <a href="#id1"><span class="problematic" id="id2">**</span></a>kwargs for a Trimesh</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="trimesh.boolean.intersection">
+<code class="sig-prename descclassname">trimesh.boolean.</code><code class="sig-name descname">intersection</code><span class="sig-paren">(</span><em class="sig-param">meshes</em>, <em class="sig-param">engine=None</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.boolean.intersection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute the boolean intersection between a mesh an n other meshes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>meshes</strong> (<em>list of trimesh.Trimesh</em>) – Meshes to be processed</p></li>
+<li><p><strong>engine</strong> (<em>str</em>) – Which backend to use, i.e. ‘blender’ or ‘scad’</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>intersection</strong> – volume that is contained by all meshes</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a href="#id3"><span class="problematic" id="id4">**</span></a>kwargs for a Trimesh object of the</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="trimesh.boolean.union">
+<code class="sig-prename descclassname">trimesh.boolean.</code><code class="sig-name descname">union</code><span class="sig-paren">(</span><em class="sig-param">meshes</em>, <em class="sig-param">engine=None</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.boolean.union" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute the boolean union between a mesh an n other meshes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>meshes</strong> (<em>list of trimesh.Trimesh</em>) – Meshes to be processed</p></li>
+<li><p><strong>engine</strong> (<em>str</em>) – Which backend to use, i.e. ‘blender’ or ‘scad’</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>union</strong></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>a + (other meshes), <a href="#id5"><span class="problematic" id="id6">**</span></a>kwargs for a Trimesh</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
 </div>
 
 
