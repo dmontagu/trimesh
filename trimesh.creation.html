@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>trimesh.creation module &mdash; trimesh 3.6.10 documentation</title>
+  <title>trimesh.creation module &mdash; trimesh 3.6.11 documentation</title>
   
 
   
@@ -60,7 +60,7 @@
             
             
               <div class="version">
-                3.6.10
+                3.6.11
               </div>
             
           
@@ -235,34 +235,37 @@
 <tr class="row-odd"><td><p><a class="reference internal" href="#trimesh.creation.capsule" title="trimesh.creation.capsule"><code class="xref py py-obj docutils literal notranslate"><span class="pre">capsule</span></code></a>([height, radius, count])</p></td>
 <td><p>Create a mesh of a capsule, or a cylinder with hemispheric ends.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#trimesh.creation.cylinder" title="trimesh.creation.cylinder"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cylinder</span></code></a>([radius, height, sections, …])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#trimesh.creation.cone" title="trimesh.creation.cone"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cone</span></code></a>([radius, height, sections, transform])</p></td>
+<td><p>Create a mesh of a cone along Z centered at the origin.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#trimesh.creation.cylinder" title="trimesh.creation.cylinder"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cylinder</span></code></a>([radius, height, sections, …])</p></td>
 <td><p>Create a mesh of a cylinder along Z centered at the origin.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#trimesh.creation.extrude_polygon" title="trimesh.creation.extrude_polygon"><code class="xref py py-obj docutils literal notranslate"><span class="pre">extrude_polygon</span></code></a>(polygon, height[, …])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#trimesh.creation.extrude_polygon" title="trimesh.creation.extrude_polygon"><code class="xref py py-obj docutils literal notranslate"><span class="pre">extrude_polygon</span></code></a>(polygon, height[, …])</p></td>
 <td><p>Extrude a 2D shapely polygon into a 3D mesh</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#trimesh.creation.extrude_triangulation" title="trimesh.creation.extrude_triangulation"><code class="xref py py-obj docutils literal notranslate"><span class="pre">extrude_triangulation</span></code></a>(vertices, faces, height)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#trimesh.creation.extrude_triangulation" title="trimesh.creation.extrude_triangulation"><code class="xref py py-obj docutils literal notranslate"><span class="pre">extrude_triangulation</span></code></a>(vertices, faces, height)</p></td>
 <td><p>Turn a 2D triangulation into a watertight Trimesh.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#trimesh.creation.icosahedron" title="trimesh.creation.icosahedron"><code class="xref py py-obj docutils literal notranslate"><span class="pre">icosahedron</span></code></a>()</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#trimesh.creation.icosahedron" title="trimesh.creation.icosahedron"><code class="xref py py-obj docutils literal notranslate"><span class="pre">icosahedron</span></code></a>()</p></td>
 <td><p>Create an icosahedron, a 20 faced polyhedron.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#trimesh.creation.icosphere" title="trimesh.creation.icosphere"><code class="xref py py-obj docutils literal notranslate"><span class="pre">icosphere</span></code></a>([subdivisions, radius, color])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#trimesh.creation.icosphere" title="trimesh.creation.icosphere"><code class="xref py py-obj docutils literal notranslate"><span class="pre">icosphere</span></code></a>([subdivisions, radius, color])</p></td>
 <td><p>Create an isophere centered at the origin.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#trimesh.creation.random_soup" title="trimesh.creation.random_soup"><code class="xref py py-obj docutils literal notranslate"><span class="pre">random_soup</span></code></a>([face_count])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#trimesh.creation.random_soup" title="trimesh.creation.random_soup"><code class="xref py py-obj docutils literal notranslate"><span class="pre">random_soup</span></code></a>([face_count])</p></td>
 <td><p>Return random triangles as a Trimesh</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#trimesh.creation.sweep_polygon" title="trimesh.creation.sweep_polygon"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sweep_polygon</span></code></a>(polygon, path[, angles])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#trimesh.creation.sweep_polygon" title="trimesh.creation.sweep_polygon"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sweep_polygon</span></code></a>(polygon, path[, angles])</p></td>
 <td><p>Extrude a 2D shapely polygon into a 3D mesh along an arbitrary 3D path.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#trimesh.creation.triangulate_polygon" title="trimesh.creation.triangulate_polygon"><code class="xref py py-obj docutils literal notranslate"><span class="pre">triangulate_polygon</span></code></a>(polygon[, …])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#trimesh.creation.triangulate_polygon" title="trimesh.creation.triangulate_polygon"><code class="xref py py-obj docutils literal notranslate"><span class="pre">triangulate_polygon</span></code></a>(polygon[, …])</p></td>
 <td><p>Given a shapely polygon create a triangulation using one</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#trimesh.creation.uv_sphere" title="trimesh.creation.uv_sphere"><code class="xref py py-obj docutils literal notranslate"><span class="pre">uv_sphere</span></code></a>([radius, count, theta, phi])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#trimesh.creation.uv_sphere" title="trimesh.creation.uv_sphere"><code class="xref py py-obj docutils literal notranslate"><span class="pre">uv_sphere</span></code></a>([radius, count, theta, phi])</p></td>
 <td><p>Create a UV sphere (latitude + longitude) centered at the origin.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#trimesh.creation.validate_polygon" title="trimesh.creation.validate_polygon"><code class="xref py py-obj docutils literal notranslate"><span class="pre">validate_polygon</span></code></a>(obj)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#trimesh.creation.validate_polygon" title="trimesh.creation.validate_polygon"><code class="xref py py-obj docutils literal notranslate"><span class="pre">validate_polygon</span></code></a>(obj)</p></td>
 <td><p>Make sure an input can be returned as a valid polygon.</p></td>
 </tr>
 </tbody>
@@ -381,6 +384,29 @@ will be set relative to it.</p>
 </dd>
 </dl>
 </p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="trimesh.html#trimesh.Trimesh" title="trimesh.Trimesh">trimesh.Trimesh</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="trimesh.creation.cone">
+<code class="sig-prename descclassname">trimesh.creation.</code><code class="sig-name descname">cone</code><span class="sig-paren">(</span><em class="sig-param">radius=1.0</em>, <em class="sig-param">height=1.0</em>, <em class="sig-param">sections=32</em>, <em class="sig-param">transform=None</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.creation.cone" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a mesh of a cone along Z centered at the origin.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>radius</strong> (<em>float</em>) – The radius of the cylinder</p></li>
+<li><p><strong>height</strong> (<em>float</em>) – The height of the cylinder</p></li>
+<li><p><strong>sections</strong> (<em>int</em>) – How many pie wedges should the cylinder have</p></li>
+<li><p><strong>transform</strong> (<em>(</em><em>4</em><em>, </em><em>4</em><em>) </em><em>float</em>) – Transform to apply</p></li>
+<li><p><strong>**kwargs</strong> – passed to Trimesh to create cylinder</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>cone</strong> – Resulting mesh of a cone</p>
 </dd>
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p><a class="reference internal" href="trimesh.html#trimesh.Trimesh" title="trimesh.Trimesh">trimesh.Trimesh</a></p>

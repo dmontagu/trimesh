@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>trimesh.exchange.ply module &mdash; trimesh 3.6.10 documentation</title>
+  <title>trimesh.exchange.ply module &mdash; trimesh 3.6.11 documentation</title>
   
 
   
@@ -60,7 +60,7 @@
             
             
               <div class="version">
-                3.6.10
+                3.6.11
               </div>
             
           
@@ -205,6 +205,12 @@
 <tr class="row-odd"><td><p><a class="reference internal" href="#trimesh.exchange.ply.load_draco" title="trimesh.exchange.ply.load_draco"><code class="xref py py-obj docutils literal notranslate"><span class="pre">load_draco</span></code></a>(file_obj, **kwargs)</p></td>
 <td><p>Load a mesh from Google’s Draco format.</p></td>
 </tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#trimesh.exchange.ply.load_element_different" title="trimesh.exchange.ply.load_element_different"><code class="xref py py-obj docutils literal notranslate"><span class="pre">load_element_different</span></code></a>(properties, data)</p></td>
+<td><p>Load elements which include lists of different lengths based on the element’s property-definitions.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#trimesh.exchange.ply.load_element_single" title="trimesh.exchange.ply.load_element_single"><code class="xref py py-obj docutils literal notranslate"><span class="pre">load_element_single</span></code></a>(properties, data)</p></td>
+<td><p>Load element data with lists of a single length based on the element’s property-definitions.</p></td>
+</tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#trimesh.exchange.ply.load_ply" title="trimesh.exchange.ply.load_ply"><code class="xref py py-obj docutils literal notranslate"><span class="pre">load_ply</span></code></a>(file_obj[, resolver, fix_texture, …])</p></td>
 <td><p>Load a PLY file from an open file object.</p></td>
 </tr>
@@ -320,6 +326,39 @@ tol.merge=1e-8 is roughly 25 bits</p></li>
 </dd>
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="trimesh.exchange.ply.load_element_different">
+<code class="sig-prename descclassname">trimesh.exchange.ply.</code><code class="sig-name descname">load_element_different</code><span class="sig-paren">(</span><em class="sig-param">properties</em>, <em class="sig-param">data</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.exchange.ply.load_element_different" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load elements which include lists of different lengths
+based on the element’s property-definitions.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>properties</strong> (<em>dict</em>) – Property definitions encoded in a dict where the property name is the key
+and the property data type the value.</p></li>
+<li><p><strong>data</strong> (<em>array</em>) – Data rows for this element.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="trimesh.exchange.ply.load_element_single">
+<code class="sig-prename descclassname">trimesh.exchange.ply.</code><code class="sig-name descname">load_element_single</code><span class="sig-paren">(</span><em class="sig-param">properties</em>, <em class="sig-param">data</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.exchange.ply.load_element_single" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load element data with lists of a single length
+based on the element’s property-definitions.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>properties</strong> (<em>dict</em>) – Property definitions encoded in a dict where the property name is the key
+and the property data type the value.</p></li>
+<li><p><strong>data</strong> (<em>array</em>) – Data rows for this element. If the data contains list-properties,
+all lists belonging to one property must have the same length.</p></li>
+</ul>
 </dd>
 </dl>
 </dd></dl>
