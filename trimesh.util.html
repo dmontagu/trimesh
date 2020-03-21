@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>trimesh.util module &mdash; trimesh 3.6.11 documentation</title>
+  <title>trimesh.util module &mdash; trimesh 3.6.12 documentation</title>
   
 
   
@@ -46,7 +46,7 @@
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search" >
+        <div class="wy-side-nav-search"  style="background: white" >
           
 
           
@@ -60,7 +60,7 @@
             
             
               <div class="version">
-                3.6.11
+                3.6.12
               </div>
             
           
@@ -256,53 +256,59 @@ or imported inside of a function</p>
 <tr class="row-even"><td><p><a class="reference internal" href="#trimesh.util.bounds_tree" title="trimesh.util.bounds_tree"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bounds_tree</span></code></a>(bounds)</p></td>
 <td><p>Given a set of axis aligned bounds create an r-tree for broad-phase collision detection.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#trimesh.util.compress" title="trimesh.util.compress"><code class="xref py py-obj docutils literal notranslate"><span class="pre">compress</span></code></a>(info)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#trimesh.util.comment_strip" title="trimesh.util.comment_strip"><code class="xref py py-obj docutils literal notranslate"><span class="pre">comment_strip</span></code></a>(text[, starts_with, new_line])</p></td>
+<td><p>Strip comments from a text block.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#trimesh.util.compress" title="trimesh.util.compress"><code class="xref py py-obj docutils literal notranslate"><span class="pre">compress</span></code></a>(info)</p></td>
 <td><p>Compress data stored in a dict.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#trimesh.util.concatenate" title="trimesh.util.concatenate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">concatenate</span></code></a>(a[, b])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#trimesh.util.concatenate" title="trimesh.util.concatenate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">concatenate</span></code></a>(a[, b])</p></td>
 <td><p>Concatenate two or more meshes.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#trimesh.util.convert_like" title="trimesh.util.convert_like"><code class="xref py py-obj docutils literal notranslate"><span class="pre">convert_like</span></code></a>(item, like)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#trimesh.util.convert_like" title="trimesh.util.convert_like"><code class="xref py py-obj docutils literal notranslate"><span class="pre">convert_like</span></code></a>(item, like)</p></td>
 <td><p>Convert an item to have the dtype of another item</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#trimesh.util.decimal_to_digits" title="trimesh.util.decimal_to_digits"><code class="xref py py-obj docutils literal notranslate"><span class="pre">decimal_to_digits</span></code></a>(decimal[, min_digits])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#trimesh.util.decimal_to_digits" title="trimesh.util.decimal_to_digits"><code class="xref py py-obj docutils literal notranslate"><span class="pre">decimal_to_digits</span></code></a>(decimal[, min_digits])</p></td>
 <td><p>Return the number of digits to the first nonzero decimal.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#trimesh.util.decode_keys" title="trimesh.util.decode_keys"><code class="xref py py-obj docutils literal notranslate"><span class="pre">decode_keys</span></code></a>(store[, encoding])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#trimesh.util.decode_keys" title="trimesh.util.decode_keys"><code class="xref py py-obj docutils literal notranslate"><span class="pre">decode_keys</span></code></a>(store[, encoding])</p></td>
 <td><p>If a dictionary has keys that are bytes decode them to a str.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#trimesh.util.decode_text" title="trimesh.util.decode_text"><code class="xref py py-obj docutils literal notranslate"><span class="pre">decode_text</span></code></a>(text[, initial])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#trimesh.util.decode_text" title="trimesh.util.decode_text"><code class="xref py py-obj docutils literal notranslate"><span class="pre">decode_text</span></code></a>(text[, initial])</p></td>
 <td><p>Try to decode byte input as a string.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#trimesh.util.decompress" title="trimesh.util.decompress"><code class="xref py py-obj docutils literal notranslate"><span class="pre">decompress</span></code></a>(file_obj, file_type)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#trimesh.util.decompress" title="trimesh.util.decompress"><code class="xref py py-obj docutils literal notranslate"><span class="pre">decompress</span></code></a>(file_obj, file_type)</p></td>
 <td><p>Given an open file object and a file type, return all components of the archive as open file objects in a dict.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#trimesh.util.diagonal_dot" title="trimesh.util.diagonal_dot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">diagonal_dot</span></code></a>(a, b)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#trimesh.util.diagonal_dot" title="trimesh.util.diagonal_dot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">diagonal_dot</span></code></a>(a, b)</p></td>
 <td><p>Dot product by row of a and b.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#trimesh.util.distance_to_end" title="trimesh.util.distance_to_end"><code class="xref py py-obj docutils literal notranslate"><span class="pre">distance_to_end</span></code></a>(file_obj)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#trimesh.util.distance_to_end" title="trimesh.util.distance_to_end"><code class="xref py py-obj docutils literal notranslate"><span class="pre">distance_to_end</span></code></a>(file_obj)</p></td>
 <td><p>For an open file object how far is it to the end</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#trimesh.util.encoded_to_array" title="trimesh.util.encoded_to_array"><code class="xref py py-obj docutils literal notranslate"><span class="pre">encoded_to_array</span></code></a>(encoded)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#trimesh.util.encoded_to_array" title="trimesh.util.encoded_to_array"><code class="xref py py-obj docutils literal notranslate"><span class="pre">encoded_to_array</span></code></a>(encoded)</p></td>
 <td><p>Turn a dictionary with base64 encoded strings back into a numpy array.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#trimesh.util.euclidean" title="trimesh.util.euclidean"><code class="xref py py-obj docutils literal notranslate"><span class="pre">euclidean</span></code></a>(a, b)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#trimesh.util.euclidean" title="trimesh.util.euclidean"><code class="xref py py-obj docutils literal notranslate"><span class="pre">euclidean</span></code></a>(a, b)</p></td>
 <td><p>Euclidean distance between vectors a and b.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#trimesh.util.generate_basis" title="trimesh.util.generate_basis"><code class="xref py py-obj docutils literal notranslate"><span class="pre">generate_basis</span></code></a>(z)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#trimesh.util.generate_basis" title="trimesh.util.generate_basis"><code class="xref py py-obj docutils literal notranslate"><span class="pre">generate_basis</span></code></a>(z)</p></td>
 <td><p>Generate an arbitrary basis (also known as a coordinate frame) from a given z-axis vector.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#trimesh.util.grid_arange" title="trimesh.util.grid_arange"><code class="xref py py-obj docutils literal notranslate"><span class="pre">grid_arange</span></code></a>(bounds, step)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#trimesh.util.grid_arange" title="trimesh.util.grid_arange"><code class="xref py py-obj docutils literal notranslate"><span class="pre">grid_arange</span></code></a>(bounds, step)</p></td>
 <td><p>Return a grid from an (2,dimension) bounds with samples step distance apart.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#trimesh.util.grid_linspace" title="trimesh.util.grid_linspace"><code class="xref py py-obj docutils literal notranslate"><span class="pre">grid_linspace</span></code></a>(bounds, count)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#trimesh.util.grid_linspace" title="trimesh.util.grid_linspace"><code class="xref py py-obj docutils literal notranslate"><span class="pre">grid_linspace</span></code></a>(bounds, count)</p></td>
 <td><p>Return a grid spaced inside a bounding box with edges spaced using np.linspace.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#trimesh.util.hash_file" title="trimesh.util.hash_file"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hash_file</span></code></a>(file_obj[, hash_function])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#trimesh.util.hash_file" title="trimesh.util.hash_file"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hash_file</span></code></a>(file_obj[, hash_function])</p></td>
 <td><p>Get the hash of an open file-like object.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#trimesh.util.is_binary_file" title="trimesh.util.is_binary_file"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_binary_file</span></code></a>(file_obj)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#trimesh.util.is_binary_file" title="trimesh.util.is_binary_file"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_binary_file</span></code></a>(file_obj)</p></td>
 <td><p>Returns True if file has non-ASCII characters (&gt; 0x7F, or 127)</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#trimesh.util.is_ccw" title="trimesh.util.is_ccw"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_ccw</span></code></a>(points)</p></td>
+<td><p>Check if connected 2D points are counterclockwise.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#trimesh.util.is_file" title="trimesh.util.is_file"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_file</span></code></a>(obj)</p></td>
 <td><p>Check if an object is file-like</p></td>
@@ -569,6 +575,27 @@ E.G a 2D bounds tree:
 </dd>
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p>Rtree</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="trimesh.util.comment_strip">
+<code class="sig-prename descclassname">trimesh.util.</code><code class="sig-name descname">comment_strip</code><span class="sig-paren">(</span><em class="sig-param">text</em>, <em class="sig-param">starts_with='#'</em>, <em class="sig-param">new_line='\n'</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.util.comment_strip" title="Permalink to this definition">¶</a></dt>
+<dd><p>Strip comments from a text block.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>text</strong> (<em>str</em>) – Text to remove comments from</p></li>
+<li><p><strong>starts_with</strong> (<em>str</em>) – Charecter or substring that starts a comment</p></li>
+<li><p><strong>new_line</strong> (<em>str</em>) – Charecter or substring that ends a comment</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>stripped</strong> – Text with comments stripped</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>str</p>
 </dd>
 </dl>
 </dd></dl>
@@ -904,6 +931,23 @@ from a given z-axis vector.</p>
 <code class="sig-prename descclassname">trimesh.util.</code><code class="sig-name descname">is_binary_file</code><span class="sig-paren">(</span><em class="sig-param">file_obj</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.util.is_binary_file" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns True if file has non-ASCII characters (&gt; 0x7F, or 127)
 Should work in both Python 2 and 3</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="trimesh.util.is_ccw">
+<code class="sig-prename descclassname">trimesh.util.</code><code class="sig-name descname">is_ccw</code><span class="sig-paren">(</span><em class="sig-param">points</em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.util.is_ccw" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if connected 2D points are counterclockwise.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>points</strong> (<em>(</em><em>n</em><em>, </em><em>2</em><em>) </em><em>float</em>) – Connected points on a plane</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>ccw</strong> – True if points are counter-clockwise</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="function">
@@ -1656,7 +1700,7 @@ passed decode bytes to str and write.</p>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2017, Michael Dawson-Haggerty
+        &copy; Copyright 2020, Michael Dawson-Haggerty
 
     </p>
   </div>
@@ -1681,6 +1725,18 @@ passed decode bytes to str and write.</p>
 
   
   
+    
+    <!-- Theme Analytics -->
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-161434837-1', 'auto');
+    ga('send', 'pageview');
+    </script>
+
     
    
 
